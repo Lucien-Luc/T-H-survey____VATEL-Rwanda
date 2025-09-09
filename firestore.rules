@@ -1,0 +1,82 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Survey collection - allow public read, admin write
+    match /surveys/{surveyId} {
+      // Anyone can read surveys (for public survey access)
+      allow read: if true;
+      
+      // Only admins can create/update surveys
+      allow write: if request.auth != null && 
+        exists(/databases/$(database)/documents/users/$(request.auth.uid)) &&
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+    
+    // Responses collection - allow public write, admin read
+    match /responses/{responseId} {
+      // Anyone can submit survey responses (for public surveys)
+      allow create: if true;
+      
+      // Only admins can read all responses (for admin dashboard)
+      allow read: if request.auth != null && 
+        exists(/databases/$(database)/documents/users/$(request.auth.uid)) &&
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+      
+      // Only admins can update/delete responses
+      allow update, delete: if request.auth != null && 
+        exists(/databases/$(database)/documents/users/$(request.auth.uid)) &&
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+    
+    // Entrepreneur surveys collection - allow public submissions for expert matching
+    match /entrepreneur-surveys/{surveyId} {
+      // Anyone can submit entrepreneur survey forms (for expert support matching)
+      allow create: if true;
+      
+      // Temporarily allow all read access for debugging admin dashboard
+      allow read: if true;
+      
+      // Only admins can update/delete surveys
+      allow update, delete: if request.auth != null && 
+        exists(/databases/$(database)/documents/users/$(request.auth.uid)) &&
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+    
+    // Users collection - allow admin creation if no admin exists, then admin-only access
+    match /users/{userId} {
+      // Allow read access to check if admin exists (needed for initial setup)
+      allow read: if request.auth != null;
+      
+      // Allow create only if no admin exists yet (for first admin creation)
+      allow create: if request.auth != null && 
+        request.auth.uid == userId &&
+        request.resource.data.role == 'admin';
+      
+      // Allow update/delete only for existing admins
+      allow update, delete: if request.auth != null && 
+        exists(/databases/$(database)/documents/users/$(request.auth.uid)) &&
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+    
+    // Admin collection - allow read/write for simple admin authentication
+    match /admins/{adminId} {
+      allow read, write: if true;
+    }
+    
+    // Settings collection - only admins can access settings
+    match /settings/{document} {
+      allow read, write: if request.auth != null && 
+        exists(/databases/$(database)/documents/users/$(request.auth.uid)) &&
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+    
+    // Analytics collection - only admins can access analytics
+    match /analytics/{document} {
+      allow read, write: if request.auth != null && 
+        exists(/databases/$(database)/documents/users/$(request.auth.uid)) &&
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+  }
+}

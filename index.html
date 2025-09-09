@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>Expert Support Matching - Business Growth Survey</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="shortcut icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+    <!-- Toast Notification Container -->
+    <div id="toastContainer" class="toast-container"></div>
+    
+    <!-- User Guide Tutorial Overlay -->
+    <div id="userGuideOverlay" class="user-guide-overlay">
+        <div class="user-guide-modal">
+            <div class="user-guide-header">
+                <div class="guide-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <h2 data-translate="guide_title">Welcome! Here's how to complete your business assessment</h2>
+                <button class="guide-close-btn" onclick="window.simpleFormSubmit.closeUserGuide()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="user-guide-content">
+                <div class="guide-step active" data-step="1">
+                    <div class="step-icon">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <h3 data-translate="guide_step1_title">Share your business details</h3>
+                    <p data-translate="guide_step1_desc">Start by providing your name and company information. This helps us understand your business and match you with the right expert support.</p>
+                </div>
+                
+                <div class="guide-step" data-step="2">
+                    <div class="step-icon">
+                        <i class="fas fa-plus-circle"></i>
+                    </div>
+                    <h3 data-translate="guide_step2_title">Identify your business challenges</h3>
+                    <p data-translate="guide_step2_desc">Help us understand your current challenges and how you make decisions when facing complex business situations.</p>
+                </div>
+                
+                <div class="guide-step" data-step="3">
+                    <div class="step-icon">
+                        <i class="fas fa-copy"></i>
+                    </div>
+                    <h3 data-translate="guide_step3_title">Define your support needs</h3>
+                    <p data-translate="guide_step3_desc">Tell us about the specific areas where expert guidance would help your business grow and what outcomes you hope to achieve.</p>
+                </div>
+                
+                <div class="guide-step" data-step="4">
+                    <div class="step-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3 data-translate="guide_step4_title">Switch languages anytime</h3>
+                    <p data-translate="guide_step4_desc">Use the flag buttons in the top-right corner to switch between English and Kinyarwanda. Your progress will be saved automatically.</p>
+                </div>
+                
+                <div class="guide-step" data-step="5">
+                    <div class="step-icon">
+                        <i class="fas fa-save"></i>
+                    </div>
+                    <h3 data-translate="guide_step5_title">Confirm your commitment</h3>
+                    <p data-translate="guide_step5_desc">The final step is to confirm your readiness to work with an expert and participate in follow-up sessions for lasting business impact.</p>
+                </div>
+            </div>
+            
+            <div class="user-guide-navigation">
+                <div class="step-indicators">
+                    <span class="step-dot active" data-step="1"></span>
+                    <span class="step-dot" data-step="2"></span>
+                    <span class="step-dot" data-step="3"></span>
+                    <span class="step-dot" data-step="4"></span>
+                    <span class="step-dot" data-step="5"></span>
+                </div>
+                
+                <div class="guide-buttons">
+                    <button class="guide-btn guide-prev" onclick="window.simpleFormSubmit.previousGuideStep()" disabled>
+                        <i class="fas fa-chevron-left"></i>
+                        <span data-translate="previous">Previous</span>
+                    </button>
+                    <button class="guide-btn guide-next" onclick="window.simpleFormSubmit.nextGuideStep()">
+                        <span data-translate="next">Next</span>
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <button class="guide-btn guide-start" onclick="window.simpleFormSubmit.startUsingForm()" style="display: none;">
+                        <span data-translate="guide_start_using">Start Using Form</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="guide-footer">
+                <label class="guide-checkbox">
+                    <input type="checkbox" id="dontShowAgain">
+                    <span data-translate="guide_dont_show">Don't show this guide again</span>
+                </label>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Container -->
+    <div id="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo-container">
+                    <div class="logo" id="logoContainer">
+                        <img src="attached_assets/logo_1752487155061_1752582716936.png" alt="BPN Logo" style="height: 40px; width: auto;">
+                    </div>
+                </div>
+                <div class="header-right">
+                    <!-- Language Switcher -->
+                    <div class="language-switcher">
+                        <button class="lang-btn active" data-lang="en" title="English">
+                            🇺🇸
+                        </button>
+                        <button class="lang-btn" data-lang="rw" title="Kinyarwanda">
+                            🇷🇼
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Introduction Page -->
+            <div id="introView" class="view active">
+                <div class="intro-container">
+                    <div class="intro-content">
+                        <div class="intro-header">
+                            <h1 data-translate="intro_title">Expert Support Matching</h1>
+                            <p data-translate="intro_subtitle">Access expert support to grow your business. Complete this assessment to receive tailored guidance and skills support.</p>
+                        </div>
+                        
+                        <div class="partner-logos">
+                            <div class="logo-section primary">
+                                <img src="attached_assets/logo_1752487155061_1752582716936.png" alt="BPN Logo" class="bpn-logo">
+                            </div>
+                        </div>
+                        
+                        <div class="intro-actions">
+                            <button id="gotItBtn" class="btn btn-primary intro-btn">
+                                <span data-translate="got_it">Got it</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Survey View (Default) -->
+            <div id="surveyView" class="view">
+                <div class="survey-container">
+                    <div class="survey-header">
+                        <h1 id="surveyTitle" data-translate="survey_title">Expert Support Matching Survey</h1>
+                        <p id="surveyDescription" data-translate="survey_description">Please complete this assessment to help us match you with the right expert support for your business growth needs.</p>
+                        <div class="survey-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="progressFill"></div>
+                            </div>
+                            <span class="progress-text" id="progressText">Section 1 of 4</span>
+                        </div>
+                    </div>
+                    
+                    <form class="entrepreneur-survey-form" id="entrepreneurSurveyForm" style="display: flex; flex-direction: column; flex: 1;">
+                        <!-- Section 1: Personal & Business Information -->
+                        <div class="survey-section active" id="section1">
+                            <div class="section-header">
+                                <i class="fas fa-user-circle"></i>
+                                <h2 data-translate="personal_business_info">Personal & Business Information</h2>
+                            </div>
+                            <div class="form-group">
+                                <label for="entrepreneurName" data-translate="entrepreneur_name">What's your name?</label>
+                                <span class="required"> *</span>
+                                <input type="text" id="entrepreneurName" name="entrepreneurName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="companyName" data-translate="company_name">What's your company name?</label>
+                                <span class="required"> *</span>
+                                <input type="text" id="companyName" name="companyName" required>
+                            </div>
+                        </div>
+
+                        <!-- Section 2: Current Business Challenges -->
+                        <div class="survey-section" id="section2">
+                            <div class="section-header">
+                                <i class="fas fa-chart-line"></i>
+                                <h2 data-translate="business_challenges">Current Business Challenges</h2>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label data-translate="business_growth_limited">Do you feel your business growth is limited by gaps in technical knowledge, systems, or external guidance?</label>
+                                <span class="required"> *</span>
+                                <div class="checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input type="radio" name="businessGrowthLimited" value="yes-often" required>
+                                        <span data-translate="yes_often">Yes, often</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="radio" name="businessGrowthLimited" value="sometimes" required>
+                                        <span data-translate="sometimes">Sometimes</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="radio" name="businessGrowthLimited" value="no-fully-equipped" required>
+                                        <span data-translate="no_fully_equipped">No, I feel fully equipped</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label data-translate="decision_making">How do you make decisions when facing complex business challenges (e.g., production issues, team performance, market growth)?</label>
+                                <span class="required"> *</span>
+                                <div class="checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input type="radio" name="decisionMaking" value="trial-error" required>
+                                        <span data-translate="trial_error">I rely on trial and error</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="radio" name="decisionMaking" value="ask-friends-peers" required>
+                                        <span data-translate="ask_friends_peers">I ask friends/peers</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="radio" name="decisionMaking" value="search-online-trainings" required>
+                                        <span data-translate="search_online_trainings">I search online or attend trainings</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="radio" name="decisionMaking" value="consult-experts-mentors" required>
+                                        <span data-translate="consult_experts_mentors">I consult experts/mentors</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label data-translate="top_challenges">What are the top two challenges in your business where you would most value expert support?</label>
+                                <span class="required"> *</span>
+                                <div class="checkbox-group multi-select">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="topChallenges" value="increasing-sales">
+                                        <span data-translate="increasing_sales">Increasing sales</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="topChallenges" value="improving-production">
+                                        <span data-translate="improving_production">Improving production processes</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="topChallenges" value="modernizing-business">
+                                        <span data-translate="modernizing_business">Modernizing my business</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="topChallenges" value="becoming-sustainable">
+                                        <span data-translate="becoming_sustainable">Becoming more sustainable</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="topChallenges" value="optimizing-team">
+                                        <span data-translate="optimizing_team">Optimizing team structure/performance</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="topChallenges" value="improving-quality">
+                                        <span data-translate="improving_quality">Improving product or service quality</span>
+                                    </label>
+                                    <label class="checkbox-label other-option">
+                                        <input type="checkbox" name="topChallenges" value="other">
+                                        <span>Other:</span>
+                                        <input type="text" name="topChallengesOther" placeholder="Please specify" class="other-input">
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="challengeDetails" data-translate="challenge_details">Please provide more details about the specific challenges you are currently experiencing in your business.</label>
+                                <span class="required"> *</span>
+                                <textarea id="challengeDetails" name="challengeDetails" rows="3" placeholder="Describe your specific business challenges..." required></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Section 3: Expert Support Needs -->
+                        <div class="survey-section" id="section3">
+                            <div class="section-header">
+                                <i class="fas fa-hands-helping"></i>
+                                <h2 data-translate="expert_support_needs">Expert Support Needs</h2>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="expertSupportAreas" data-translate="expert_support_areas">If an international expert could support you remotely and on-site, what specific areas would you most like practical advice or training in?</label>
+                                <span class="required"> *</span>
+                                <textarea id="expertSupportAreas" name="expertSupportAreas" rows="3" placeholder="Describe the specific areas where you would like expert guidance..." required></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="desiredOutcomes" data-translate="desired_outcomes">If you could receive tailored guidance from a global expert, what results would you hope to achieve in your business within the next 6–12 months?</label>
+                                <span class="required"> *</span>
+                                <textarea id="desiredOutcomes" name="desiredOutcomes" rows="3" placeholder="Describe the specific results and improvements you hope to achieve..." required></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Section 4: Commitment & Follow-up -->
+                        <div class="survey-section" id="section4">
+                            <div class="section-header">
+                                <i class="fas fa-handshake"></i>
+                                <h2 data-translate="commitment_followup">Commitment & Follow-up</h2>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label data-translate="ready_to_participate">Are you prepared to apply expert recommendations and participate in follow-up sessions to ensure long-term impact for your business and community?</label>
+                                <span class="required"> *</span>
+                                <div class="checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input type="radio" name="readyToParticipate" value="yes-ready-committed" required>
+                                        <span data-translate="yes_ready_committed">Yes, I am ready and committed</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="radio" name="readyToParticipate" value="maybe-understand-more" required>
+                                        <span data-translate="maybe_understand_more">Maybe, I would like to understand more</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="radio" name="readyToParticipate" value="no-not-at-moment" required>
+                                        <span data-translate="no_not_at_moment">No, not at the moment</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Navigation Buttons -->
+                        <div class="survey-navigation">
+                            <button type="button" class="btn btn-secondary" id="prevBtn" style="display: none;">
+                                <i class="fas fa-arrow-left"></i>
+                                <span data-translate="previous">Previous</span>
+                            </button>
+                            <button type="button" class="btn btn-primary" id="nextBtn">
+                                <span data-translate="next">Next</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                            <button type="button" class="btn btn-success" id="submitBtn" style="display: none;">
+                                <i class="fas fa-check"></i>
+                                <span data-translate="submit_form">Submit Form</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Subtle Footer -->
+    <footer class="subtle-footer">
+        <div class="footer-content">
+            <span class="powered-by">Powered by BPN</span>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/firebase-config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/simple-submit.js"></script>
+</body>
