@@ -183,7 +183,7 @@ body::before {
     background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
     position: relative;
     overflow: hidden;
-    padding: 1rem 0;
+    padding: 2rem 1rem;
 }
 
 .intro-container::before {
@@ -200,11 +200,11 @@ body::before {
 .intro-content {
     background: linear-gradient(135deg, #ffffff 0%, #f8fffe 100%);
     border-radius: 24px;
-    padding: 4rem 3rem;
+    padding: 2.5rem 2rem;
     box-shadow: 0 25px 50px rgba(45, 212, 191, 0.1), 0 10px 20px rgba(0, 0, 0, 0.05);
     border: 1px solid rgba(45, 212, 191, 0.1);
     text-align: center;
-    max-width: 900px;
+    max-width: 800px;
     position: relative;
     z-index: 1;
     animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
