@@ -3832,8 +3832,9 @@ class SimpleFormSubmit {
         }
         
         // Initialize form state
-        this.currentSection = 1;
-        this.totalSections = document.querySelectorAll('.survey-section').length;
+        this.currentSection = 'A';
+        this.sectionOrder = ['A', 'B'];
+        this.totalSections = 2;
         this.updateProgress();
         this.updateNavigation();
         
@@ -4486,30 +4487,32 @@ class SimpleFormSubmit {
     }
 
     nextSection() {
-        if (this.currentSection < this.totalSections) {
-            this.showSection(this.currentSection + 1);
+        const currentIndex = this.sectionOrder.indexOf(this.currentSection);
+        if (currentIndex < this.sectionOrder.length - 1) {
+            this.showSection(this.sectionOrder[currentIndex + 1]);
         }
     }
 
     prevSection() {
-        if (this.currentSection > 1) {
-            this.showSection(this.currentSection - 1);
+        const currentIndex = this.sectionOrder.indexOf(this.currentSection);
+        if (currentIndex > 0) {
+            this.showSection(this.sectionOrder[currentIndex - 1]);
         }
     }
 
-    showSection(sectionNumber) {
+    showSection(sectionLetter) {
         // Hide current section
         const sections = document.querySelectorAll('.survey-section');
         sections.forEach(section => section.classList.remove('active'));
         
         // Show target section
-        const targetSection = document.getElementById(`section${sectionNumber}`);
+        const targetSection = document.getElementById(`section${sectionLetter}`);
         if (targetSection) {
             targetSection.classList.add('active');
-            this.currentSection = sectionNumber;
+            this.currentSection = sectionLetter;
             this.updateProgress();
             this.updateNavigation();
-            console.log('Switched to section:', sectionNumber);
+            console.log('Switched to section:', sectionLetter);
         }
     }
 
@@ -4518,7 +4521,8 @@ class SimpleFormSubmit {
         const progressText = document.getElementById('progressText');
         
         if (progressFill) {
-            const percentage = (this.currentSection / this.totalSections) * 100;
+            const currentIndex = this.sectionOrder.indexOf(this.currentSection);
+            const percentage = ((currentIndex + 1) / this.totalSections) * 100;
             progressFill.style.width = percentage + '%';
         }
         
@@ -4530,14 +4534,15 @@ class SimpleFormSubmit {
     updateNavigation() {
         const nextBtn = document.getElementById('nextBtn');
         const prevBtn = document.getElementById('prevBtn');
+        const currentIndex = this.sectionOrder.indexOf(this.currentSection);
         
         // Show/hide previous button
         if (prevBtn) {
-            prevBtn.style.display = this.currentSection > 1 ? 'flex' : 'none';
+            prevBtn.style.display = currentIndex > 0 ? 'flex' : 'none';
         }
 
         // Show/hide next vs submit button
-        if (this.currentSection === this.totalSections) {
+        if (currentIndex === this.sectionOrder.length - 1) {
             if (nextBtn) nextBtn.style.display = 'none';
             if (this.submitBtn) this.submitBtn.style.display = 'flex';
         } else {
