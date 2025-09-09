@@ -156,199 +156,439 @@
                             <div class="progress-bar">
                                 <div class="progress-fill" id="progressFill"></div>
                             </div>
-                            <span class="progress-text" id="progressText">Section A of 2</span>
+                            <div class="progress-dots" id="progressDots">
+                                <div class="progress-dot active" data-step="A1" title="Personal Info">
+                                    <i class="fas fa-user"></i>
+                                    <span>Personal Info</span>
+                                </div>
+                                <div class="progress-dot" data-step="A2" title="Business Operations">
+                                    <i class="fas fa-building"></i>
+                                    <span>Business</span>
+                                </div>
+                                <div class="progress-dot" data-step="A3" title="Course Preferences">
+                                    <i class="fas fa-graduation-cap"></i>
+                                    <span>Courses</span>
+                                </div>
+                                <div class="progress-dot" data-step="A4" title="Support Needs">
+                                    <i class="fas fa-hands-helping"></i>
+                                    <span>Support</span>
+                                </div>
+                                <div class="progress-dot" data-step="B" title="Webinar Experience">
+                                    <i class="fas fa-video"></i>
+                                    <span>Webinar</span>
+                                </div>
+                            </div>
+                            <span class="progress-text" id="progressText">Step 1 of 5</span>
                         </div>
                     </div>
                     
                     <form class="entrepreneur-survey-form" id="entrepreneurSurveyForm" style="display: flex; flex-direction: column; flex: 1;">
-                        <!-- Section A: Participant Information -->
-                        <div class="survey-section active" id="sectionA">
+                        <!-- Section A1: Personal Information -->
+                        <div class="survey-section active" id="sectionA1">
                             <div class="section-header">
-                                <i class="fas fa-user-circle"></i>
-                                <h2 data-translate="participant_info">Section A: Participant Information</h2>
+                                <div class="section-icon">
+                                    <i class="fas fa-user-circle"></i>
+                                </div>
+                                <div class="section-content">
+                                    <h2 data-translate="participant_info">Personal Information</h2>
+                                    <p class="section-description">Let's start with some basic information about you</p>
+                                </div>
+                                <div class="section-progress">
+                                    <span class="step-indicator">Step 1 of 5</span>
+                                </div>
                             </div>
                             
-                            <!-- Basic Information -->
-                            <div class="form-group">
-                                <label for="fullName" data-translate="full_name">Full Name</label>
+                            <div class="form-group enhanced">
+                                <label for="fullName" data-translate="full_name">
+                                    <i class="fas fa-user field-icon"></i>
+                                    Full Name
+                                </label>
                                 <span class="required"> *</span>
-                                <input type="text" id="fullName" name="fullName" required>
+                                <input type="text" id="fullName" name="fullName" required placeholder="Enter your full name">
+                                <div class="field-feedback"></div>
                             </div>
-                            <div class="form-group">
-                                <label for="title" data-translate="title">Title</label>
+                            <div class="form-group enhanced">
+                                <label for="title" data-translate="title">
+                                    <i class="fas fa-id-badge field-icon"></i>
+                                    Title
+                                </label>
                                 <span class="required"> *</span>
-                                <input type="text" id="title" name="title" required>
+                                <input type="text" id="title" name="title" required placeholder="Your professional title">
+                                <div class="field-feedback"></div>
                             </div>
-                            <div class="form-group">
-                                <label for="organizationName" data-translate="organization_name">Organization/Business Name</label>
+                            <div class="form-group enhanced">
+                                <label for="organizationName" data-translate="organization_name">
+                                    <i class="fas fa-building field-icon"></i>
+                                    Organization/Business Name
+                                </label>
                                 <span class="required"> *</span>
-                                <input type="text" id="organizationName" name="organizationName" required>
+                                <input type="text" id="organizationName" name="organizationName" required placeholder="Your business or organization name">
+                                <div class="field-feedback"></div>
+                            </div>
+                        </div>
+
+                        <!-- Section A2: Business Operations -->
+                        <div class="survey-section" id="sectionA2">
+                            <div class="section-header">
+                                <div class="section-icon">
+                                    <i class="fas fa-building"></i>
+                                </div>
+                                <div class="section-content">
+                                    <h2 data-translate="business_operations">Business Operations</h2>
+                                    <p class="section-description">Tell us about your business focus areas</p>
+                                </div>
+                                <div class="section-progress">
+                                    <span class="step-indicator">Step 2 of 5</span>
+                                </div>
                             </div>
                             
-                            <!-- Business Operations -->
-                            <div class="form-group">
-                                <label data-translate="tourism_areas">Which areas of the tourism and hospitality sector does your business operate in? (Select all that apply)</label>
+                            <div class="form-group enhanced">
+                                <label data-translate="tourism_areas">
+                                    <i class="fas fa-map-marker-alt field-icon"></i>
+                                    Which areas of the tourism and hospitality sector does your business operate in?
+                                </label>
                                 <span class="required"> *</span>
-                                <div class="checkbox-group multi-select">
-                                    <label class="checkbox-label">
+                                <p class="field-hint">Select all that apply to your business</p>
+                                <div class="checkbox-group multi-select enhanced-checkboxes">
+                                    <label class="checkbox-label interactive">
                                         <input type="checkbox" name="tourismAreas" value="accommodation">
-                                        <span data-translate="accommodation">Accommodation (e.g., hotels, lodges, guesthouses)</span>
+                                        <span class="checkmark"></span>
+                                        <div class="option-content">
+                                            <i class="fas fa-bed option-icon"></i>
+                                            <span data-translate="accommodation">Accommodation (e.g., hotels, lodges, guesthouses)</span>
+                                        </div>
                                     </label>
-                                    <label class="checkbox-label">
+                                    <label class="checkbox-label interactive">
                                         <input type="checkbox" name="tourismAreas" value="food-beverage">
-                                        <span data-translate="food_beverage">Food and Beverage (e.g., restaurants, cafes, catering services)</span>
+                                        <span class="checkmark"></span>
+                                        <div class="option-content">
+                                            <i class="fas fa-utensils option-icon"></i>
+                                            <span data-translate="food_beverage">Food and Beverage (e.g., restaurants, cafes, catering services)</span>
+                                        </div>
                                     </label>
-                                    <label class="checkbox-label">
+                                    <label class="checkbox-label interactive">
                                         <input type="checkbox" name="tourismAreas" value="tour-operations">
-                                        <span data-translate="tour_operations">Tour Operations and Travel Agencies</span>
+                                        <span class="checkmark"></span>
+                                        <div class="option-content">
+                                            <i class="fas fa-route option-icon"></i>
+                                            <span data-translate="tour_operations">Tour Operations and Travel Agencies</span>
+                                        </div>
                                     </label>
-                                    <label class="checkbox-label">
+                                    <label class="checkbox-label interactive">
                                         <input type="checkbox" name="tourismAreas" value="transportation">
-                                        <span data-translate="transportation">Transportation Services (e.g., car rentals, shuttles, airport transfers)</span>
+                                        <span class="checkmark"></span>
+                                        <div class="option-content">
+                                            <i class="fas fa-car option-icon"></i>
+                                            <span data-translate="transportation">Transportation Services (e.g., car rentals, shuttles, airport transfers)</span>
+                                        </div>
                                     </label>
-                                    <label class="checkbox-label">
+                                    <label class="checkbox-label interactive">
                                         <input type="checkbox" name="tourismAreas" value="attractions">
-                                        <span data-translate="attractions">Attractions and Activities (e.g., cultural experiences, adventure tours)</span>
+                                        <span class="checkmark"></span>
+                                        <div class="option-content">
+                                            <i class="fas fa-camera option-icon"></i>
+                                            <span data-translate="attractions">Attractions and Activities (e.g., cultural experiences, adventure tours)</span>
+                                        </div>
                                     </label>
-                                    <label class="checkbox-label">
+                                    <label class="checkbox-label interactive">
                                         <input type="checkbox" name="tourismAreas" value="event-management">
-                                        <span data-translate="event_management">Event Management and MICE (Meetings, Incentives, Conferences, Exhibitions)</span>
+                                        <span class="checkmark"></span>
+                                        <div class="option-content">
+                                            <i class="fas fa-calendar-alt option-icon"></i>
+                                            <span data-translate="event_management">Event Management and MICE (Meetings, Incentives, Conferences, Exhibitions)</span>
+                                        </div>
                                     </label>
-                                    <label class="checkbox-label other-option">
+                                    <label class="checkbox-label interactive other-option">
                                         <input type="checkbox" name="tourismAreas" value="other">
-                                        <span>Other:</span>
-                                        <input type="text" name="tourismAreasOther" placeholder="Please specify" class="other-input">
+                                        <span class="checkmark"></span>
+                                        <div class="option-content">
+                                            <i class="fas fa-plus option-icon"></i>
+                                            <span>Other:</span>
+                                            <input type="text" name="tourismAreasOther" placeholder="Please specify" class="other-input">
+                                        </div>
                                     </label>
+                                </div>
+                                <div class="field-feedback"></div>
+                            </div>
+                        </div>
+
+                        <!-- Section A3: Course Preferences -->
+                        <div class="survey-section" id="sectionA3">
+                            <div class="section-header">
+                                <div class="section-icon">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <div class="section-content">
+                                    <h2 data-translate="course_preferences">Course Preferences</h2>
+                                    <p class="section-description">Let's find the perfect courses for your business growth</p>
+                                </div>
+                                <div class="section-progress">
+                                    <span class="step-indicator">Step 3 of 5</span>
                                 </div>
                             </div>
                             
-                            <!-- General Courses -->
-                            <div class="form-group">
-                                <label data-translate="general_courses">Regardless of your background or business focus, which of these general foundational courses from Vatel Rwanda would be most beneficial for your business? (Select only one that is most relevant)</label>
+                            <div class="form-group enhanced">
+                                <label data-translate="general_courses">
+                                    <i class="fas fa-star field-icon"></i>
+                                    General Foundational Courses
+                                </label>
                                 <span class="required"> *</span>
-                                <div class="checkbox-group">
-                                    <label class="checkbox-label">
+                                <p class="field-hint">Regardless of your background, which course would be most beneficial? (Select one)</p>
+                                <div class="checkbox-group enhanced-radios">
+                                    <label class="checkbox-label interactive radio-option">
                                         <input type="radio" name="generalCourse" value="hospitality-intro" required>
-                                        <span data-translate="hospitality_intro">Hospitality Today: An Introduction Course</span>
+                                        <span class="radio-mark"></span>
+                                        <div class="option-content">
+                                            <i class="fas fa-door-open option-icon"></i>
+                                            <span data-translate="hospitality_intro">Hospitality Today: An Introduction Course</span>
+                                        </div>
                                     </label>
-                                    <label class="checkbox-label">
+                                    <label class="checkbox-label interactive radio-option">
                                         <input type="radio" name="generalCourse" value="lodging-food-service" required>
-                                        <span data-translate="lodging_food_service">The Lodging and Food Service Industry Course</span>
+                                        <span class="radio-mark"></span>
+                                        <div class="option-content">
+                                            <i class="fas fa-concierge-bell option-icon"></i>
+                                            <span data-translate="lodging_food_service">The Lodging and Food Service Industry Course</span>
+                                        </div>
                                     </label>
-                                    <label class="checkbox-label">
+                                    <label class="checkbox-label interactive radio-option">
                                         <input type="radio" name="generalCourse" value="quality-sanitation" required>
-                                        <span data-translate="quality_sanitation">Quality Sanitation Management Course</span>
+                                        <span class="radio-mark"></span>
+                                        <div class="option-content">
+                                            <i class="fas fa-shield-alt option-icon"></i>
+                                            <span data-translate="quality_sanitation">Quality Sanitation Management Course</span>
+                                        </div>
                                     </label>
-                                    <label class="checkbox-label">
+                                    <label class="checkbox-label interactive radio-option">
                                         <input type="radio" name="generalCourse" value="food-safety" required>
-                                        <span data-translate="food_safety">Food Safety: Managing with the HACCP System Course</span>
+                                        <span class="radio-mark"></span>
+                                        <div class="option-content">
+                                            <i class="fas fa-clipboard-check option-icon"></i>
+                                            <span data-translate="food_safety">Food Safety: Managing with the HACCP System Course</span>
+                                        </div>
                                     </label>
-                                    <label class="checkbox-label">
+                                    <label class="checkbox-label interactive radio-option">
                                         <input type="radio" name="generalCourse" value="marketing-hospitality" required>
-                                        <span data-translate="marketing_hospitality">Marketing in the Hospitality Industry Course</span>
+                                        <span class="radio-mark"></span>
+                                        <div class="option-content">
+                                            <i class="fas fa-bullhorn option-icon"></i>
+                                            <span data-translate="marketing_hospitality">Marketing in the Hospitality Industry Course</span>
+                                        </div>
                                     </label>
-                                    <label class="checkbox-label">
+                                    <label class="checkbox-label interactive radio-option">
                                         <input type="radio" name="generalCourse" value="revenue-management" required>
-                                        <span data-translate="revenue_management">Revenue Management Course</span>
+                                        <span class="radio-mark"></span>
+                                        <div class="option-content">
+                                            <i class="fas fa-chart-line option-icon"></i>
+                                            <span data-translate="revenue_management">Revenue Management Course</span>
+                                        </div>
                                     </label>
-                                    <label class="checkbox-label">
+                                    <label class="checkbox-label interactive radio-option">
                                         <input type="radio" name="generalCourse" value="supervision-hospitality" required>
-                                        <span data-translate="supervision_hospitality">Supervision in the Hospitality Industry Course</span>
+                                        <span class="radio-mark"></span>
+                                        <div class="option-content">
+                                            <i class="fas fa-users option-icon"></i>
+                                            <span data-translate="supervision_hospitality">Supervision in the Hospitality Industry Course</span>
+                                        </div>
                                     </label>
-                                    <label class="checkbox-label">
+                                    <label class="checkbox-label interactive radio-option">
                                         <input type="radio" name="generalCourse" value="hospitality-law" required>
-                                        <span data-translate="hospitality_law">Understanding Hospitality Law Course</span>
+                                        <span class="radio-mark"></span>
+                                        <div class="option-content">
+                                            <i class="fas fa-gavel option-icon"></i>
+                                            <span data-translate="hospitality_law">Understanding Hospitality Law Course</span>
+                                        </div>
                                     </label>
-                                    <label class="checkbox-label">
+                                    <label class="checkbox-label interactive radio-option">
                                         <input type="radio" name="generalCourse" value="leadership-management" required>
-                                        <span data-translate="leadership_management">Leadership and Management in the Hospitality Course</span>
+                                        <span class="radio-mark"></span>
+                                        <div class="option-content">
+                                            <i class="fas fa-crown option-icon"></i>
+                                            <span data-translate="leadership_management">Leadership and Management in the Hospitality Course</span>
+                                        </div>
                                     </label>
                                 </div>
+                                <div class="field-feedback"></div>
                             </div>
                             
-                            <!-- Specialized Courses -->
-                            <div class="form-group">
-                                <label data-translate="specialized_question">Which of the following specialised/specific tourism courses would benefit your business? (Choose one from each category that is relevant to your business)</label>
+                            <div class="specialized-courses-section">
+                                <div class="section-divider">
+                                    <i class="fas fa-certificate"></i>
+                                    <h3>Specialized Courses</h3>
+                                    <p>Choose courses that match your business operations</p>
+                                </div>
+                                
+                                <div class="conditional-section" id="hospitalityTrackSection" style="display: none;">
+                                    <div class="form-group enhanced">
+                                        <label data-translate="hospitality_track">
+                                            <i class="fas fa-hotel field-icon"></i>
+                                            Category 1: For Hospitality Entrepreneurs
+                                        </label>
+                                        <p class="category-description">Hotels, Restaurants, Cafes, and Bakeries - This track equips entrepreneurs with skills to enhance operations, improve service quality, and ensure guest satisfaction:</p>
+                                        <div class="checkbox-group enhanced-radios">
+                                            <label class="checkbox-label interactive radio-option">
+                                                <input type="radio" name="hospitalityTrack" value="food-beverage-operations">
+                                                <span class="radio-mark"></span>
+                                                <div class="option-content">
+                                                    <i class="fas fa-glass-cheers option-icon"></i>
+                                                    <span data-translate="food_beverage_operations">Managing Food and Beverage Operations Course</span>
+                                                </div>
+                                            </label>
+                                            <label class="checkbox-label interactive radio-option">
+                                                <input type="radio" name="hospitalityTrack" value="housekeeping-operations">
+                                                <span class="radio-mark"></span>
+                                                <div class="option-content">
+                                                    <i class="fas fa-broom option-icon"></i>
+                                                    <span data-translate="housekeeping_operations">Managing Housekeeping Operations Course</span>
+                                                </div>
+                                            </label>
+                                            <label class="checkbox-label interactive radio-option">
+                                                <input type="radio" name="hospitalityTrack" value="front-office-operations">
+                                                <span class="radio-mark"></span>
+                                                <div class="option-content">
+                                                    <i class="fas fa-desk option-icon"></i>
+                                                    <span data-translate="front_office_operations">Managing Front Office Operations Course</span>
+                                                </div>
+                                            </label>
+                                            <label class="checkbox-label interactive radio-option">
+                                                <input type="radio" name="hospitalityTrack" value="facilities-management">
+                                                <span class="radio-mark"></span>
+                                                <div class="option-content">
+                                                    <i class="fas fa-tools option-icon"></i>
+                                                    <span data-translate="facilities_management">Hospitality Facilities Management and Design Course</span>
+                                                </div>
+                                            </label>
+                                            <label class="checkbox-label interactive radio-option">
+                                                <input type="radio" name="hospitalityTrack" value="accounting-hospitality">
+                                                <span class="radio-mark"></span>
+                                                <div class="option-content">
+                                                    <i class="fas fa-calculator option-icon"></i>
+                                                    <span data-translate="accounting_hospitality">Accounting for Hospitality Managers Course</span>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="conditional-section" id="tourismTrackSection" style="display: none;">
+                                    <div class="form-group enhanced">
+                                        <label data-translate="tourism_track">
+                                            <i class="fas fa-compass field-icon"></i>
+                                            Category 2: For Tourism Entrepreneurs
+                                        </label>
+                                        <p class="category-description">Tour Operators and Travel Agencies - This track focuses on destination marketing, customer experience, and effective management of tourism operations:</p>
+                                        <div class="checkbox-group enhanced-radios">
+                                            <label class="checkbox-label interactive radio-option">
+                                                <input type="radio" name="tourismTrack" value="destination-management">
+                                                <span class="radio-mark"></span>
+                                                <div class="option-content">
+                                                    <i class="fas fa-map-marked-alt option-icon"></i>
+                                                    <span data-translate="destination_management">Fundamentals of Destination Management & Marketing Course</span>
+                                                </div>
+                                            </label>
+                                            <label class="checkbox-label interactive radio-option">
+                                                <input type="radio" name="tourismTrack" value="world-resorts">
+                                                <span class="radio-mark"></span>
+                                                <div class="option-content">
+                                                    <i class="fas fa-umbrella-beach option-icon"></i>
+                                                    <span data-translate="world_resorts">The World of Resorts Course</span>
+                                                </div>
+                                            </label>
+                                            <label class="checkbox-label interactive radio-option">
+                                                <input type="radio" name="tourismTrack" value="service-food-beverage">
+                                                <span class="radio-mark"></span>
+                                                <div class="option-content">
+                                                    <i class="fas fa-wine-glass option-icon"></i>
+                                                    <span data-translate="service_food_beverage">Managing Service in Food and Beverage Operations Course</span>
+                                                </div>
+                                            </label>
+                                            <label class="checkbox-label interactive radio-option">
+                                                <input type="radio" name="tourismTrack" value="convention-management">
+                                                <span class="radio-mark"></span>
+                                                <div class="option-content">
+                                                    <i class="fas fa-handshake option-icon"></i>
+                                                    <span data-translate="convention_management">Convention Management and Service Course</span>
+                                                </div>
+                                            </label>
+                                            <label class="checkbox-label interactive radio-option">
+                                                <input type="radio" name="tourismTrack" value="club-accounting">
+                                                <span class="radio-mark"></span>
+                                                <div class="option-content">
+                                                    <i class="fas fa-chart-pie option-icon"></i>
+                                                    <span data-translate="club_accounting">Accounting for Club Operations Course</span>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            
-                            <div class="form-group">
-                                <label data-translate="hospitality_track">Category 1: For Hospitality Entrepreneurs (Hotels, Restaurants, Cafes, and Bakeries)</label>
-                                <p style="font-size: 14px; color: #666; margin-bottom: 10px;">This track equips entrepreneurs with skills to enhance operations, improve service quality, and ensure guest satisfaction:</p>
-                                <div class="checkbox-group">
-                                    <label class="checkbox-label">
-                                        <input type="radio" name="hospitalityTrack" value="food-beverage-operations">
-                                        <span data-translate="food_beverage_operations">Managing Food and Beverage Operations Course</span>
-                                    </label>
-                                    <label class="checkbox-label">
-                                        <input type="radio" name="hospitalityTrack" value="housekeeping-operations">
-                                        <span data-translate="housekeeping_operations">Managing Housekeeping Operations Course</span>
-                                    </label>
-                                    <label class="checkbox-label">
-                                        <input type="radio" name="hospitalityTrack" value="front-office-operations">
-                                        <span data-translate="front_office_operations">Managing Front Office Operations Course</span>
-                                    </label>
-                                    <label class="checkbox-label">
-                                        <input type="radio" name="hospitalityTrack" value="facilities-management">
-                                        <span data-translate="facilities_management">Hospitality Facilities Management and Design Course</span>
-                                    </label>
-                                    <label class="checkbox-label">
-                                        <input type="radio" name="hospitalityTrack" value="accounting-hospitality">
-                                        <span data-translate="accounting_hospitality">Accounting for Hospitality Managers Course</span>
-                                    </label>
+                        </div>
+
+                        <!-- Section A4: Support Needs -->
+                        <div class="survey-section" id="sectionA4">
+                            <div class="section-header">
+                                <div class="section-icon">
+                                    <i class="fas fa-hands-helping"></i>
+                                </div>
+                                <div class="section-content">
+                                    <h2 data-translate="support_needs">Support Needs</h2>
+                                    <p class="section-description">Help us understand how we can best support your business growth</p>
+                                </div>
+                                <div class="section-progress">
+                                    <span class="step-indicator">Step 4 of 5</span>
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <label data-translate="tourism_track">Category 2: For Tourism Entrepreneurs (Tour Operators and Travel Agencies)</label>
-                                <p style="font-size: 14px; color: #666; margin-bottom: 10px;">This track focuses on destination marketing, customer experience, and effective management of tourism operations:</p>
-                                <div class="checkbox-group">
-                                    <label class="checkbox-label">
-                                        <input type="radio" name="tourismTrack" value="destination-management">
-                                        <span data-translate="destination_management">Fundamentals of Destination Management & Marketing Course</span>
-                                    </label>
-                                    <label class="checkbox-label">
-                                        <input type="radio" name="tourismTrack" value="world-resorts">
-                                        <span data-translate="world_resorts">The World of Resorts Course</span>
-                                    </label>
-                                    <label class="checkbox-label">
-                                        <input type="radio" name="tourismTrack" value="service-food-beverage">
-                                        <span data-translate="service_food_beverage">Managing Service in Food and Beverage Operations Course</span>
-                                    </label>
-                                    <label class="checkbox-label">
-                                        <input type="radio" name="tourismTrack" value="convention-management">
-                                        <span data-translate="convention_management">Convention Management and Service Course</span>
-                                    </label>
-                                    <label class="checkbox-label">
-                                        <input type="radio" name="tourismTrack" value="club-accounting">
-                                        <span data-translate="club_accounting">Accounting for Club Operations Course</span>
-                                    </label>
-                                </div>
+                            <div class="form-group enhanced">
+                                <label for="businessChallenges" data-translate="business_challenges">
+                                    <i class="fas fa-exclamation-triangle field-icon"></i>
+                                    Current Business Challenges
+                                </label>
+                                <span class="required"> *</span>
+                                <p class="field-hint">What challenges are you currently facing that Vatel Rwanda training could help address?</p>
+                                <textarea id="businessChallenges" name="businessChallenges" rows="4" placeholder="Describe your current business challenges..." required></textarea>
+                                <div class="field-feedback"></div>
+                                <div class="character-count">0 characters</div>
                             </div>
 
-                            <div class="form-group">
-                                <label for="businessChallenges" data-translate="business_challenges">What challenges are you currently facing in your business that training from Vatel Rwanda could help address?</label>
+                            <div class="form-group enhanced">
+                                <label for="enrollmentLikelihood" data-translate="enrollment_likelihood">
+                                    <i class="fas fa-thumbs-up field-icon"></i>
+                                    Enrollment Likelihood
+                                </label>
                                 <span class="required"> *</span>
-                                <textarea id="businessChallenges" name="businessChallenges" rows="3" placeholder="Describe your current business challenges..." required></textarea>
+                                <p class="field-hint">How likely are you to enroll yourself or 1 staff member in a Vatel training course?</p>
+                                <textarea id="enrollmentLikelihood" name="enrollmentLikelihood" rows="3" placeholder="Please describe your likelihood and any considerations..." required></textarea>
+                                <div class="field-feedback"></div>
+                                <div class="character-count">0 characters</div>
                             </div>
 
-                            <div class="form-group">
-                                <label for="enrollmentLikelihood" data-translate="enrollment_likelihood">How likely are you to enroll yourself or your 1 staff member in a training course offered by Vatel?</label>
+                            <div class="form-group enhanced">
+                                <label for="additionalSupport" data-translate="additional_support">
+                                    <i class="fas fa-heart field-icon"></i>
+                                    Additional Support Needed
+                                </label>
                                 <span class="required"> *</span>
-                                <textarea id="enrollmentLikelihood" name="enrollmentLikelihood" rows="2" placeholder="Please describe your likelihood and any considerations..." required></textarea>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="additionalSupport" data-translate="additional_support">What additional support would you like to receive from BPN to strengthen your business in the tourism and hospitality sector?</label>
-                                <span class="required"> *</span>
-                                <textarea id="additionalSupport" name="additionalSupport" rows="3" placeholder="Describe the additional support you would like..." required></textarea>
+                                <p class="field-hint">What additional support would you like from BPN to strengthen your business?</p>
+                                <textarea id="additionalSupport" name="additionalSupport" rows="4" placeholder="Describe the additional support you would like..." required></textarea>
+                                <div class="field-feedback"></div>
+                                <div class="character-count">0 characters</div>
                             </div>
                         </div>
 
                         <!-- Section B: Webinar Experience -->
                         <div class="survey-section" id="sectionB">
                             <div class="section-header">
-                                <i class="fas fa-video"></i>
-                                <h2 data-translate="webinar_experience">Section B: Webinar Experience</h2>
+                                <div class="section-icon">
+                                    <i class="fas fa-video"></i>
+                                </div>
+                                <div class="section-content">
+                                    <h2 data-translate="webinar_experience">Section B: Webinar Experience</h2>
+                                    <p class="section-description">Tell us about your AHLEI info session experience</p>
+                                </div>
+                                <div class="section-progress">
+                                    <span class="step-indicator">Step 5 of 5</span>
+                                </div>
                             </div>
                             
                             <div class="form-group">

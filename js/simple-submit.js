@@ -3832,11 +3832,14 @@ class SimpleFormSubmit {
         }
         
         // Initialize form state
-        this.currentSection = 'A';
-        this.sectionOrder = ['A', 'B'];
-        this.totalSections = 2;
+        this.currentSection = 'A1';
+        this.sectionOrder = ['A1', 'A2', 'A3', 'A4', 'B'];
+        this.totalSections = 5;
         this.updateProgress();
         this.updateNavigation();
+        this.setupConditionalLogic();
+        this.setupFieldValidation();
+        this.setupAutoSave();
         
         // Initialize positions system
         this.initializePositionsSystem();
@@ -4519,6 +4522,7 @@ class SimpleFormSubmit {
     updateProgress() {
         const progressFill = document.getElementById('progressFill');
         const progressText = document.getElementById('progressText');
+        const progressDots = document.querySelectorAll('.progress-dot');
         
         if (progressFill) {
             const currentIndex = this.sectionOrder.indexOf(this.currentSection);
@@ -4527,8 +4531,24 @@ class SimpleFormSubmit {
         }
         
         if (progressText) {
-            progressText.textContent = `Section ${this.currentSection} of ${this.totalSections}`;
+            progressText.textContent = `Step ${this.sectionOrder.indexOf(this.currentSection) + 1} of ${this.totalSections}`;
         }
+        
+        // Update progress dots
+        progressDots.forEach((dot, index) => {
+            const stepId = this.sectionOrder[index];
+            const currentIndex = this.sectionOrder.indexOf(this.currentSection);
+            
+            if (index < currentIndex) {
+                dot.classList.add('completed');
+                dot.classList.remove('active');
+            } else if (index === currentIndex) {
+                dot.classList.add('active');
+                dot.classList.remove('completed');
+            } else {
+                dot.classList.remove('active', 'completed');
+            }
+        });
     }
 
     updateNavigation() {
@@ -4549,6 +4569,128 @@ class SimpleFormSubmit {
             if (nextBtn) nextBtn.style.display = 'flex';
             if (this.submitBtn) this.submitBtn.style.display = 'none';
         }
+    }
+
+    setupConditionalLogic() {
+        // Show/hide specialized course sections based on business operations
+        const tourismCheckboxes = document.querySelectorAll('input[name="tourismAreas"]');
+        const hospitalitySection = document.getElementById('hospitalityTrackSection');
+        const tourismSection = document.getElementById('tourismTrackSection');
+        
+        tourismCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', () => {
+                const selectedValues = Array.from(document.querySelectorAll('input[name="tourismAreas"]:checked'))
+                    .map(cb => cb.value);
+                
+                // Show hospitality track if accommodation or food-beverage is selected
+                const showHospitality = selectedValues.some(val => 
+                    ['accommodation', 'food-beverage'].includes(val)
+                );
+                
+                // Show tourism track if tour-operations, transportation, or attractions is selected
+                const showTourism = selectedValues.some(val => 
+                    ['tour-operations', 'transportation', 'attractions', 'event-management'].includes(val)
+                );
+                
+                if (hospitalitySection) {
+                    hospitalitySection.style.display = showHospitality ? 'block' : 'none';
+                    if (showHospitality) {
+                        hospitalitySection.classList.add('fade-in');
+                    }
+                }
+                
+                if (tourismSection) {
+                    tourismSection.style.display = showTourism ? 'block' : 'none';
+                    if (showTourism) {
+                        tourismSection.classList.add('fade-in');
+                    }
+                }
+            });
+        });
+    }
+
+    setupFieldValidation() {
+        // Real-time validation for required fields
+        const requiredFields = document.querySelectorAll('input[required], textarea[required]');
+        
+        requiredFields.forEach(field => {
+            field.addEventListener('blur', () => this.validateField(field));
+            field.addEventListener('input', () => this.clearFieldError(field));
+        });
+
+        // Character count for textareas
+        const textareas = document.querySelectorAll('textarea');
+        textareas.forEach(textarea => {
+            const counterElement = textarea.parentElement.querySelector('.character-count');
+            if (counterElement) {
+                textarea.addEventListener('input', () => {
+                    counterElement.textContent = `${textarea.value.length} characters`;
+                });
+            }
+        });
+    }
+
+    validateField(field) {
+        const feedback = field.parentElement.querySelector('.field-feedback');
+        if (!feedback) return;
+
+        if (field.hasAttribute('required') && !field.value.trim()) {
+            field.classList.add('error');
+            feedback.textContent = 'This field is required';
+            feedback.className = 'field-feedback error';
+            return false;
+        } else {
+            field.classList.remove('error');
+            field.classList.add('success');
+            feedback.textContent = '✓';
+            feedback.className = 'field-feedback success';
+            return true;
+        }
+    }
+
+    clearFieldError(field) {
+        if (field.value.trim()) {
+            field.classList.remove('error');
+            const feedback = field.parentElement.querySelector('.field-feedback');
+            if (feedback) {
+                feedback.textContent = '';
+                feedback.className = 'field-feedback';
+            }
+        }
+    }
+
+    setupAutoSave() {
+        // Auto-save form data to localStorage
+        const form = document.getElementById('entrepreneurSurveyForm');
+        if (!form) return;
+
+        const saveData = () => {
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+            localStorage.setItem('surveyDraft', JSON.stringify(data));
+            this.showAutoSaveNotification();
+        };
+
+        // Save data on input changes (debounced)
+        let saveTimeout;
+        form.addEventListener('input', () => {
+            clearTimeout(saveTimeout);
+            saveTimeout = setTimeout(saveData, 1000);
+        });
+    }
+
+    showAutoSaveNotification() {
+        // Show subtle auto-save notification
+        const notification = document.createElement('div');
+        notification.className = 'auto-save-notification';
+        notification.innerHTML = '<i class="fas fa-save"></i> Draft saved';
+        
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.classList.add('fade-out');
+            setTimeout(() => notification.remove(), 300);
+        }, 2000);
     }
 
     handleSubmit(event) {
