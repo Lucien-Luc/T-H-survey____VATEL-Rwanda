@@ -13,7 +13,7 @@ class SimpleFormSubmit {
             en: {
                 'page_title': 'Tourism & Hospitality Support Survey - VATEL Rwanda',
                 'intro_title': 'Tourism & Hospitality Support Survey',
-                'intro_subtitle': 'In partnership with the Mastercard Foundation, we are collaborating with VATEL RWANDA to provide sector-specific support tailored to your needs. Complete this survey to help us understand your training needs.',
+                'intro_full_text': 'At BPN, we place entrepreneurs at the center of everything we do. In partnership with the Mastercard Foundation, we are collaborating with VATEL RWANDA to provide sector-specific support tailored to your needs.\n\nFollowing the online info-session held on Friday, 22nd August, we would like to better understand your needs that VATEL Rwanda can provide.\n\nWe kindly ask you to take a few minutes to complete this short survey. Kindly consider responding to this survey once you have reviewed the VATEL presentation document shared in our last communication. Your input will help us design support that is most relevant and impactful for your business.',
                 'got_it': 'Got it',
                 'survey_title': 'Tourism & Hospitality Support Survey',
                 'survey_description': 'In partnership with the Mastercard Foundation, we are collaborating with VATEL RWANDA to provide sector-specific support. Please complete this survey to help us understand your needs.',
@@ -98,7 +98,7 @@ class SimpleFormSubmit {
             rw: {
                 'page_title': 'Isuzuma ry\'Ubufasha mu Bukerarugendo n\'Ubunyangamugayo - VATEL Rwanda',
                 'intro_title': 'Isuzuma ry\'Ubufasha mu Bukerarugendo n\'Ubunyangamugayo',
-                'intro_subtitle': 'Mu gufatanya na Ishinga rya Mastercard, turafatanya na VATEL RWANDA gutanga ubufasha bwihariye bukwiye. Uzuza iki gisuzuma kugira dumenye ibikenewe byawe by\'amahugurwa.',
+                'intro_full_text': 'Muri BPN, turashyira abacuruzi mu gacukuru k\'ibintu byose dukora. Mu gufatanya na Ishinga rya Mastercard, turafatanya na VATEL RWANDA gutanga ubufasha bwihariye bukwiye.\n\nNyuma y\'ikiganiro cyo kuri interineti cyabereye ku wa gatanu, 22 Kanama, tubashaka gusobanukirwa neza ibyo mukeneye VATEL Rwanda ishobora kutanga.\n\nTubisabira gufata iminota mike kugira mwuzuze iki gisuzuma gito. Nyamuneka tekereza gukurikiza iki gisuzuma umaze kureba inyandiko ya VATEL twasangiye mu itumanaho rya nyuma. Igitekerezo cyawe kizadufasha gushyiraho ubufasha bukwiye kandi bufite akamaro ku bucuruzi bwawe.',
                 'got_it': 'Byumvise',
                 'survey_title': 'Isuzuma ry\'Ubufasha mu Bukerarugendo n\'Ubunyangamugayo',
                 'survey_description': 'Mu gufatanya na Ishinga rya Mastercard, turafatanya na VATEL RWANDA gutanga ubufasha bwihariye. Uzuza iki gisuzuma kugira dumenye ibyo ukeneye.',
