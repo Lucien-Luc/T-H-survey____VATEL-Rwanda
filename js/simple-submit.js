@@ -4607,6 +4607,27 @@ class SimpleFormSubmit {
                 }
             });
         });
+
+        // Handle "Other" option text input enabling/disabling
+        const otherCheckboxes = document.querySelectorAll('input[value="other"]');
+        otherCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', () => {
+                const otherInput = checkbox.closest('.other-option').querySelector('.other-input');
+                if (otherInput) {
+                    if (checkbox.checked) {
+                        otherInput.disabled = false;
+                        otherInput.focus();
+                        otherInput.style.opacity = '1';
+                        otherInput.style.pointerEvents = 'auto';
+                    } else {
+                        otherInput.disabled = true;
+                        otherInput.value = '';
+                        otherInput.style.opacity = '0.5';
+                        otherInput.style.pointerEvents = 'none';
+                    }
+                }
+            });
+        });
     }
 
     setupFieldValidation() {

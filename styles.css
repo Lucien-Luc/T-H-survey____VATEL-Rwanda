@@ -4855,6 +4855,36 @@ textarea.form-control {
     min-height: 60px;
 }
 
+/* Other input styling */
+.other-input {
+    margin-left: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #D1D5DB;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    background: white;
+    transition: all 0.3s ease;
+    flex: 1;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.other-input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(45, 212, 191, 0.1);
+}
+
+.other-input:disabled {
+    background: #F9FAFB;
+    color: #9CA3AF;
+}
+
+.other-option .option-content {
+    align-items: center;
+    flex-wrap: wrap;
+}
+
 .enhanced-checkboxes .checkbox-label.interactive:hover {
     background: rgba(255, 255, 255, 0.9);
     border-color: var(--color-primary);
