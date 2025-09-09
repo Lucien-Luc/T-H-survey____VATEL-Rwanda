@@ -166,171 +166,297 @@
             <div id="surveyView" class="view">
                 <div class="survey-container">
                     <div class="survey-header">
-                        <h1 id="surveyTitle" data-translate="survey_title">Expert Support Matching Survey</h1>
-                        <p id="surveyDescription" data-translate="survey_description">Please complete this assessment to help us match you with the right expert support for your business growth needs.</p>
+                        <h1 id="surveyTitle" data-translate="survey_title">Tourism & Hospitality Support Survey</h1>
+                        <p id="surveyDescription" data-translate="survey_description">In partnership with the Mastercard Foundation, we are collaborating with VATEL RWANDA to provide sector-specific support. Please complete this survey to help us understand your needs.</p>
                         <div class="survey-progress">
                             <div class="progress-bar">
                                 <div class="progress-fill" id="progressFill"></div>
                             </div>
-                            <span class="progress-text" id="progressText">Section 1 of 4</span>
+                            <span class="progress-text" id="progressText">Section 1 of 5</span>
                         </div>
                     </div>
                     
                     <form class="entrepreneur-survey-form" id="entrepreneurSurveyForm" style="display: flex; flex-direction: column; flex: 1;">
-                        <!-- Section 1: Personal & Business Information -->
+                        <!-- Section 1: Participant Information -->
                         <div class="survey-section active" id="section1">
                             <div class="section-header">
                                 <i class="fas fa-user-circle"></i>
-                                <h2 data-translate="personal_business_info">Personal & Business Information</h2>
+                                <h2 data-translate="participant_info">Participant Information</h2>
                             </div>
                             <div class="form-group">
-                                <label for="entrepreneurName" data-translate="entrepreneur_name">What's your name?</label>
+                                <label for="fullName" data-translate="full_name">Full Name</label>
                                 <span class="required"> *</span>
-                                <input type="text" id="entrepreneurName" name="entrepreneurName" required>
+                                <input type="text" id="fullName" name="fullName" required>
                             </div>
                             <div class="form-group">
-                                <label for="companyName" data-translate="company_name">What's your company name?</label>
+                                <label for="title" data-translate="title">Title</label>
                                 <span class="required"> *</span>
-                                <input type="text" id="companyName" name="companyName" required>
+                                <input type="text" id="title" name="title" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="organizationName" data-translate="organization_name">Organization/Business Name</label>
+                                <span class="required"> *</span>
+                                <input type="text" id="organizationName" name="organizationName" required>
                             </div>
                         </div>
 
-                        <!-- Section 2: Current Business Challenges -->
+                        <!-- Section 2: Business Operations -->
                         <div class="survey-section" id="section2">
                             <div class="section-header">
-                                <i class="fas fa-chart-line"></i>
-                                <h2 data-translate="business_challenges">Current Business Challenges</h2>
+                                <i class="fas fa-building"></i>
+                                <h2 data-translate="business_operations">Business Operations</h2>
                             </div>
                             
                             <div class="form-group">
-                                <label data-translate="business_growth_limited">Do you feel your business growth is limited by gaps in technical knowledge, systems, or external guidance?</label>
-                                <span class="required"> *</span>
-                                <div class="checkbox-group">
-                                    <label class="checkbox-label">
-                                        <input type="radio" name="businessGrowthLimited" value="yes-often" required>
-                                        <span data-translate="yes_often">Yes, often</span>
-                                    </label>
-                                    <label class="checkbox-label">
-                                        <input type="radio" name="businessGrowthLimited" value="sometimes" required>
-                                        <span data-translate="sometimes">Sometimes</span>
-                                    </label>
-                                    <label class="checkbox-label">
-                                        <input type="radio" name="businessGrowthLimited" value="no-fully-equipped" required>
-                                        <span data-translate="no_fully_equipped">No, I feel fully equipped</span>
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label data-translate="decision_making">How do you make decisions when facing complex business challenges (e.g., production issues, team performance, market growth)?</label>
-                                <span class="required"> *</span>
-                                <div class="checkbox-group">
-                                    <label class="checkbox-label">
-                                        <input type="radio" name="decisionMaking" value="trial-error" required>
-                                        <span data-translate="trial_error">I rely on trial and error</span>
-                                    </label>
-                                    <label class="checkbox-label">
-                                        <input type="radio" name="decisionMaking" value="ask-friends-peers" required>
-                                        <span data-translate="ask_friends_peers">I ask friends/peers</span>
-                                    </label>
-                                    <label class="checkbox-label">
-                                        <input type="radio" name="decisionMaking" value="search-online-trainings" required>
-                                        <span data-translate="search_online_trainings">I search online or attend trainings</span>
-                                    </label>
-                                    <label class="checkbox-label">
-                                        <input type="radio" name="decisionMaking" value="consult-experts-mentors" required>
-                                        <span data-translate="consult_experts_mentors">I consult experts/mentors</span>
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label data-translate="top_challenges">What are the top two challenges in your business where you would most value expert support?</label>
+                                <label data-translate="tourism_areas">Which areas of the tourism and hospitality sector does your business operate in? (Select all that apply)</label>
                                 <span class="required"> *</span>
                                 <div class="checkbox-group multi-select">
                                     <label class="checkbox-label">
-                                        <input type="checkbox" name="topChallenges" value="increasing-sales">
-                                        <span data-translate="increasing_sales">Increasing sales</span>
+                                        <input type="checkbox" name="tourismAreas" value="accommodation">
+                                        <span data-translate="accommodation">Accommodation (e.g., hotels, lodges, guesthouses)</span>
                                     </label>
                                     <label class="checkbox-label">
-                                        <input type="checkbox" name="topChallenges" value="improving-production">
-                                        <span data-translate="improving_production">Improving production processes</span>
+                                        <input type="checkbox" name="tourismAreas" value="food-beverage">
+                                        <span data-translate="food_beverage">Food and Beverage (e.g., restaurants, cafes, catering services)</span>
                                     </label>
                                     <label class="checkbox-label">
-                                        <input type="checkbox" name="topChallenges" value="modernizing-business">
-                                        <span data-translate="modernizing_business">Modernizing my business</span>
+                                        <input type="checkbox" name="tourismAreas" value="tour-operations">
+                                        <span data-translate="tour_operations">Tour Operations and Travel Agencies</span>
                                     </label>
                                     <label class="checkbox-label">
-                                        <input type="checkbox" name="topChallenges" value="becoming-sustainable">
-                                        <span data-translate="becoming_sustainable">Becoming more sustainable</span>
+                                        <input type="checkbox" name="tourismAreas" value="transportation">
+                                        <span data-translate="transportation">Transportation Services (e.g., car rentals, shuttles, airport transfers)</span>
                                     </label>
                                     <label class="checkbox-label">
-                                        <input type="checkbox" name="topChallenges" value="optimizing-team">
-                                        <span data-translate="optimizing_team">Optimizing team structure/performance</span>
+                                        <input type="checkbox" name="tourismAreas" value="attractions">
+                                        <span data-translate="attractions">Attractions and Activities (e.g., cultural experiences, adventure tours)</span>
                                     </label>
                                     <label class="checkbox-label">
-                                        <input type="checkbox" name="topChallenges" value="improving-quality">
-                                        <span data-translate="improving_quality">Improving product or service quality</span>
+                                        <input type="checkbox" name="tourismAreas" value="event-management">
+                                        <span data-translate="event_management">Event Management and MICE (Meetings, Incentives, Conferences, Exhibitions)</span>
                                     </label>
                                     <label class="checkbox-label other-option">
-                                        <input type="checkbox" name="topChallenges" value="other">
+                                        <input type="checkbox" name="tourismAreas" value="other">
                                         <span>Other:</span>
-                                        <input type="text" name="topChallengesOther" placeholder="Please specify" class="other-input">
+                                        <input type="text" name="tourismAreasOther" placeholder="Please specify" class="other-input">
                                     </label>
                                 </div>
                             </div>
-
-                            <div class="form-group">
-                                <label for="challengeDetails" data-translate="challenge_details">Please provide more details about the specific challenges you are currently experiencing in your business.</label>
-                                <span class="required"> *</span>
-                                <textarea id="challengeDetails" name="challengeDetails" rows="3" placeholder="Describe your specific business challenges..." required></textarea>
-                            </div>
                         </div>
 
-                        <!-- Section 3: Expert Support Needs -->
+                        <!-- Section 3: Vatel Course Preferences -->
                         <div class="survey-section" id="section3">
                             <div class="section-header">
-                                <i class="fas fa-hands-helping"></i>
-                                <h2 data-translate="expert_support_needs">Expert Support Needs</h2>
+                                <i class="fas fa-graduation-cap"></i>
+                                <h2 data-translate="course_preferences">Vatel Course Preferences</h2>
                             </div>
                             
                             <div class="form-group">
-                                <label for="expertSupportAreas" data-translate="expert_support_areas">If an international expert could support you remotely and on-site, what specific areas would you most like practical advice or training in?</label>
-                                <span class="required"> *</span>
-                                <textarea id="expertSupportAreas" name="expertSupportAreas" rows="3" placeholder="Describe the specific areas where you would like expert guidance..." required></textarea>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="desiredOutcomes" data-translate="desired_outcomes">If you could receive tailored guidance from a global expert, what results would you hope to achieve in your business within the next 6–12 months?</label>
-                                <span class="required"> *</span>
-                                <textarea id="desiredOutcomes" name="desiredOutcomes" rows="3" placeholder="Describe the specific results and improvements you hope to achieve..." required></textarea>
-                            </div>
-                        </div>
-
-                        <!-- Section 4: Commitment & Follow-up -->
-                        <div class="survey-section" id="section4">
-                            <div class="section-header">
-                                <i class="fas fa-handshake"></i>
-                                <h2 data-translate="commitment_followup">Commitment & Follow-up</h2>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label data-translate="ready_to_participate">Are you prepared to apply expert recommendations and participate in follow-up sessions to ensure long-term impact for your business and community?</label>
+                                <label data-translate="general_courses">Which of these general foundational courses from Vatel Rwanda would be most beneficial for your business? (Select only one that is most relevant)</label>
                                 <span class="required"> *</span>
                                 <div class="checkbox-group">
                                     <label class="checkbox-label">
-                                        <input type="radio" name="readyToParticipate" value="yes-ready-committed" required>
-                                        <span data-translate="yes_ready_committed">Yes, I am ready and committed</span>
+                                        <input type="radio" name="generalCourse" value="hospitality-intro" required>
+                                        <span data-translate="hospitality_intro">Hospitality Today: An Introduction Course</span>
                                     </label>
                                     <label class="checkbox-label">
-                                        <input type="radio" name="readyToParticipate" value="maybe-understand-more" required>
-                                        <span data-translate="maybe_understand_more">Maybe, I would like to understand more</span>
+                                        <input type="radio" name="generalCourse" value="lodging-food-service" required>
+                                        <span data-translate="lodging_food_service">The Lodging and Food Service Industry Course</span>
                                     </label>
                                     <label class="checkbox-label">
-                                        <input type="radio" name="readyToParticipate" value="no-not-at-moment" required>
-                                        <span data-translate="no_not_at_moment">No, not at the moment</span>
+                                        <input type="radio" name="generalCourse" value="quality-sanitation" required>
+                                        <span data-translate="quality_sanitation">Quality Sanitation Management Course</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="radio" name="generalCourse" value="food-safety" required>
+                                        <span data-translate="food_safety">Food Safety: Managing with the HACCP System Course</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="radio" name="generalCourse" value="marketing-hospitality" required>
+                                        <span data-translate="marketing_hospitality">Marketing in the Hospitality Industry Course</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="radio" name="generalCourse" value="revenue-management" required>
+                                        <span data-translate="revenue_management">Revenue Management Course</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="radio" name="generalCourse" value="supervision-hospitality" required>
+                                        <span data-translate="supervision_hospitality">Supervision in the Hospitality Industry Course</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="radio" name="generalCourse" value="hospitality-law" required>
+                                        <span data-translate="hospitality_law">Understanding Hospitality Law Course</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="radio" name="generalCourse" value="leadership-management" required>
+                                        <span data-translate="leadership_management">Leadership and Management in the Hospitality Course</span>
                                     </label>
                                 </div>
+                            </div>
+                        </div>
+
+                        <!-- Section 4: Specialized Courses & Training Needs -->
+                        <div class="survey-section" id="section4">
+                            <div class="section-header">
+                                <i class="fas fa-certificate"></i>
+                                <h2 data-translate="specialized_courses">Specialized Courses & Training Needs</h2>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label data-translate="hospitality_track">Category 1: For Hospitality Entrepreneurs (Hotels, Restaurants, Cafes, and Bakeries) - Choose one that is relevant to your business</label>
+                                <div class="checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input type="radio" name="hospitalityTrack" value="food-beverage-operations">
+                                        <span data-translate="food_beverage_operations">Managing Food and Beverage Operations Course</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="radio" name="hospitalityTrack" value="housekeeping-operations">
+                                        <span data-translate="housekeeping_operations">Managing Housekeeping Operations Course</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="radio" name="hospitalityTrack" value="front-office-operations">
+                                        <span data-translate="front_office_operations">Managing Front Office Operations Course</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="radio" name="hospitalityTrack" value="facilities-management">
+                                        <span data-translate="facilities_management">Hospitality Facilities Management and Design Course</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="radio" name="hospitalityTrack" value="accounting-hospitality">
+                                        <span data-translate="accounting_hospitality">Accounting for Hospitality Managers Course</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="radio" name="hospitalityTrack" value="not-applicable-hospitality">
+                                        <span data-translate="not_applicable">Not applicable to my business</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label data-translate="tourism_track">Category 2: For Tourism Entrepreneurs (Tour Operators and Travel Agencies) - Choose one that is relevant to your business</label>
+                                <div class="checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input type="radio" name="tourismTrack" value="destination-management">
+                                        <span data-translate="destination_management">Fundamentals of Destination Management & Marketing Course</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="radio" name="tourismTrack" value="world-resorts">
+                                        <span data-translate="world_resorts">The World of Resorts Course</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="radio" name="tourismTrack" value="service-food-beverage">
+                                        <span data-translate="service_food_beverage">Managing Service in Food and Beverage Operations Course</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="radio" name="tourismTrack" value="convention-management">
+                                        <span data-translate="convention_management">Convention Management and Service Course</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="radio" name="tourismTrack" value="club-accounting">
+                                        <span data-translate="club_accounting">Accounting for Club Operations Course</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="radio" name="tourismTrack" value="not-applicable-tourism">
+                                        <span data-translate="not_applicable">Not applicable to my business</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="businessChallenges" data-translate="business_challenges">What challenges are you currently facing in your business that training from Vatel Rwanda could help address?</label>
+                                <span class="required"> *</span>
+                                <textarea id="businessChallenges" name="businessChallenges" rows="3" placeholder="Describe your current business challenges..." required></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="enrollmentLikelihood" data-translate="enrollment_likelihood">How likely are you to enroll yourself or your 1 staff member in a training course offered by Vatel?</label>
+                                <span class="required"> *</span>
+                                <textarea id="enrollmentLikelihood" name="enrollmentLikelihood" rows="2" placeholder="Please describe your likelihood and any considerations..." required></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="additionalSupport" data-translate="additional_support">What additional support would you like to receive from BPN to strengthen your business in the tourism and hospitality sector?</label>
+                                <span class="required"> *</span>
+                                <textarea id="additionalSupport" name="additionalSupport" rows="3" placeholder="Describe the additional support you would like..." required></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Section 5: Webinar Experience -->
+                        <div class="survey-section" id="section5">
+                            <div class="section-header">
+                                <i class="fas fa-video"></i>
+                                <h2 data-translate="webinar_experience">Webinar Experience</h2>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label data-translate="attended_session">Did you attend the AHLEI info session?</label>
+                                <span class="required"> *</span>
+                                <div class="checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input type="radio" name="attendedSession" value="yes" required>
+                                        <span data-translate="yes">Yes</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="radio" name="attendedSession" value="no" required>
+                                        <span data-translate="no">No</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label data-translate="reviewed_details">Have you had the chance to review the course details shared during/after the webinar?</label>
+                                <span class="required"> *</span>
+                                <div class="checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input type="radio" name="reviewedDetails" value="yes" required>
+                                        <span data-translate="yes">Yes</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="radio" name="reviewedDetails" value="no" required>
+                                        <span data-translate="no">No</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="radio" name="reviewedDetails" value="not-yet" required>
+                                        <span data-translate="not_yet">Not yet, but I plan to</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label data-translate="unaddressed_concerns">Were there any concerns you had about the program that were not addressed during the webinar?</label>
+                                <span class="required"> *</span>
+                                <div class="checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input type="radio" name="unaddressedConcerns" value="yes" required>
+                                        <span data-translate="yes_specify">Yes (please specify below)</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="radio" name="unaddressedConcerns" value="no" required>
+                                        <span data-translate="no">No</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="additionalQuestions" data-translate="additional_questions">Do you have any additional questions or clarifications you would like us to address?</label>
+                                <textarea id="additionalQuestions" name="additionalQuestions" rows="3" placeholder="Please share any questions or clarifications..."></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="enrollmentMotivation" data-translate="enrollment_motivation">What motivated you (or would motivate you) to enroll in the AHLEI program?</label>
+                                <span class="required"> *</span>
+                                <textarea id="enrollmentMotivation" name="enrollmentMotivation" rows="3" placeholder="Describe your motivation..." required></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="enrollmentChallenges" data-translate="enrollment_challenges">Do you foresee any challenges that may prevent you from enrolling (e.g., cost, time, scheduling)?</label>
+                                <span class="required"> *</span>
+                                <textarea id="enrollmentChallenges" name="enrollmentChallenges" rows="3" placeholder="Describe any potential challenges..." required></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="additionalFeedback" data-translate="additional_feedback">Any additional feedback or suggestions?</label>
+                                <textarea id="additionalFeedback" name="additionalFeedback" rows="3" placeholder="Please share any additional feedback..."></textarea>
                             </div>
                         </div>
 
