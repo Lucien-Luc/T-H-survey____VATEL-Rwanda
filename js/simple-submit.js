@@ -13,7 +13,7 @@ class SimpleFormSubmit {
             en: {
                 'page_title': 'Tourism & Hospitality Support Survey - VATEL Rwanda',
                 'intro_title': 'Tourism & Hospitality Support Survey',
-                'intro_subtitle': 'In partnership with the Mastercard Foundation, we are collaborating with VATEL RWANDA to provide sector-specific support tailored to your needs.',
+                'intro_subtitle': 'In partnership with the Mastercard Foundation, we are collaborating with VATEL RWANDA to provide sector-specific support tailored to your needs. Complete this survey to help us understand your training needs.',
                 'got_it': 'Got it',
                 'survey_title': 'Tourism & Hospitality Support Survey',
                 'survey_description': 'In partnership with the Mastercard Foundation, we are collaborating with VATEL RWANDA to provide sector-specific support. Please complete this survey to help us understand your needs.',
@@ -98,7 +98,7 @@ class SimpleFormSubmit {
             rw: {
                 'page_title': 'Isuzuma ry\'Ubufasha mu Bukerarugendo n\'Ubunyangamugayo - VATEL Rwanda',
                 'intro_title': 'Isuzuma ry\'Ubufasha mu Bukerarugendo n\'Ubunyangamugayo',
-                'intro_subtitle': 'Mu gufatanya na Ishinga rya Mastercard, turafatanya na VATEL RWANDA gutanga ubufasha bwihariye bukwiye.',
+                'intro_subtitle': 'Mu gufatanya na Ishinga rya Mastercard, turafatanya na VATEL RWANDA gutanga ubufasha bwihariye bukwiye. Uzuza iki gisuzuma kugira dumenye ibikenewe byawe by\'amahugurwa.',
                 'got_it': 'Byumvise',
                 'survey_title': 'Isuzuma ry\'Ubufasha mu Bukerarugendo n\'Ubunyangamugayo',
                 'survey_description': 'Mu gufatanya na Ishinga rya Mastercard, turafatanya na VATEL RWANDA gutanga ubufasha bwihariye. Uzuza iki gisuzuma kugira dumenye ibyo ukeneye.',
