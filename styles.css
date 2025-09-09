@@ -723,6 +723,23 @@ body.admin-mode #adminView.active {
     flex-shrink: 0;
 }
 
+.survey-header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.survey-header-top .logo img {
+    height: 32px;
+    width: auto;
+}
+
+.survey-header-top .language-switcher {
+    display: flex;
+    gap: 0.5rem;
+}
+
 .survey-header::after {
     content: '';
     position: absolute;
