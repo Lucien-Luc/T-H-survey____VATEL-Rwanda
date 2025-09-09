@@ -638,8 +638,21 @@ class SimpleFormSubmit {
                 const parentContainer = radioButtons[0].closest('.checkbox-group');
                 
                 radioButtons.forEach(radio => {
-                    radio.addEventListener('change', () => {
-                        if (radio.checked) {
+                    // Store the previous state to detect if clicking on already selected
+                    let wasChecked = false;
+                    
+                    radio.addEventListener('mousedown', () => {
+                        wasChecked = radio.checked;
+                    });
+                    
+                    radio.addEventListener('click', (e) => {
+                        // If clicking on already selected radio button, unselect it
+                        if (wasChecked) {
+                            radio.checked = false;
+                            this.handleRadioDeselection(groupName, parentContainer);
+                            e.preventDefault();
+                        } else {
+                            // Normal selection behavior
                             this.handleRadioSelection(groupName, parentContainer);
                         }
                     });
@@ -670,6 +683,19 @@ class SimpleFormSubmit {
                 selectedLabel.classList.add('selected');
             }
         }
+    }
+    
+    handleRadioDeselection(groupName, container) {
+        if (!container) return;
+        
+        // Remove selection class from container to remove blur effect
+        container.classList.remove('has-selection');
+        
+        // Remove selected class from all labels
+        const allLabels = container.querySelectorAll('.checkbox-label');
+        allLabels.forEach(label => {
+            label.classList.remove('selected');
+        });
     }
 
     async showAdminAccess() {
