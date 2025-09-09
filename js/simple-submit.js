@@ -228,6 +228,9 @@ class SimpleFormSubmit {
         // Load draft if available
         this.loadDraft();
         
+        // Set up radio button selection effects
+        this.setupRadioButtonEffects();
+        
         console.log('SimpleFormSubmit: Setup complete - button is ready');
     }
 
@@ -624,7 +627,50 @@ class SimpleFormSubmit {
         console.log(`Admin access setup complete - long press any BPN logo (${logos.length} logos found)`);
     }
     
-
+    setupRadioButtonEffects() {
+        // Find all radio button groups that should have the selection effect
+        const radioGroups = ['generalCourse', 'hospitalityTrack', 'tourismTrack'];
+        
+        radioGroups.forEach(groupName => {
+            const radioButtons = document.querySelectorAll(`input[name="${groupName}"]`);
+            
+            if (radioButtons.length > 0) {
+                const parentContainer = radioButtons[0].closest('.checkbox-group');
+                
+                radioButtons.forEach(radio => {
+                    radio.addEventListener('change', () => {
+                        if (radio.checked) {
+                            this.handleRadioSelection(groupName, parentContainer);
+                        }
+                    });
+                });
+            }
+        });
+    }
+    
+    handleRadioSelection(groupName, container) {
+        if (!container) return;
+        
+        // Add selection class to container
+        container.classList.add('has-selection');
+        
+        // Find all labels in this group
+        const allLabels = container.querySelectorAll('.checkbox-label');
+        
+        // Remove selected class from all labels first
+        allLabels.forEach(label => {
+            label.classList.remove('selected');
+        });
+        
+        // Find the checked radio button and mark its label as selected
+        const checkedRadio = container.querySelector(`input[name="${groupName}"]:checked`);
+        if (checkedRadio) {
+            const selectedLabel = checkedRadio.closest('.checkbox-label');
+            if (selectedLabel) {
+                selectedLabel.classList.add('selected');
+            }
+        }
+    }
 
     async showAdminAccess() {
         // Check if admin is already logged in (persistent session)

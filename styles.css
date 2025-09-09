@@ -878,6 +878,27 @@ textarea.form-control {
     gap: 0.75rem;
 }
 
+/* Radio Group with Selection Focus Effect */
+.checkbox-group.has-selection .checkbox-label:not(.selected) {
+    opacity: 0.4;
+    filter: blur(1px);
+    transform: scale(0.98);
+    pointer-events: none;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.checkbox-group.has-selection .checkbox-label.selected {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1.02);
+    background: rgba(45, 212, 191, 0.15);
+    border-color: rgba(45, 212, 191, 0.5);
+    box-shadow: 
+        0 6px 20px 0 rgba(45, 212, 191, 0.2),
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.4);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .radio-option,
 .checkbox-option {
     display: flex;
