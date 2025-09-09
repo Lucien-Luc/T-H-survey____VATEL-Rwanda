@@ -156,17 +156,19 @@
                             <div class="progress-bar">
                                 <div class="progress-fill" id="progressFill"></div>
                             </div>
-                            <span class="progress-text" id="progressText">Section 1 of 5</span>
+                            <span class="progress-text" id="progressText">Section A of 2</span>
                         </div>
                     </div>
                     
                     <form class="entrepreneur-survey-form" id="entrepreneurSurveyForm" style="display: flex; flex-direction: column; flex: 1;">
-                        <!-- Section 1: Participant Information -->
-                        <div class="survey-section active" id="section1">
+                        <!-- Section A: Participant Information -->
+                        <div class="survey-section active" id="sectionA">
                             <div class="section-header">
                                 <i class="fas fa-user-circle"></i>
-                                <h2 data-translate="participant_info">Participant Information</h2>
+                                <h2 data-translate="participant_info">Section A: Participant Information</h2>
                             </div>
+                            
+                            <!-- Basic Information -->
                             <div class="form-group">
                                 <label for="fullName" data-translate="full_name">Full Name</label>
                                 <span class="required"> *</span>
@@ -182,15 +184,8 @@
                                 <span class="required"> *</span>
                                 <input type="text" id="organizationName" name="organizationName" required>
                             </div>
-                        </div>
-
-                        <!-- Section 2: Business Operations -->
-                        <div class="survey-section" id="section2">
-                            <div class="section-header">
-                                <i class="fas fa-building"></i>
-                                <h2 data-translate="business_operations">Business Operations</h2>
-                            </div>
                             
+                            <!-- Business Operations -->
                             <div class="form-group">
                                 <label data-translate="tourism_areas">Which areas of the tourism and hospitality sector does your business operate in? (Select all that apply)</label>
                                 <span class="required"> *</span>
@@ -226,17 +221,10 @@
                                     </label>
                                 </div>
                             </div>
-                        </div>
-
-                        <!-- Section 3: Vatel Course Preferences -->
-                        <div class="survey-section" id="section3">
-                            <div class="section-header">
-                                <i class="fas fa-graduation-cap"></i>
-                                <h2 data-translate="course_preferences">Vatel Course Preferences</h2>
-                            </div>
                             
+                            <!-- General Courses -->
                             <div class="form-group">
-                                <label data-translate="general_courses">Which of these general foundational courses from Vatel Rwanda would be most beneficial for your business? (Select only one that is most relevant)</label>
+                                <label data-translate="general_courses">Regardless of your background or business focus, which of these general foundational courses from Vatel Rwanda would be most beneficial for your business? (Select only one that is most relevant)</label>
                                 <span class="required"> *</span>
                                 <div class="checkbox-group">
                                     <label class="checkbox-label">
@@ -277,17 +265,15 @@
                                     </label>
                                 </div>
                             </div>
-                        </div>
-
-                        <!-- Section 4: Specialized Courses & Training Needs -->
-                        <div class="survey-section" id="section4">
-                            <div class="section-header">
-                                <i class="fas fa-certificate"></i>
-                                <h2 data-translate="specialized_courses">Specialized Courses & Training Needs</h2>
+                            
+                            <!-- Specialized Courses -->
+                            <div class="form-group">
+                                <label data-translate="specialized_question">Which of the following specialised/specific tourism courses would benefit your business? (Choose one from each category that is relevant to your business)</label>
                             </div>
                             
                             <div class="form-group">
-                                <label data-translate="hospitality_track">Category 1: For Hospitality Entrepreneurs (Hotels, Restaurants, Cafes, and Bakeries) - Choose one that is relevant to your business</label>
+                                <label data-translate="hospitality_track">Category 1: For Hospitality Entrepreneurs (Hotels, Restaurants, Cafes, and Bakeries)</label>
+                                <p style="font-size: 14px; color: #666; margin-bottom: 10px;">This track equips entrepreneurs with skills to enhance operations, improve service quality, and ensure guest satisfaction:</p>
                                 <div class="checkbox-group">
                                     <label class="checkbox-label">
                                         <input type="radio" name="hospitalityTrack" value="food-beverage-operations">
@@ -309,15 +295,12 @@
                                         <input type="radio" name="hospitalityTrack" value="accounting-hospitality">
                                         <span data-translate="accounting_hospitality">Accounting for Hospitality Managers Course</span>
                                     </label>
-                                    <label class="checkbox-label">
-                                        <input type="radio" name="hospitalityTrack" value="not-applicable-hospitality">
-                                        <span data-translate="not_applicable">Not applicable to my business</span>
-                                    </label>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label data-translate="tourism_track">Category 2: For Tourism Entrepreneurs (Tour Operators and Travel Agencies) - Choose one that is relevant to your business</label>
+                                <label data-translate="tourism_track">Category 2: For Tourism Entrepreneurs (Tour Operators and Travel Agencies)</label>
+                                <p style="font-size: 14px; color: #666; margin-bottom: 10px;">This track focuses on destination marketing, customer experience, and effective management of tourism operations:</p>
                                 <div class="checkbox-group">
                                     <label class="checkbox-label">
                                         <input type="radio" name="tourismTrack" value="destination-management">
@@ -338,10 +321,6 @@
                                     <label class="checkbox-label">
                                         <input type="radio" name="tourismTrack" value="club-accounting">
                                         <span data-translate="club_accounting">Accounting for Club Operations Course</span>
-                                    </label>
-                                    <label class="checkbox-label">
-                                        <input type="radio" name="tourismTrack" value="not-applicable-tourism">
-                                        <span data-translate="not_applicable">Not applicable to my business</span>
                                     </label>
                                 </div>
                             </div>
