@@ -4572,41 +4572,20 @@ class SimpleFormSubmit {
     }
 
     setupConditionalLogic() {
-        // Show/hide specialized course sections based on business operations
-        const tourismCheckboxes = document.querySelectorAll('input[name="tourismAreas"]');
+        // Always show both specialized course sections to match the Word document
         const hospitalitySection = document.getElementById('hospitalityTrackSection');
         const tourismSection = document.getElementById('tourismTrackSection');
         
-        tourismCheckboxes.forEach(checkbox => {
-            checkbox.addEventListener('change', () => {
-                const selectedValues = Array.from(document.querySelectorAll('input[name="tourismAreas"]:checked'))
-                    .map(cb => cb.value);
-                
-                // Show hospitality track if accommodation or food-beverage is selected
-                const showHospitality = selectedValues.some(val => 
-                    ['accommodation', 'food-beverage'].includes(val)
-                );
-                
-                // Show tourism track if tour-operations, transportation, or attractions is selected
-                const showTourism = selectedValues.some(val => 
-                    ['tour-operations', 'transportation', 'attractions', 'event-management'].includes(val)
-                );
-                
-                if (hospitalitySection) {
-                    hospitalitySection.style.display = showHospitality ? 'block' : 'none';
-                    if (showHospitality) {
-                        hospitalitySection.classList.add('fade-in');
-                    }
-                }
-                
-                if (tourismSection) {
-                    tourismSection.style.display = showTourism ? 'block' : 'none';
-                    if (showTourism) {
-                        tourismSection.classList.add('fade-in');
-                    }
-                }
-            });
-        });
+        // Make both sections always visible
+        if (hospitalitySection) {
+            hospitalitySection.style.display = 'block';
+            hospitalitySection.classList.add('fade-in');
+        }
+        
+        if (tourismSection) {
+            tourismSection.style.display = 'block';
+            tourismSection.classList.add('fade-in');
+        }
 
         // Handle "Other" option text input enabling/disabling
         const otherCheckboxes = document.querySelectorAll('input[value="other"]');
