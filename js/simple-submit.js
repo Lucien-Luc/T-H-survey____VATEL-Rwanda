@@ -1203,8 +1203,8 @@ class SimpleFormSubmit {
                 <!-- Header Section -->
                 <div class="admin-header">
                     <div class="admin-header-left">
-                        <h1><i class="fas fa-shield-alt"></i> Expert Support Matching Dashboard</h1>
-                        <p class="admin-subtitle">Entrepreneur Assessment & Analytics</p>
+                        <h1><i class="fas fa-shield-alt"></i> Tourism & Hospitality Survey Dashboard</h1>
+                        <p class="admin-subtitle">VATEL Rwanda Training Needs Assessment</p>
                     </div>
                     <div class="admin-header-right">
                         <button class="btn btn-warning" onclick="window.simpleFormSubmit.logoutAdmin()">
@@ -1224,43 +1224,43 @@ class SimpleFormSubmit {
                         <div class="stats-section">
                             <div class="section-title">
                                 <i class="fas fa-chart-bar"></i>
-                                <span>Entrepreneur Assessment Overview</span>
+                                <span>Tourism Survey Overview</span>
                             </div>
                             <div class="stats-grid">
                                 <div class="stat-card primary">
                                     <div class="stat-icon">
-                                        <i class="fas fa-building"></i>
+                                        <i class="fas fa-plane"></i>
                                     </div>
                                     <div class="stat-content">
                                         <div class="stat-number" id="totalEntrepreneurs">0</div>
-                                        <div class="stat-label">Entrepreneurs Assessed</div>
+                                        <div class="stat-label">Survey Responses</div>
                                     </div>
                                 </div>
                                 <div class="stat-card success">
                                     <div class="stat-icon">
-                                        <i class="fas fa-users"></i>
+                                        <i class="fas fa-graduation-cap"></i>
                                     </div>
                                     <div class="stat-content">
                                         <div class="stat-number" id="totalChallenges">0</div>
-                                        <div class="stat-label">Business Challenges</div>
+                                        <div class="stat-label">Training Requests</div>
                                     </div>
                                 </div>
                                 <div class="stat-card info">
                                     <div class="stat-icon">
-                                        <i class="fas fa-industry"></i>
+                                        <i class="fas fa-star"></i>
                                     </div>
                                     <div class="stat-content">
                                         <div class="stat-number" id="topChallenge">-</div>
-                                        <div class="stat-label">Top Challenge Area</div>
+                                        <div class="stat-label">Most Popular Course</div>
                                     </div>
                                 </div>
                                 <div class="stat-card warning">
                                     <div class="stat-icon">
-                                        <i class="fas fa-clock"></i>
+                                        <i class="fas fa-video"></i>
                                     </div>
                                     <div class="stat-content">
                                         <div class="stat-number" id="readyCommitted">0</div>
-                                        <div class="stat-label">Ready & Committed</div>
+                                        <div class="stat-label">Webinar Attendees</div>
                                     </div>
                                 </div>
                             </div>
@@ -2270,11 +2270,11 @@ class SimpleFormSubmit {
                 let result = await window.firebaseConfig.getCollection('entrepreneur-surveys');
                 console.log('entrepreneur-surveys result:', result);
                 
-                // If no data found, try alternative collection name
+                // If no data found, try alternative collection name (keep for compatibility)
                 if (!result || !result.success || !result.data || result.data.length === 0) {
-                    console.log('No data in entrepreneur-surveys, trying entrepreneur-assessments...');
-                    result = await window.firebaseConfig.getCollection('entrepreneur-assessments');
-                    console.log('entrepreneur-assessments result:', result);
+                    console.log('No data in entrepreneur-surveys, trying tourism-surveys...');
+                    result = await window.firebaseConfig.getCollection('tourism-surveys');
+                    console.log('tourism-surveys result:', result);
                 }
                 
                 if (result && result.success && result.data && result.data.length > 0) {
@@ -2324,11 +2324,11 @@ class SimpleFormSubmit {
     }
 
     updateAnalytics(responses) {
-        // Calculate meaningful metrics for entrepreneur assessment
-        const totalEntrepreneurs = responses.length;
-        const totalChallenges = this.calculateTotalChallenges(responses);
-        const topChallenge = this.getTopChallenge(responses);
-        const readyCommitted = this.getReadyCommitted(responses);
+        // Calculate meaningful metrics for tourism survey
+        const totalResponses = responses.length;
+        const totalTrainingRequests = this.calculateTrainingRequests(responses);
+        const mostPopularCourse = this.getMostPopularCourse(responses);
+        const webinarAttendees = this.getWebinarAttendees(responses);
         
         // Update display - use correct element IDs
         const totalEntrepreneursEl = document.getElementById('totalEntrepreneurs');
@@ -2336,12 +2336,12 @@ class SimpleFormSubmit {
         const topChallengeEl = document.getElementById('topChallenge');
         const readyCommittedEl = document.getElementById('readyCommitted');
         
-        if (totalEntrepreneursEl) totalEntrepreneursEl.textContent = totalEntrepreneurs;
-        if (totalChallengesEl) totalChallengesEl.textContent = totalChallenges;
-        if (topChallengeEl) topChallengeEl.textContent = topChallenge;
-        if (readyCommittedEl) readyCommittedEl.textContent = readyCommitted;
+        if (totalEntrepreneursEl) totalEntrepreneursEl.textContent = totalResponses;
+        if (totalChallengesEl) totalChallengesEl.textContent = totalTrainingRequests;
+        if (topChallengeEl) topChallengeEl.textContent = mostPopularCourse;
+        if (readyCommittedEl) readyCommittedEl.textContent = webinarAttendees;
         
-        console.log('Analytics updated:', { totalEntrepreneurs, totalChallenges, topChallenge, readyCommitted });
+        console.log('Tourism analytics updated:', { totalResponses, totalTrainingRequests, mostPopularCourse, webinarAttendees });
         
         // Add click handlers for detailed popups
         this.addAnalyticsClickHandlers(responses);
@@ -2588,43 +2588,78 @@ class SimpleFormSubmit {
         setTimeout(() => popup.classList.add('show'), 100);
     }
     
-    calculateTotalChallenges(responses) {
-        // Calculate total business challenges from all entrepreneur responses
-        return responses.reduce((total, response) => {
-            if (response.topChallenges && Array.isArray(response.topChallenges)) {
-                return total + response.topChallenges.length;
-            }
-            // Each entrepreneur has at least one challenge
-            return total + 1;
-        }, 0);
+    calculateTrainingRequests(responses) {
+        // Calculate total training requests from tourism survey responses
+        return responses.filter(response => {
+            return response.enrollmentLikelihood && 
+                   response.enrollmentLikelihood.trim() !== '';
+        }).length;
     }
 
-    getTopChallenge(responses) {
+    getMostPopularCourse(responses) {
         if (responses.length === 0) return '-';
         
-        // Count challenge types
-        const challengeCount = {};
+        // Count course selections
+        const courseCount = {};
         responses.forEach(response => {
-            if (response.topChallenges && Array.isArray(response.topChallenges)) {
-                response.topChallenges.forEach(challenge => {
-                    const cleanChallenge = challenge.replace(/-/g, ' ').replace(/^\w/, c => c.toUpperCase());
-                    challengeCount[cleanChallenge] = (challengeCount[cleanChallenge] || 0) + 1;
-                });
+            // Check general course selection
+            if (response.generalCourse) {
+                const courseName = this.formatCourseName(response.generalCourse);
+                courseCount[courseName] = (courseCount[courseName] || 0) + 1;
+            }
+            
+            // Check hospitality track selections
+            if (response.hospitalityTrack) {
+                const courseName = this.formatCourseName(response.hospitalityTrack);
+                courseCount[courseName] = (courseCount[courseName] || 0) + 1;
+            }
+            
+            // Check tourism track selections
+            if (response.tourismTrack) {
+                const courseName = this.formatCourseName(response.tourismTrack);
+                courseCount[courseName] = (courseCount[courseName] || 0) + 1;
             }
         });
         
-        // Find top challenge
-        const topChallenge = Object.entries(challengeCount)
+        // Find most popular course
+        const topCourse = Object.entries(courseCount)
             .sort(([,a], [,b]) => b - a)[0];
         
-        return topChallenge ? topChallenge[0] : '-';
+        return topCourse ? topCourse[0] : '-';
+    }
+    
+    formatCourseName(courseValue) {
+        // Convert course value to readable name
+        const courseNames = {
+            'hospitality-intro': 'Hospitality Introduction',
+            'lodging-food-service': 'Lodging & Food Service',
+            'quality-sanitation': 'Quality Sanitation',
+            'food-safety': 'Food Safety',
+            'marketing-hospitality': 'Marketing in Hospitality',
+            'revenue-management': 'Revenue Management',
+            'supervision-hospitality': 'Supervision in Hospitality',
+            'hospitality-law': 'Hospitality Law',
+            'leadership-management': 'Leadership & Management',
+            'food-beverage-operations': 'Food & Beverage Operations',
+            'housekeeping-operations': 'Housekeeping Operations',
+            'front-office-operations': 'Front Office Operations',
+            'facilities-management': 'Facilities Management',
+            'accounting-hospitality': 'Hospitality Accounting',
+            'destination-management': 'Destination Management',
+            'world-resorts': 'World of Resorts',
+            'service-food-beverage': 'Service Food & Beverage',
+            'convention-management': 'Convention Management',
+            'club-accounting': 'Club Accounting'
+        };
+        
+        return courseNames[courseValue] || courseValue.replace(/-/g, ' ').replace(/^\w/, c => c.toUpperCase());
     }
 
-    getReadyCommitted(responses) {
-        // Count entrepreneurs who are ready and committed to expert support
+    getWebinarAttendees(responses) {
+        // Count people who attended the AHLEI webinar
         return responses.filter(response => {
-            const commitment = response.readyToParticipate || '';
-            return commitment === 'yes-ready-committed';
+            const attended = response.attendedSession || '';
+            return attended === 'yes';
         }).length;
     }
 
