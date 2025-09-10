@@ -2662,6 +2662,36 @@ class SimpleFormSubmit {
             return attended === 'yes';
         }).length;
     }
+    
+    getTourismCourseSummary(response) {
+        // Get a summary of selected courses
+        const courses = [];
+        if (response.generalCourse) courses.push(this.formatCourseName(response.generalCourse));
+        if (response.hospitalityTrack) courses.push(this.formatCourseName(response.hospitalityTrack));
+        if (response.tourismTrack) courses.push(this.formatCourseName(response.tourismTrack));
+        
+        if (courses.length === 0) return 'No courses selected';
+        if (courses.length === 1) return courses[0];
+        return `${courses.length} courses selected`;
+    }
+    
+    getEnrollmentInterest(response) {
+        // Get enrollment likelihood/interest level
+        const likelihood = response.enrollmentLikelihood || '';
+        if (likelihood.includes('very-likely')) return 'Very Likely';
+        if (likelihood.includes('likely')) return 'Likely';
+        if (likelihood.includes('maybe')) return 'Maybe';
+        if (likelihood.includes('unlikely')) return 'Unlikely';
+        return 'Not specified';
+    }
+    
+    getTourismAreasDisplay(response) {
+        // Display tourism areas
+        if (!response.tourismAreas || !Array.isArray(response.tourismAreas)) return 'Not specified';
+        if (response.tourismAreas.length === 0) return 'Not specified';
+        if (response.tourismAreas.length <= 2) return response.tourismAreas.join(', ');
+        return `${response.tourismAreas.length} areas`;
+    }
 
     getTodayResponseCount(responses) {
         const today = new Date().toDateString();
@@ -3033,7 +3063,7 @@ class SimpleFormSubmit {
                 <div class="response-header">
                     <div class="response-company">
                         <i class="fas fa-user-tie"></i>
-                        <strong>${response.entrepreneurName || 'Unknown Entrepreneur'}</strong>
+                        <strong>${response.fullName || 'Unknown Participant'}</strong>
                     </div>
                     <div class="response-time">
                         <i class="fas fa-clock"></i>
@@ -3043,15 +3073,15 @@ class SimpleFormSubmit {
                 <div class="response-details">
                     <div class="response-detail">
                         <i class="fas fa-building"></i>
-                        <span>${response.companyName || 'Not specified'}</span>
+                        <span>${response.organizationName || 'Not specified'}</span>
                     </div>
                     <div class="response-detail">
-                        <i class="fas fa-chart-line"></i>
-                        <span>${this.getChallengeSummary(response)}</span>
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>${this.getTourismCourseSummary(response)}</span>
                     </div>
                     <div class="response-detail">
-                        <i class="fas fa-handshake"></i>
-                        <span>${this.getCommitmentLevel(response)}</span>
+                        <i class="fas fa-star"></i>
+                        <span>${this.getEnrollmentInterest(response)}</span>
                     </div>
                 </div>
                 <div class="response-actions">
@@ -3700,36 +3730,36 @@ class SimpleFormSubmit {
         popup.innerHTML = `
             <div class="notification-popup response-detail-popup">
                 <div class="notification-header">
-                    <h2>Entrepreneur Assessment - ${response.entrepreneurName || response.companyName || 'Unknown Entrepreneur'}</h2>
+                    <h2>Tourism Survey - ${response.fullName || response.organizationName || 'Unknown Participant'}</h2>
                     <button onclick="this.closest('.notification-overlay').remove()" class="close-btn">×</button>
                 </div>
                 <div class="response-detail-content">
-                    <!-- Personal & Business Information Section -->
+                    <!-- Personal & Organization Information Section -->
                     <div class="entrepreneur-info-section">
-                        <h3><i class="fas fa-user-circle"></i> Personal & Business Information</h3>
+                        <h3><i class="fas fa-user-circle"></i> Personal & Organization Information</h3>
                         <div class="detail-grid">
                             <div class="detail-item">
-                                <label>Entrepreneur Name:</label>
-                                <span>${response.entrepreneurName || 'Not provided'}</span>
+                                <label>Full Name:</label>
+                                <span>${response.fullName || 'Not provided'}</span>
                             </div>
                             <div class="detail-item">
-                                <label>Company Name:</label>
-                                <span>${response.companyName || 'Not provided'}</span>
+                                <label>Organization:</label>
+                                <span>${response.organizationName || 'Not provided'}</span>
                             </div>
                             <div class="detail-item">
-                                <label>Assessment Date:</label>
+                                <label>Position/Title:</label>
+                                <span>${response.title || 'Not provided'}</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>Survey Date:</label>
                                 <span>${Utils.formatDate(response.createdAt || response.timestamp, 'datetime')}</span>
-                            </div>
-                            <div class="detail-item">
-                                <label>Device Used:</label>
-                                <span>${response.deviceInfo?.device || 'Not specified'}</span>
                             </div>
                         </div>
                     </div>
                     
-                    <!-- Business Challenges Section -->
+                    <!-- Tourism Survey Details Section -->
                     <div class="challenges-info-section">
-                        ${this.generateEntrepreneurDetailsHtml(response)}
+                        ${this.generateTourismDetailsHtml(response)}
                     </div>
                 </div>
             </div>
@@ -3758,17 +3788,17 @@ class SimpleFormSubmit {
                 <div class="responses-list-content">
                     <div class="responses-table">
                         <div class="table-header">
-                            <div class="table-cell">Company</div>
-                            <div class="table-cell">Industry</div>
-                            <div class="table-cell">Job Title</div>
+                            <div class="table-cell">Organization</div>
+                            <div class="table-cell">Tourism Areas</div>
+                            <div class="table-cell">Position</div>
                             <div class="table-cell">Submitted</div>
                             <div class="table-cell">Actions</div>
                         </div>
                         ${responses.map((response, index) => `
                             <div class="table-row">
-                                <div class="table-cell">${response.companyName || 'Unknown'}</div>
-                                <div class="table-cell">${response.industry || 'Not specified'}</div>
-                                <div class="table-cell">${response.jobTitle || 'Not specified'}</div>
+                                <div class="table-cell">${response.organizationName || 'Unknown'}</div>
+                                <div class="table-cell">${this.getTourismAreasDisplay(response)}</div>
+                                <div class="table-cell">${response.title || 'Not specified'}</div>
                                 <div class="table-cell">${this.formatDate(response.timestamp || response.submittedAt)}</div>
                                 <div class="table-cell">
                                     <button class="table-action-btn" onclick="window.simpleFormSubmit.viewSingleResponse(${responses.length - 1 - index})">
@@ -4871,6 +4901,103 @@ class SimpleFormSubmit {
     // Removed processPositionsData - not needed for tourism survey
     
     // Removed collectSinglePositionData - not needed for tourism survey
+    
+    generateTourismDetailsHtml(response) {
+        return `
+            <!-- Course Selection Section -->
+            <div class="course-section">
+                <h3><i class="fas fa-graduation-cap"></i> Course Selections</h3>
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <label>General Course:</label>
+                        <span>${response.generalCourse ? this.formatCourseName(response.generalCourse) : 'Not selected'}</span>
+                    </div>
+                    <div class="detail-item">
+                        <label>Hospitality Track:</label>
+                        <span>${response.hospitalityTrack ? this.formatCourseName(response.hospitalityTrack) : 'Not selected'}</span>
+                    </div>
+                    <div class="detail-item">
+                        <label>Tourism Track:</label>
+                        <span>${response.tourismTrack ? this.formatCourseName(response.tourismTrack) : 'Not selected'}</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tourism Areas Section -->
+            <div class="tourism-areas-section">
+                <h3><i class="fas fa-map-marked-alt"></i> Tourism Business Areas</h3>
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <label>Tourism Areas:</label>
+                        <span>${response.tourismAreas && response.tourismAreas.length > 0 ? response.tourismAreas.join(', ') : 'Not specified'}</span>
+                    </div>
+                    ${response.tourismAreasOther ? `
+                    <div class="detail-item">
+                        <label>Other Tourism Area:</label>
+                        <span>${response.tourismAreasOther}</span>
+                    </div>
+                    ` : ''}
+                </div>
+            </div>
+            
+            <!-- Business Challenges Section -->
+            <div class="challenges-section">
+                <h3><i class="fas fa-exclamation-triangle"></i> Business Challenges</h3>
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <label>Business Challenges:</label>
+                        <span>${response.businessChallenges || 'Not provided'}</span>
+                    </div>
+                    <div class="detail-item">
+                        <label>Enrollment Challenges:</label>
+                        <span>${response.enrollmentChallenges || 'Not provided'}</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Training Interest Section -->
+            <div class="training-section">
+                <h3><i class="fas fa-star"></i> Training Interest</h3>
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <label>Enrollment Likelihood:</label>
+                        <span>${this.getEnrollmentInterest(response)}</span>
+                    </div>
+                    <div class="detail-item">
+                        <label>Enrollment Motivation:</label>
+                        <span>${response.enrollmentMotivation || 'Not provided'}</span>
+                    </div>
+                    <div class="detail-item">
+                        <label>Attended AHLEI Session:</label>
+                        <span>${response.attendedSession === 'yes' ? 'Yes' : response.attendedSession === 'no' ? 'No' : 'Not specified'}</span>
+                    </div>
+                    <div class="detail-item">
+                        <label>Unaddressed Concerns:</label>
+                        <span>${response.unaddressedConcerns === 'yes' ? 'Yes' : response.unaddressedConcerns === 'no' ? 'No' : 'Not specified'}</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Additional Support Section -->
+            <div class="support-section">
+                <h3><i class="fas fa-hands-helping"></i> Additional Information</h3>
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <label>Additional Support Needed:</label>
+                        <span>${response.additionalSupport || 'Not provided'}</span>
+                    </div>
+                    <div class="detail-item">
+                        <label>Additional Questions:</label>
+                        <span>${response.additionalQuestions || 'Not provided'}</span>
+                    </div>
+                    <div class="detail-item">
+                        <label>Additional Feedback:</label>
+                        <span>${response.additionalFeedback || 'Not provided'}</span>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
 
     saveToLocalStorage(data) {
         try {
