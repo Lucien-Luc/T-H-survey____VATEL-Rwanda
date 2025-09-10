@@ -4859,79 +4859,18 @@ class SimpleFormSubmit {
             }
         });
         
-        // Ensure checkbox groups are properly initialized as arrays
-        // This fixes the issue where unchecked checkboxes weren't being captured
-        const checkboxNames = ['behavioralSkills', 'benefits'];
+        // Ensure tourism survey checkbox groups are properly initialized as arrays
+        const checkboxNames = ['tourismAreas'];
         checkboxNames.forEach(name => {
             if (!data[name]) data[name] = [];
         });
         
-        // Handle dynamic positions data
-        this.processPositionsData(data);
-        
         return data;
     }
     
-    processPositionsData(data) {
-        // Check if we have multiple positions mode
-        if (this.currentPositionMode === 'multiple') {
-            const positionsGrid = document.getElementById('positionsGrid');
-            if (positionsGrid) {
-                const positionCards = positionsGrid.querySelectorAll('.position-card');
-                data.positions = [];
-                
-                positionCards.forEach((card, index) => {
-                    const positionNumber = index + 1;
-                    const positionData = this.getPositionData(positionNumber);
-                    
-                    if (positionData.jobTitle) { // Only add if position has a job title
-                        data.positions.push({
-                            positionNumber: positionNumber,
-                            ...positionData
-                        });
-                    }
-                });
-                
-                // Calculate total positions
-                data.totalPositions = data.positions.length;
-            }
-        } else {
-            // Single position mode - collect position data from regular form fields
-            const singlePositionData = this.collectSinglePositionData(data);
-            if (singlePositionData.jobTitle) {
-                data.positions = [singlePositionData];
-                data.totalPositions = 1;
-            }
-        }
-    }
+    // Removed processPositionsData - not needed for tourism survey
     
-    collectSinglePositionData(data) {
-        // Map single position fields to position structure with comprehensive field coverage
-        return {
-            positionNumber: 1,
-            jobTitle: data.jobTitle || 'Not specified',
-            workType: data.workType || 'Not specified',
-            workMode: data.workMode || 'Not specified',
-            startDate: data.startDate || 'Not specified',
-            contractType: data.contractType || 'Not specified',
-            jobSummary: data.jobSummary || 'Not provided',
-            keyResponsibilities: data.keyResponsibilities || 'Not provided',
-            experienceLevel: data.experienceLevel || 'Not specified',
-            educationLevel: data.educationLevel || 'Not specified',
-            technicalSkills: data.technicalSkills || 'Not specified',
-            behavioralSkills: data.behavioralSkills || [],
-            otherBehavioralSkills: data.otherBehavioralSkills || 'Not specified',
-            workEnvironment: data.workEnvironment || 'Not specified',
-            idealAge: data.idealAge || 'Not specified',
-            idealGender: data.idealGender || 'Not specified',
-            idealLocation: data.idealLocation || 'Not specified',
-            salaryRange: data.salaryRange || 'Not specified',
-            benefits: data.benefits || [],
-            otherBenefits: data.otherBenefits || 'Not specified',
-            workingHours: data.workingHours || 'Not specified',
-            additionalNotes: data.additionalNotes || 'Not specified'
-        };
-    }
+    // Removed collectSinglePositionData - not needed for tourism survey
 
     saveToLocalStorage(data) {
         try {
