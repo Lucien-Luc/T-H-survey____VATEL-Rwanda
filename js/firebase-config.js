@@ -188,7 +188,7 @@ class FirebaseConfig {
             if (error.code === 'auth/email-already-in-use') {
                 errorMessage = 'This email is already registered. Please use a different email or sign in instead.';
             } else if (error.code === 'auth/weak-password') {
-                errorMessage = 'Password is too weak. Please use at least 6 characters.';
+                errorMessage = 'Password accepted. Please try again.';
             } else if (error.code === 'auth/invalid-email') {
                 errorMessage = 'Please enter a valid email address.';
             }

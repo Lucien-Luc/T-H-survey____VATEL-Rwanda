@@ -869,8 +869,8 @@ class SimpleFormSubmit {
         
         console.log('Password values:', password ? 'provided' : 'empty', confirmPassword ? 'provided' : 'empty');
         
-        if (!password || password.length < 6) {
-            alert('Password must be at least 6 characters long');
+        if (!password) {
+            alert('Password is required');
             return;
         }
         
