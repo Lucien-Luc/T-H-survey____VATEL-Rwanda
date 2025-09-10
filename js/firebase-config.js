@@ -31,10 +31,10 @@ class FirebaseConfig {
         
         // Fallback values for development
         const fallbacks = {
-            'FIREBASE_API_KEY': 'AIzaSyCc81MMywEEbZU8ryWulEMtETFyuMDL0ik',
-            'FIREBASE_PROJECT_ID': 'random-adf0f',
-            'FIREBASE_APP_ID': '1:494816028659:web:03b96867ef9caaabc8d486',
-            'FIREBASE_MESSAGING_SENDER_ID': '494816028659'
+            'FIREBASE_API_KEY': 'AIzaSyA612HF19I-QjJApSywxETRPg-eTktozJo',
+            'FIREBASE_PROJECT_ID': 't--h---survey---vatel---rwanda',
+            'FIREBASE_APP_ID': '1:383538213635:web:5f82580f0d40be8dc92f36',
+            'FIREBASE_MESSAGING_SENDER_ID': '383538213635'
         };
         
         return fallbacks[name] || fallback;
