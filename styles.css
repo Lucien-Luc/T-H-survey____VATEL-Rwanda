@@ -5289,36 +5289,67 @@ textarea.form-control {
         padding: 0.875rem 1rem;
     }
 }
-/* Small Feedback Reminder Button */
+/* Small Feedback Reminder Button - Enhanced for Attention */
 .feedback-reminder-btn {
     background: linear-gradient(135deg, #ef4444, #dc2626);
     border: none;
     border-radius: 50%;
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     margin-left: 8px;
-    transition: all 0.2s ease;
-    box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
-    animation: gentle-pulse 2s ease-in-out infinite;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 8px rgba(239, 68, 68, 0.4), 0 0 0 0 rgba(239, 68, 68, 0.7);
+    animation: attention-pulse 2s ease-in-out infinite;
+    position: relative;
+    z-index: 10;
+}
+
+.feedback-reminder-btn::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    border-radius: 50%;
+    z-index: -1;
+    opacity: 0;
+    animation: ring-glow 2.5s ease-in-out infinite;
+}
+
+.feedback-reminder-btn::after {
+    content: 'ℹ️';
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    font-size: 8px;
+    animation: bounce-hint 1.5s ease-in-out infinite;
 }
 
 .feedback-reminder-btn:hover {
-    transform: scale(1.1);
-    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+    transform: scale(1.15) rotate(5deg);
+    box-shadow: 0 4px 16px rgba(239, 68, 68, 0.6), 0 0 0 4px rgba(239, 68, 68, 0.2);
+    animation: none;
+}
+
+.feedback-reminder-btn:hover::before {
+    opacity: 1;
     animation: none;
 }
 
 .feedback-reminder-btn:active {
-    transform: scale(0.95);
+    transform: scale(1.05) rotate(0deg);
 }
 
 .feedback-reminder-btn i {
     color: white;
-    font-size: 12px;
+    font-size: 14px;
+    animation: icon-wiggle 3s ease-in-out infinite;
 }
 
 /* Vatel Feedback Modal */
@@ -5503,10 +5534,50 @@ textarea.form-control {
     margin-right: 0.5rem;
 }
 
-/* Animations */
-@keyframes gentle-pulse {
-    0%, 100% { box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3); }
-    50% { box-shadow: 0 2px 8px rgba(239, 68, 68, 0.5); }
+/* Professional Attention-Grabbing Animations */
+@keyframes attention-pulse {
+    0%, 100% { 
+        box-shadow: 0 2px 8px rgba(239, 68, 68, 0.4), 0 0 0 0 rgba(239, 68, 68, 0.7);
+        transform: scale(1);
+    }
+    50% { 
+        box-shadow: 0 4px 16px rgba(239, 68, 68, 0.6), 0 0 0 6px rgba(239, 68, 68, 0.3);
+        transform: scale(1.05);
+    }
+}
+
+@keyframes ring-glow {
+    0%, 100% { 
+        opacity: 0; 
+        transform: scale(0.8); 
+    }
+    50% { 
+        opacity: 0.6; 
+        transform: scale(1.2); 
+    }
+}
+
+@keyframes bounce-hint {
+    0%, 100% { 
+        transform: translateY(0) scale(1); 
+        opacity: 0.8;
+    }
+    50% { 
+        transform: translateY(-2px) scale(1.1); 
+        opacity: 1;
+    }
+}
+
+@keyframes icon-wiggle {
+    0%, 90%, 100% { 
+        transform: rotate(0deg); 
+    }
+    92%, 96% { 
+        transform: rotate(-3deg); 
+    }
+    94%, 98% { 
+        transform: rotate(3deg); 
+    }
 }
 
 @keyframes fadeIn {
@@ -5533,12 +5604,18 @@ textarea.form-control {
     }
     
     .feedback-reminder-btn {
-        width: 22px;
-        height: 22px;
+        width: 26px;
+        height: 26px;
         margin-left: 6px;
     }
     
     .feedback-reminder-btn i {
-        font-size: 11px;
+        font-size: 12px;
+    }
+    
+    .feedback-reminder-btn::after {
+        font-size: 7px;
+        top: -6px;
+        right: -6px;
     }
 }
