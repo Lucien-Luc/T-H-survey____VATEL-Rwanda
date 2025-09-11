@@ -2,12 +2,13 @@
 class FirebaseConfig {
     constructor() {
         this.config = {
-            apiKey: this.getEnvVar("FIREBASE_API_KEY"),
-            authDomain: `${this.getEnvVar("FIREBASE_PROJECT_ID")}.firebaseapp.com`,
-            projectId: this.getEnvVar("FIREBASE_PROJECT_ID"),
-            storageBucket: `${this.getEnvVar("FIREBASE_PROJECT_ID")}.firebasestorage.app`,
-            messagingSenderId: this.getEnvVar(
-                "FIREBASE_MESSAGING_SENDER_ID",
+              apiKey: "AIzaSyA612HF19I-QjJApSywxETRPg-eTktozJo",
+              authDomain: "t--h---survey---vatel---rwanda.firebaseapp.com",
+              projectId: "t--h---survey---vatel---rwanda",
+              storageBucket: "t--h---survey---vatel---rwanda.firebasestorage.app",
+              messagingSenderId: "383538213635",
+              appId: "1:383538213635:web:5f82580f0d40be8dc92f36",
+              measurementId: "G-25X7CVYPQ6"
                 "",
             ),
             appId: this.getEnvVar("FIREBASE_APP_ID"),

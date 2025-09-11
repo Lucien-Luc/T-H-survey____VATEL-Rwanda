@@ -5289,84 +5289,36 @@ textarea.form-control {
         padding: 0.875rem 1rem;
     }
 }
-/* Special Feedback CTA Button */
-.special-feedback-cta {
-    margin: 1.5rem 0 2rem;
-    text-align: center;
-    position: relative;
-}
-
-.feedback-spotlight-btn {
-    background: linear-gradient(135deg, #4f46e5, #7c3aed, #ec4899);
+/* Small Feedback Reminder Button */
+.feedback-reminder-btn {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
     border: none;
-    border-radius: 20px;
-    padding: 0;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 8px 32px rgba(79, 70, 229, 0.3);
-    animation: pulse-glow 3s ease-in-out infinite;
+    margin-left: 8px;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
+    animation: gentle-pulse 2s ease-in-out infinite;
 }
 
-.feedback-spotlight-btn:hover {
-    transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 12px 40px rgba(79, 70, 229, 0.4);
+.feedback-reminder-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
     animation: none;
 }
 
-.feedback-spotlight-btn:active {
-    transform: translateY(0) scale(0.98);
+.feedback-reminder-btn:active {
+    transform: scale(0.95);
 }
 
-.feedback-spotlight-btn .btn-content {
-    display: flex;
-    align-items: center;
-    padding: 1rem 2rem;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    position: relative;
-    z-index: 2;
-}
-
-.feedback-spotlight-btn .btn-icon {
-    margin-right: 1rem;
-    font-size: 1.5rem;
-    color: #fbbf24;
-    animation: sparkle 2s ease-in-out infinite;
-}
-
-.feedback-spotlight-btn .btn-text {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    flex: 1;
-    margin-right: 1rem;
-}
-
-.feedback-spotlight-btn .btn-title {
-    font-weight: 700;
-    font-size: 1.1rem;
+.feedback-reminder-btn i {
     color: white;
-    margin-bottom: 0.2rem;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-}
-
-.feedback-spotlight-btn .btn-subtitle {
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.9);
-    font-weight: 500;
-}
-
-.feedback-spotlight-btn .btn-arrow {
-    color: white;
-    font-size: 1.2rem;
-    transition: transform 0.3s ease;
-}
-
-.feedback-spotlight-btn:hover .btn-arrow {
-    transform: translateX(4px);
+    font-size: 12px;
 }
 
 /* Vatel Feedback Modal */
@@ -5552,14 +5504,9 @@ textarea.form-control {
 }
 
 /* Animations */
-@keyframes pulse-glow {
-    0%, 100% { box-shadow: 0 8px 32px rgba(79, 70, 229, 0.3); }
-    50% { box-shadow: 0 8px 32px rgba(79, 70, 229, 0.5); }
-}
-
-@keyframes sparkle {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
+@keyframes gentle-pulse {
+    0%, 100% { box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3); }
+    50% { box-shadow: 0 2px 8px rgba(239, 68, 68, 0.5); }
 }
 
 @keyframes fadeIn {
@@ -5585,15 +5532,13 @@ textarea.form-control {
         max-height: calc(100vh - 2rem);
     }
     
-    .feedback-spotlight-btn .btn-content {
-        padding: 0.875rem 1.5rem;
+    .feedback-reminder-btn {
+        width: 22px;
+        height: 22px;
+        margin-left: 6px;
     }
     
-    .feedback-spotlight-btn .btn-title {
-        font-size: 1rem;
-    }
-    
-    .feedback-spotlight-btn .btn-subtitle {
-        font-size: 0.85rem;
+    .feedback-reminder-btn i {
+        font-size: 11px;
     }
 }
