@@ -5352,6 +5352,66 @@ textarea.form-control {
     animation: icon-wiggle 3s ease-in-out infinite;
 }
 
+/* Floating Exclamation Mark */
+.floating-exclamation {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(251, 191, 36, 0.4);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.floating-exclamation i {
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    animation: none;
+}
+
+/* Animation Classes */
+.floating-exclamation.animate {
+    animation: float-and-collapse 2.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes float-and-collapse {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(10px) scale(0.5);
+    }
+    15% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(-10px) scale(1.2);
+    }
+    25% {
+        transform: translateX(-50%) translateY(-15px) scale(1);
+    }
+    75% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(-15px) scale(1);
+    }
+    85% {
+        transform: translateX(-50%) translateY(-8px) scale(0.8);
+    }
+    95% {
+        opacity: 0.7;
+        transform: translateX(-50%) translateY(0px) scale(0.3);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(5px) scale(0);
+    }
+}
+
 /* Vatel Feedback Modal */
 .vatel-feedback-modal {
     display: none;

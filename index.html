@@ -603,6 +603,9 @@
                                     <span class="step-indicator" data-translate="step_5_of_5">Step 5 of 5</span>
                                     <button type="button" class="feedback-reminder-btn" onclick="openVatelFeedbackModal()" title="🔥 Important! Click for essential session details" aria-label="Important feedback reminder - click to view">
                                         <i class="fas fa-info-circle"></i>
+                                        <div class="floating-exclamation" id="floatingExclamation">
+                                            <i class="fas fa-exclamation"></i>
+                                        </div>
                                     </button>
                                 </div>
                             </div>
@@ -777,9 +780,11 @@
             }
         }
         
-        // Setup modal interactions
+        // Setup modal interactions and floating exclamation
         document.addEventListener('DOMContentLoaded', function() {
             const modal = document.getElementById('vatelFeedbackModal');
+            const floatingExclamation = document.getElementById('floatingExclamation');
+            let exclamationTriggered = false;
             
             // Close modal when clicking outside
             modal.addEventListener('click', function(e) {
@@ -815,6 +820,28 @@
                     }
                 }
             });
+            
+            // Intersection Observer for Webinar Section
+            const webinarSection = document.getElementById('sectionB');
+            if (webinarSection) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting && !exclamationTriggered) {
+                            exclamationTriggered = true;
+                            // Small delay to make it feel more natural
+                            setTimeout(() => {
+                                if (floatingExclamation) {
+                                    floatingExclamation.classList.add('animate');
+                                }
+                            }, 300);
+                        }
+                    });
+                }, {
+                    threshold: 0.3 // Trigger when 30% of the section is visible
+                });
+                
+                observer.observe(webinarSection);
+            }
         });
     </script>
 </body>
