@@ -767,27 +767,48 @@ class SimpleFormSubmit {
                 if (element.tagName === 'OPTION') {
                     element.textContent = translations[key];
                 } else if (element.tagName === 'LABEL') {
-                    // For labels with icons, only update the text node, not the entire content
-                    const textNodes = Array.from(element.childNodes).filter(node => node.nodeType === Node.TEXT_NODE);
-                    if (textNodes.length > 0) {
-                        textNodes[textNodes.length - 1].textContent = translations[key];
-                    } else {
-                        // If no text nodes, append the translation after existing content
-                        element.appendChild(document.createTextNode(translations[key]));
-                    }
+                    // For labels with icons, safely update only text content
+                    this.updateLabelText(element, translations[key]);
                 } else {
                     element.textContent = translations[key];
                 }
             }
         });
         
-        // Update elements with data-translate-title attribute
+        // Update elements with data-translate-title attribute  
         document.querySelectorAll('[data-translate-title]').forEach(element => {
             const key = element.getAttribute('data-translate-title');
             if (translations[key]) {
                 element.setAttribute('title', translations[key]);
             }
         });
+        
+        // Update elements with data-translate-placeholder attribute
+        document.querySelectorAll('[data-translate-placeholder]').forEach(element => {
+            const key = element.getAttribute('data-translate-placeholder');
+            if (translations[key]) {
+                element.setAttribute('placeholder', translations[key]);
+            }
+        });
+    }
+    
+    updateLabelText(labelElement, newText) {
+        // Safely update label text while preserving icons and other elements
+        const textNodes = Array.from(labelElement.childNodes).filter(node => node.nodeType === Node.TEXT_NODE);
+        
+        if (textNodes.length > 0) {
+            // Update the last text node (usually the main text)
+            textNodes[textNodes.length - 1].textContent = ' ' + newText;
+        } else {
+            // Check if there's a span we can update instead
+            const textSpan = labelElement.querySelector('span:not([class])');
+            if (textSpan) {
+                textSpan.textContent = newText;
+            } else {
+                // As last resort, append text after existing content
+                labelElement.appendChild(document.createTextNode(' ' + newText));
+            }
+        }
     }
 
     setupNavigation() {
