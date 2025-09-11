@@ -604,6 +604,24 @@
                                 </div>
                             </div>
                             
+                            <!-- Special Feedback Call-to-Action -->
+                            <div class="special-feedback-cta">
+                                <button type="button" class="feedback-spotlight-btn" onclick="openVatelFeedbackModal()">
+                                    <div class="btn-content">
+                                        <div class="btn-icon">
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <div class="btn-text">
+                                            <span class="btn-title">💡 Got Something to Say?</span>
+                                            <span class="btn-subtitle">Share your thoughts on the Vatel session!</span>
+                                        </div>
+                                        <div class="btn-arrow">
+                                            <i class="fas fa-chevron-right"></i>
+                                        </div>
+                                    </div>
+                                </button>
+                            </div>
+                            
                             <div class="form-group">
                                 <label data-translate="attended_session">Did you attend the AHLEI info session?</label>
                                 <span class="required"> *</span>
@@ -694,6 +712,40 @@
         </div>
     </div>
 
+    <!-- Vatel Feedback Modal -->
+    <div id="vatelFeedbackModal" class="vatel-feedback-modal">
+        <div class="modal-backdrop" onclick="closeVatelFeedbackModal()"></div>
+        <div class="modal-container">
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <i class="fas fa-comments"></i>
+                </div>
+                <h3>Feedback on Vatel Online Information Session & AHLEI Program</h3>
+                <button class="modal-close-btn" onclick="closeVatelFeedbackModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-content">
+                <p class="feedback-intro">
+                    We would appreciate your feedback on the <strong>Vatel Online Information Session</strong> that was held on <strong>Monday, 18th August at 3:00 PM</strong>. 
+                </p>
+                <p class="feedback-clarification">
+                    While the previous section focused on broader training needs, this section aims to gather your insights specifically on the <strong>AHLEI program</strong> presented by Vatel.
+                </p>
+                <div class="feedback-highlight">
+                    <i class="fas fa-lightbulb"></i>
+                    <span>Your honest feedback helps us create better learning experiences!</span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn modal-btn-primary" onclick="closeVatelFeedbackModal()">
+                    <i class="fas fa-check"></i>
+                    Got it, let's proceed!
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Subtle Footer -->
     <footer class="subtle-footer">
         <div class="footer-content">
@@ -705,4 +757,38 @@
     <script src="js/firebase-config.js"></script>
     <script src="js/utils.js"></script>
     <script src="js/simple-submit.js"></script>
+    
+    <script>
+        // Vatel Feedback Modal Functions
+        function openVatelFeedbackModal() {
+            const modal = document.getElementById('vatelFeedbackModal');
+            modal.classList.add('show');
+            // Prevent body scroll when modal is open
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeVatelFeedbackModal() {
+            const modal = document.getElementById('vatelFeedbackModal');
+            modal.classList.remove('show');
+            // Restore body scroll
+            document.body.style.overflow = '';
+        }
+        
+        // Close modal when clicking outside
+        document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.getElementById('vatelFeedbackModal');
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal || e.target.classList.contains('modal-backdrop')) {
+                    closeVatelFeedbackModal();
+                }
+            });
+            
+            // Close modal with Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeVatelFeedbackModal();
+                }
+            });
+        });
+    </script>
 </body>
