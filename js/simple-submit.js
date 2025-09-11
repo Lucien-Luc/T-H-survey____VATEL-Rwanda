@@ -11,23 +11,31 @@ class SimpleFormSubmit {
         this.currentLanguage = 'en';
         this.translations = {
             en: {
+                // Page and intro content
                 'page_title': 'Tourism & Hospitality Support Survey - VATEL Rwanda',
                 'intro_title': 'Tourism & Hospitality Support Survey',
                 'intro_full_text': 'At BPN, we place entrepreneurs at the center of everything we do. In partnership with the Mastercard Foundation, we are collaborating with VATEL RWANDA to provide sector-specific support tailored to your needs.\n\nFollowing the online info-session held on Friday, 22nd August, we would like to better understand your needs that VATEL Rwanda can provide.\n\nWe kindly ask you to take a few minutes to complete this short survey. Kindly consider responding to this survey once you have reviewed the VATEL presentation document shared in our last communication. Your input will help us design support that is most relevant and impactful for your business.',
-                'got_it': 'Got it',
                 'survey_title': 'Tourism & Hospitality Support Survey',
                 'survey_description': 'In partnership with the Mastercard Foundation, we are collaborating with VATEL RWANDA to provide sector-specific support. Please complete this survey to help us understand your needs.',
+
+                // Navigation and actions
+                'next': 'Next',
+                'previous': 'Previous',
+                'got_it': 'Got it',
+                'submit_form': 'SUBMIT SURVEY',
+
+                // Section titles
                 'participant_info': 'Participant Information',
                 'business_operations': 'Business Operations',
                 'course_preferences': 'Vatel Course Preferences',
-                'specialized_courses': 'Specialized Courses & Training Needs',
                 'webinar_experience': 'Webinar Experience',
-                'submit_form': 'SUBMIT SURVEY',
-                'next': 'Next',
-                'previous': 'Previous',
+
+                // Form fields - Personal Information
                 'full_name': 'Full Name',
                 'title': 'Title',
                 'organization_name': 'Organization/Business Name',
+
+                // Business operations
                 'tourism_areas': 'Which areas of the tourism and hospitality sector does your business operate in? (Select all that apply)',
                 'accommodation': 'Accommodation (e.g., hotels, lodges, guesthouses)',
                 'food_beverage': 'Food and Beverage (e.g., restaurants, cafes, catering services)',
@@ -35,6 +43,8 @@ class SimpleFormSubmit {
                 'transportation': 'Transportation Services (e.g., car rentals, shuttles, airport transfers)',
                 'attractions': 'Attractions and Activities (e.g., cultural experiences, adventure tours)',
                 'event_management': 'Event Management and MICE (Meetings, Incentives, Conferences, Exhibitions)',
+
+                // Course options - General
                 'general_courses': 'Which of these general foundational courses from Vatel Rwanda would be most beneficial for your business? (Select only one that is most relevant)',
                 'hospitality_intro': 'Hospitality Today: An Introduction Course',
                 'lodging_food_service': 'The Lodging and Food Service Industry Course',
@@ -45,12 +55,15 @@ class SimpleFormSubmit {
                 'supervision_hospitality': 'Supervision in the Hospitality Industry Course',
                 'hospitality_law': 'Understanding Hospitality Law Course',
                 'leadership_management': 'Leadership and Management in the Hospitality Course',
+
+                // Course options - Specialized tracks
                 'hospitality_track': 'Category 1: For Hospitality Entrepreneurs (Hotels, Restaurants, Cafes, and Bakeries) - Choose one that is relevant to your business',
                 'food_beverage_operations': 'Managing Food and Beverage Operations Course',
                 'housekeeping_operations': 'Managing Housekeeping Operations Course',
                 'front_office_operations': 'Managing Front Office Operations Course',
                 'facilities_management': 'Hospitality Facilities Management and Design Course',
                 'accounting_hospitality': 'Accounting for Hospitality Managers Course',
+
                 'tourism_track': 'Category 2: For Tourism Entrepreneurs (Tour Operators and Travel Agencies) - Choose one that is relevant to your business',
                 'destination_management': 'Fundamentals of Destination Management & Marketing Course',
                 'world_resorts': 'The World of Resorts Course',
@@ -58,28 +71,28 @@ class SimpleFormSubmit {
                 'convention_management': 'Convention Management and Service Course',
                 'club_accounting': 'Accounting for Club Operations Course',
                 'not_applicable': 'Not applicable to my business',
+
+                // Support needs
                 'business_challenges': 'What challenges are you currently facing in your business that training from Vatel Rwanda could help address?',
                 'enrollment_likelihood': 'How likely are you to enroll yourself or your 1 staff member in a training course offered by Vatel?',
                 'additional_support': 'What additional support would you like to receive from BPN to strengthen your business in the tourism and hospitality sector?',
+
+                // Webinar experience
                 'attended_session': 'Did you attend the AHLEI info session?',
                 'reviewed_details': 'Have you had the chance to review the course details shared during/after the webinar?',
                 'unaddressed_concerns': 'Were there any concerns you had about the program that were not addressed during the webinar?',
                 'enrollment_motivation': 'What motivated you (or would motivate you) to enroll in the AHLEI program?',
                 'enrollment_challenges': 'Do you foresee any challenges that may prevent you from enrolling (e.g., cost, time, scheduling)?',
                 'additional_feedback': 'Any additional feedback or suggestions?',
+
+                // Radio/checkbox options
                 'yes': 'Yes',
                 'no': 'No',
                 'not_yet': 'Not yet, but I plan to',
                 'yes_specify': 'Yes (please specify below)',
-                // Notification messages
-                'form_submitted_success': 'Survey submitted successfully!',
-                'form_saved_offline': 'Survey saved. Will submit when online.',
-                'network_error': 'Network error. Survey saved, will retry when online.',
-                'submission_failed': 'Submission failed. Please check your internet connection.',
-                'connecting': 'Connecting...',
-                'retrying': 'Retrying...',
-                'admin_logout_success': 'Logged out successfully - session cleared',
-                // User guide translations
+                'no_concerns': 'No, all my concerns were addressed',
+
+                // User guide
                 'guide_title': 'Welcome! Here\'s how to complete your tourism & hospitality survey',
                 'guide_step1_title': 'Share your participant information',
                 'guide_step1_desc': 'Start by providing your name, title, and organization information. This helps us understand your background in the tourism and hospitality sector.',
@@ -93,31 +106,34 @@ class SimpleFormSubmit {
                 'guide_step5_desc': 'Let us know about your experience with the AHLEI info session and provide feedback to help us improve our support.',
                 'guide_start_using': 'Start Survey',
                 'guide_dont_show': 'Don\'t show this guide again',
-                // Progress step labels
+
+                // Progress indicators
                 'step_personal_info': 'Personal Info',
                 'step_business': 'Business',
-                'step_courses': 'Courses', 
+                'step_courses': 'Courses',
                 'step_support': 'Support',
                 'step_webinar': 'Webinar',
-                // Step indicators
                 'step_1_of_5': 'Step 1 of 5',
                 'step_2_of_5': 'Step 2 of 5',
                 'step_3_of_5': 'Step 3 of 5',
                 'step_4_of_5': 'Step 4 of 5',
                 'step_5_of_5': 'Step 5 of 5',
+
                 // Slider labels
                 'very_unlikely': 'Very Unlikely',
                 'unlikely': 'Unlikely',
                 'neutral': 'Neutral',
                 'likely': 'Likely',
                 'very_likely': 'Very Likely',
+
                 // Section descriptions
                 'personal_info_desc': 'Let\'s start with some basic information about you',
                 'business_ops_desc': 'Tell us about your business focus areas',
                 'course_prefs_desc': 'Let\'s find the perfect courses for your business growth',
                 'support_needs_desc': 'Help us understand how we can best support your business growth',
                 'webinar_exp_desc': 'Tell us about your AHLEI info session experience',
-                // Placeholder translations
+
+                // Placeholders
                 'ph_full_name': 'Enter your full name',
                 'ph_title': 'Your professional title',
                 'ph_org_name': 'Your business or organization name',
@@ -127,125 +143,105 @@ class SimpleFormSubmit {
                 'ph_enrollment_challenges': 'Describe any potential challenges...',
                 'ph_additional_feedback': 'Please share any additional feedback...',
                 'ph_tourism_other': 'Please specify',
-                // Field hints and other UI text
+
+                // Field hints
                 'field_hint_select_all': 'Select all that apply to your business',
                 'field_hint_enrollment': 'How likely are you to enroll yourself or 1 staff member in a Vatel training course?',
                 'field_hint_business_challenges': 'Please describe the current challenges you face in your business',
                 'field_hint_additional_support': 'What additional support would help your business grow?',
-                'title_personal_info': 'Personal Information',
-                'title_business_ops': 'Business Operations', 
-                'title_course_prefs': 'Course Preferences',
-                'title_support_needs': 'Support Needs',
-                'title_webinar_exp': 'Webinar Experience',
-                // User Guide
-                'guide_title': 'Welcome! Here\'s how to complete your tourism & hospitality survey',
-                'guide_step1_title': 'Share your participant information',
-                'guide_step1_desc': 'Start by providing your name, title, and organization information. This helps us understand your background in the tourism and hospitality sector.',
-                'guide_step2_title': 'Tell us about your business operations', 
-                'guide_step2_desc': 'Help us understand which areas of tourism and hospitality your business operates in, from accommodation to tours and events.',
-                'guide_step3_title': 'Choose your preferred Vatel courses',
-                'guide_step3_desc': 'Select the foundational courses from Vatel Rwanda that would be most beneficial for your business development.',
-                'guide_step4_title': 'Explore specialized training options',
-                'guide_step4_desc': 'Review specialized courses for hospitality or tourism entrepreneurs and tell us about your training needs and challenges.',
-                'guide_step5_title': 'Share your webinar experience',
-                'guide_step5_desc': 'Let us know about your experience with the AHLEI info session and provide feedback to help us improve our support.',
-                // Navigation
-                'previous': 'Previous',
-                'next': 'Next',
-                'got_it': 'Got it',
-                'survey_title': 'Tourism & Hospitality Support Survey',
-                // Form fields
-                'full_name': 'Full Name',
-                'organization_name': 'Organization/Business Name',
-                'participant_info': 'Personal Information',
-                'business_operations': 'Business Operations',
-                'course_preferences': 'Course Preferences',
-                'support_needs': 'Support Needs',
-                'webinar_experience': 'Section B: Webinar Experience',
-                'business_challenges': 'Current Business Challenges',
-                'enrollment_likelihood': 'Enrollment Likelihood',
-                'additional_support': 'Additional Support Needed',
-                // Business areas
-                'tourism_areas': 'Which areas of the tourism and hospitality sector does your business operate in?',
-                'accommodation': 'Accommodation (e.g., hotels, lodges, guesthouses)',
-                'food_beverage': 'Food and Beverage (e.g., restaurants, cafés, catering services)',
-                'tour_operations': 'Tour Operations and Travel Agencies',
-                'transportation': 'Transportation Services (e.g., car rentals, shuttles, airport transfers)',
-                'attractions': 'Attractions and Activities (e.g., cultural experiences, adventure tours)',
-                'event_management': 'Event Management and MICE (Meetings, Conferences, Exhibitions)',
-                // Radio/checkbox options
-                'yes': 'Yes',
-                'no': 'No',
-                'not_yet': 'Not yet, but I plan to',
-                'yes_specify': 'Yes (please specify)',
-                'no_concerns': 'No, all my concerns were addressed',
-                // Webinar questions
-                'attended_session': 'Did you attend the AHLEI info session?',
-                'reviewed_details': 'Have you had the chance to review the course details shared during/after the webinar?',
-                'unaddressed_concerns': 'Were there any concerns you had about the program that were not addressed during the webinar?',
-                'enrollment_motivation': 'What motivated you (or would motivate you) to enroll in the AHLEI program?',
-                'enrollment_challenges': 'Do you foresee any challenges that may prevent you from enrolling (e.g., cost, time, scheduling)?',
-                'additional_feedback': 'Any additional feedback or suggestions?',
-                // Placeholders
-                'placeholder_full_name': 'Enter your full name',
-                'placeholder_title': 'Enter your job title',
-                'placeholder_organization': 'Enter your organization or business name',
-                'placeholder_tourism_other': 'Please specify other tourism areas',
-                'placeholder_business_challenges': 'Describe the current challenges you face in your business...',
-                'placeholder_additional_support': 'What additional support would help your business grow?',
-                'placeholder_enrollment_motivation': 'Share what motivates you to consider this program...',
-                'placeholder_enrollment_challenges': 'Describe any potential challenges...',
-                'placeholder_additional_feedback': 'Any additional thoughts or suggestions...'
+
+                // Notification messages
+                'form_submitted_success': 'Survey submitted successfully!',
+                'form_saved_offline': 'Survey saved. Will submit when online.',
+                'network_error': 'Network error. Survey saved, will retry when online.',
+                'submission_failed': 'Submission failed. Please check your internet connection.',
+                'connecting': 'Connecting...',
+                'retrying': 'Retrying...',
+                'admin_logout_success': 'Logged out successfully - session cleared'
             },
             rw: {
+                // Page and intro content
                 'page_title': 'Isuzuma ry\'Ubufasha mu Bukerarugendo n\'Ubunyangamugayo - VATEL Rwanda',
                 'intro_title': 'Isuzuma ry\'Ubufasha mu Bukerarugendo n\'Ubunyangamugayo',
                 'intro_full_text': 'Muri BPN, turashyira abacuruzi mu gacukuru k\'ibintu byose dukora. Mu gufatanya na Ishinga rya Mastercard, turafatanya na VATEL RWANDA gutanga ubufasha bwihariye bukwiye.\n\nNyuma y\'ikiganiro cyo kuri interineti cyabereye ku wa gatanu, 22 Kanama, tubashaka gusobanukirwa neza ibyo mukeneye VATEL Rwanda ishobora kutanga.\n\nTubisabira gufata iminota mike kugira mwuzuze iki gisuzuma gito. Nyamuneka tekereza gukurikiza iki gisuzuma umaze kureba inyandiko ya VATEL twasangiye mu itumanaho rya nyuma. Igitekerezo cyawe kizadufasha gushyiraho ubufasha bukwiye kandi bufite akamaro ku bucuruzi bwawe.',
-                'got_it': 'Byumvise',
                 'survey_title': 'Isuzuma ry\'Ubufasha mu Bukerarugendo n\'Ubunyangamugayo',
                 'survey_description': 'Mu gufatanya na Ishinga rya Mastercard, turafatanya na VATEL RWANDA gutanga ubufasha bwihariye. Uzuza iki gisuzuma kugira dumenye ibyo ukeneye.',
+
+                // Navigation and actions
+                'next': 'Komeza',
+                'previous': 'Subira',
+                'got_it': 'Byumvise',
+                'submit_form': 'OHEREZA ISUZUMA',
+
+                // Section titles
                 'participant_info': 'Amakuru y\'Uwitabiriye',
                 'business_operations': 'Imikorere y\'Ubucuruzi',
                 'course_preferences': 'Amahitamo y\'Amasomo ya Vatel',
-                'specialized_courses': 'Amasomo y\'Ubuzima n\'Ibikenewe by\'Amahugurwa',
                 'webinar_experience': 'Ubunyangamugayo bwa Webinar',
-                'submit_form': 'OHEREZA ISUZUMA',
-                'next': 'Komeza',
-                'previous': 'Subira',
-                'entrepreneur_name': 'Witwa nte?',
-                'company_name': 'Ikigo cyawe cyitwa nte?',
-                'business_growth_limited': 'Wumva iterambere ry\'ubucuruzi bwawe rihagarikwa n\'ubukene bw\'ubumenyi bw\'ikoranabuhanga, sisitemu, cyangwa ubuyobozi bwo hanze?',
-                'yes_often': 'Yego, kenshi',
-                'sometimes': 'Rimwe na rimwe',
-                'no_fully_equipped': 'Oya, ndumva nfite ibintu byose',
-                'decision_making': 'Ni gute ufata ibyemezo mugihe uhura n\'ibibazo bigoye by\'ubucuruzi (urugero, ibibazo by\'umusaruro, imikorere y\'itsinda, iterambere ry\'isoko)?',
-                'trial_error': 'Nkoresha uburyo bwo kugerageza no gukosora',
-                'ask_friends_peers': 'Mbaza incuti/bagenzi bange',
-                'search_online_trainings': 'Nshakisha kuri interineti cyangwa nitabira amahugurwa',
-                'consult_experts_mentors': 'Nganira n\'impuguke/abayobozi',
-                'top_challenges': 'Ni ibihe bibiri bibazo bikomeye by\'ubucuruzi bwawe ushaka cyane ubufasha bw\'impuguke?',
-                'increasing_sales': 'Kwongera kugurisha',
-                'improving_production': 'Gutezimbere inzira z\'umusaruro',
-                'modernizing_business': 'Kuvugurura ubucuruzi bwanjye',
-                'becoming_sustainable': 'Guhinduka birambye',
-                'optimizing_team': 'Gutunganya imiterere y\'itsinda/imikorere',
-                'improving_quality': 'Gutezimbere ubwiza bw\'ibicuruzwa cyangwa serivisi',
-                'challenge_details': 'Nyamuneka tanga birambuye ku bibazo byihariye uhura nabyo mu bucuruzi bwawe ubu.',
-                'expert_support_areas': 'Niba impuguke mpuzamahanga ishobora kugufasha kure no kuri rusura, ni ibihe bice byihariye wagira ubushake bwo kubona inama nkana cyangwa amahugurwa?',
-                'desired_outcomes': 'Niba ushobora kubona ubuyobozi bwuzuye uhereye ku mpuguke mpuzamahanga, ni ibihe bisubizo bifuza kubona mu bucuruzi bwawe mu mezi 6-12 azaza?',
-                'ready_to_participate': 'Waraguteguye gukurikiza ibyifuzo by\'impuguke no kwitabira ibiganiro byo gukurikirana kugira ubone ingaruka z\'igihe kirekire ku bucuruzi bwawe no mu muryango?',
-                'yes_ready_committed': 'Yego, nditeguye kandi ndiyemeje',
-                'maybe_understand_more': 'Ahari, nshaka gusobanukirwa byinshi',
-                'no_not_at_moment': 'Oya, ntabwo mu gihe gino',
-                // Notification messages
-                'form_submitted_success': 'Isuzuma ryoherejwe neza!',
-                'form_saved_offline': 'Isuzuma ryabitswe. Rizohererezwa mugihe ukorana kuri interineti.',
-                'network_error': 'Ikibazo cyo kuragurana. Isuzuma ryabitswe, tuzongera tugerageze.',
-                'submission_failed': 'Kohereza byanze. Suzuma niba ukoresha interineti neza.',
-                'connecting': 'Twiragurana...',
-                'retrying': 'Twongera tugerageza...',
-                'admin_logout_success': 'Byasuye neza - ubwiyunge bwasibwe',
-                // User guide translations
+
+                // Form fields - Personal Information
+                'full_name': 'Amazina Yuzuye',
+                'title': 'Umwanya',
+                'organization_name': 'Izina ry\'Ikigo/Ubucuruzi',
+
+                // Business operations
+                'tourism_areas': 'Ni uwuhe mwanya w\'ubukerarugendo n\'ubunyangamugayo ubucuruzi bwawe bukora? (Hitamo byose bijyanye nawe)',
+                'accommodation': 'Ubwato bwo gutura (urugero: amahōteli, inzu z\'abashyitsi)',
+                'food_beverage': 'Ibiryo n\'Ibinyobwa (urugero: resitora, kafe, serivisi zo gutegura ibiryo)',
+                'tour_operations': 'Ibikorwa by\'Ingendo n\'Ikigo cy\'Ingendo',
+                'transportation': 'Serivisi z\'Ubwikorezi (urugero: gukodesha imodoka, shuttles, ubwikorezi bw\'ikibuga cy\'indege)',
+                'attractions': 'Ahantu Gashimishije n\'Ibikorwa (urugero: ubunyangamugayo, ingendo z\'igisubizo)',
+                'event_management': 'Gucunga Ibirori na MICE (Amahuriro, Inama, Imurikagurisha)',
+
+                // Course options - General
+                'general_courses': 'Ni ayahe masomo y\'ibanze ya Vatel Rwanda ashobora kugufasha cyane mu bucuruzi bwawe? (Hitamo rimwe gusa)',
+                'hospitality_intro': 'Ubunyangamugayo Ubu: Amasomo yo Gutangiza',
+                'lodging_food_service': 'Inganda z\'Ubwato n\'Ibiryoha',
+                'quality_sanitation': 'Gucunga Ubwiyunge bw\'Ubwiza',
+                'food_safety': 'Umutekano w\'Ibiryo: Gucunga hamwe na Sisitemu ya HACCP',
+                'marketing_hospitality': 'Kwamamaza mu Nganda y\'Ubunyangamugayo',
+                'revenue_management': 'Gucunga Amafaranga',
+                'supervision_hospitality': 'Ubuyobozi mu Nganda y\'Ubunyangamugayo',
+                'hospitality_law': 'Gusobanukirwa Amategeko y\'Ubunyangamugayo',
+                'leadership_management': 'Ubuyobozi n\'Ubucuruzi mu Bunyangamugayo',
+
+                // Course options - Specialized tracks
+                'hospitality_track': 'Icyiciro cya 1: Ku bacuruzi b\'Ubunyangamugayo (Amahōteli, Resitora, Kafe, Ubwubatsi) - Hitamo kimwe gijyanye n\'ubucuruzi bwawe',
+                'food_beverage_operations': 'Gucunga Ibikorwa by\'Ibiryo n\'Ibinyobwa',
+                'housekeeping_operations': 'Gucunga Ibikorwa by\'Isuku',
+                'front_office_operations': 'Gucunga Ibikorwa by\'Imbere',
+                'facilities_management': 'Gucunga Ibikoresho by\'Ubunyangamugayo n\'Ishushanya',
+                'accounting_hospitality': 'Imibare ku bayobozi b\'Ubunyangamugayo',
+
+                'tourism_track': 'Icyiciro cya 2: Ku bacuruzi b\'Ubukerarugendo (Abayobozi b\'Ingendo) - Hitamo kimwe gijyanye n\'ubucuruzi bwawe',
+                'destination_management': 'Ibanze by\'Gucunga Aho Bajya n\'Kwamamaza',
+                'world_resorts': 'Isi y\'Amacumba',
+                'service_food_beverage': 'Gucunga Serivisi mu Bikorwa by\'Ibiryo n\'Ibinyobwa',
+                'convention_management': 'Gucunga Inama n\'Serivisi',
+                'club_accounting': 'Imibare y\'Ibikorwa by\'Amatsinda',
+                'not_applicable': 'Ntibijyanye n\'ubucuruzi bwanjye',
+
+                // Support needs
+                'business_challenges': 'Ni ibihe bibazo uhura nabyo mu bucuruzi bwawe amahugurwa ya Vatel Rwanda ashobora gufasha?',
+                'enrollment_likelihood': 'Ni gute wemera kwiyandikisha cyangwa gufasha umukozi umwe muri amahugurwa ya Vatel?',
+                'additional_support': 'Ni ubuhe bufasha bwinyongera ukeneye kuri BPN kugira ugire imbaraga mu bukerarugendo n\'ubunyangamugayo?',
+
+                // Webinar experience
+                'attended_session': 'Waje mu kiganiro cya AHLEI?',
+                'reviewed_details': 'Wahabwe amahirwe yo kureba amakuru y\'amasomo yasangiye mu gihe cyangwa nyuma y\'ikiganiro?',
+                'unaddressed_concerns': 'Hari ibibazo wari ufite ku gahunda bidakemurwa mu kiganiro?',
+                'enrollment_motivation': 'Ni iki cyaguteye (cyangwa cyaguteza) kwiyandikisha muri gahunda ya AHLEI?',
+                'enrollment_challenges': 'Urababona ibibazo bishobora kuguhagarika kwiyandikisha (urugero: igiciro, igihe, gahunda)?',
+                'additional_feedback': 'Hari ibindi bigitekerezo cyangwa ibyifuzo?',
+
+                // Radio/checkbox options
+                'yes': 'Yego',
+                'no': 'Oya',
+                'not_yet': 'Ntabwo nanone, ariko ndateganya kubikora',
+                'yes_specify': 'Yego (nyamuneka sobanura hano hepfo)',
+                'no_concerns': 'Oya, ibibazo byanjye byose byasubijwe',
+
+                // User guide
                 'guide_title': 'Murakaza neza! Dore uburyo bwo gusuzuma ubufasha mu bukerarugendo n\'ubunyangamugayo',
                 'guide_step1_title': 'Sangiza amakuru yawe yo kwitabira',
                 'guide_step1_desc': 'Tangira utanga amazina yawe, umwanya wawe, n\'amakuru y\'ikigo cyawe. Ibi bituma tumenyera amateka yawe mu nganda y\'ubukerarugendo n\'ubunyangamugayo.',
@@ -259,31 +255,34 @@ class SimpleFormSubmit {
                 'guide_step5_desc': 'Tubwire ku bunyangamugayo bwawe mu kiganiro cya AHLEI maze utugire igitekerezo cyo kugira dushobore kuzamura ubufasha bwacu.',
                 'guide_start_using': 'Tangira Isuzuma',
                 'guide_dont_show': 'Ntuyerekane uyu mubonano nanone',
-                // Progress step labels
+
+                // Progress indicators
                 'step_personal_info': 'Amakuru Bwite',
                 'step_business': 'Ubucuruzi',
                 'step_courses': 'Amasomo',
                 'step_support': 'Ubufasha',
                 'step_webinar': 'Webinar',
-                // Step indicators  
                 'step_1_of_5': 'Intambwe ya 1 muri 5',
                 'step_2_of_5': 'Intambwe ya 2 muri 5',
                 'step_3_of_5': 'Intambwe ya 3 muri 5',
                 'step_4_of_5': 'Intambwe ya 4 muri 5',
                 'step_5_of_5': 'Intambwe ya 5 muri 5',
+
                 // Slider labels
                 'very_unlikely': 'Bidashoboka rwose',
                 'unlikely': 'Bidashoboka',
                 'neutral': 'Nta bwo nta bwoba',
                 'likely': 'Bishoboka',
                 'very_likely': 'Bishoboka rwose',
+
                 // Section descriptions
                 'personal_info_desc': 'Reka dutangire n\'amakuru y\'ibanze akuranga',
                 'business_ops_desc': 'Tubwire ibijyanye n\'ubucuruzi bwawe',
                 'course_prefs_desc': 'Reka dushakishe amasomo akwiriye iterambere ry\'ubucuruzi bwawe',
                 'support_needs_desc': 'Dufashe gusobanukirwa uburyo dushobora kugufasha neza mu iterambere ry\'ubucuruzi bwawe',
                 'webinar_exp_desc': 'Tubwire ku bunyangamugayo bwawe mu kiganiro cya AHLEI',
-                // Placeholder translations
+
+                // Placeholders
                 'ph_full_name': 'Andika amazina yawe yuzuye',
                 'ph_title': 'Umwanya wawe mu kazi',
                 'ph_org_name': 'Izina ry\'ikigo cyawe cyangwa ubucuruzi bwawe',
@@ -293,75 +292,21 @@ class SimpleFormSubmit {
                 'ph_enrollment_challenges': 'Sobanura ibibazo bishobora kugukomeretsa...',
                 'ph_additional_feedback': 'Sangiza ibindi bigitekerezo cyangwa ibitekerezo...',
                 'ph_tourism_other': 'Nyamuneka sobanura',
-                // Field hints and other UI text
+
+                // Field hints
                 'field_hint_select_all': 'Hitamo byose bijyanye n\'ubucuruzi bwawe',
                 'field_hint_enrollment': 'Ni gute wemera kwiyandikisha cyangwa kugufasha umukozi umwe muri Vatel?',
                 'field_hint_business_challenges': 'Nyamuneka sobanura ibibazo uguhura nabyo muri ubucuruzi bwawe',
                 'field_hint_additional_support': 'Ni ubuhe bufasha bwinyongera bushobora gufasha ubucuruzi bwawe gukura?',
-                'title_personal_info': 'Amakuru Bwite',
-                'title_business_ops': 'Ubucuruzi',
-                'title_course_prefs': 'Amasomo',
-                'title_support_needs': 'Ubufasha',
-                'title_webinar_exp': 'Webinar',
-                // User Guide  
-                'guide_title': 'Murakaza neza! Dore uburyo bwo kuzuza isuzuma ryawe ry\'ubukerarugendo n\'ubunyangamugayo',
-                'guide_step1_title': 'Sangiza amakuru yawe bwite',
-                'guide_step1_desc': 'Tangira utanga amazina yawe, umwanya, n\'amakuru y\'ikigo cyawe. Ibi bidufasha gusobanukirwa amakuru yawe mu rwego rw\'ubukerarugendo n\'ubunyangamugayo.',
-                'guide_step2_title': 'Tubwire ku bikorwa by\'ubucuruzi bwawe',
-                'guide_step2_desc': 'Dufashe gusobanukirwa igice cy\'ubukerarugendo n\'ubunyangamugayo ubucuruzi bwawe bukora, kuva mu bwato bwo gutura kugeza ku ngendo n\'ibirori.',
-                'guide_step3_title': 'Hitamo amasomo ya Vatel ukunda',
-                'guide_step3_desc': 'Hitamo amasomo y\'ibanze ya Vatel Rwanda ashobora kugufasha cyane mu iterambere ry\'ubucuruzi bwawe.',
-                'guide_step4_title': 'Shakisha amahitamo y\'amahugurwa yihariye',
-                'guide_step4_desc': 'Suzuma amasomo yihariye y\'abacuruzi b\'ubunyangamugayo cyangwa ubukerarugendo maze tubwire ibikenewe byawe by\'amahugurwa n\'ibibazo.',
-                'guide_step5_title': 'Sangiza ubunyangamugayo bwawe bwa webinar',
-                'guide_step5_desc': 'Tubwire ku bunyangamugayo bwawe mu kiganiro cya AHLEI maze utugire igitekerezo cyo kugira dushobore kuzamura ubufasha bwacu.',
-                // Navigation
-                'previous': 'Ibanjirije',
-                'next': 'Ikurikira',
-                'got_it': 'Nabikuye',
-                'survey_title': 'Isuzuma ry\'Ubufasha mu Bukerarugendo n\'Ubunyangamugayo',
-                // Form fields
-                'full_name': 'Amazina Yuzuye',
-                'organization_name': 'Izina ry\'Ikigo/Ubucuruzi',
-                'participant_info': 'Amakuru y\'Uwitabiriye',
-                'business_operations': 'Ibikorwa by\'Ubucuruzi',
-                'course_preferences': 'Amasomo Ukunda',
-                'support_needs': 'Ibikenewe by\'Ubufasha',
-                'webinar_experience': 'Igice cya B: Ubunyangamugayo bwa Webinar',
-                'business_challenges': 'Ibibazo by\'Ubucuruzi Ubu',
-                'enrollment_likelihood': 'Amahirwe yo Kwiyandikisha',
-                'additional_support': 'Ubufasha Bwinyongera Bukenewe',
-                // Business areas
-                'tourism_areas': 'Ni uwuhe mwanya w\'ubukerarugendo n\'ubunyangamugayo ubucuruzi bwawe bukora?',
-                'accommodation': 'Ubwato bwo gutura (urugero: amahōteli, inzu z\'abashyitsi)',
-                'food_beverage': 'Ibiryo n\'Ibinyobwa (urugero: resitora, kafe, serivisi zo gutegura ibiryo)',
-                'tour_operations': 'Ibikorwa by\'Ingendo n\'Ikigo cy\'Ingendo',
-                'transportation': 'Serivisi z\'Ubwikorezi (urugero: gukodesha imodoka, shuttles, ubwikorezi bw\'ikibuga cy\'indege)',
-                'attractions': 'Ahantu Gashimishije n\'Ibikorwa (urugero: ubunyangamugayo, ingendo z\'igisubizo)',
-                'event_management': 'Gucunga Ibirori na MICE (Amahuriro, Amahuriro, Imurikagurisha)',
-                // Radio/checkbox options
-                'yes': 'Yego',
-                'no': 'Oya',
-                'not_yet': 'Ntabwo nanone, ariko ndateganya kubikora',
-                'yes_specify': 'Yego (nyamuneka sobanura)',
-                'no_concerns': 'Oya, ibibazo byanjye byose byasubijwe',
-                // Webinar questions
-                'attended_session': 'Waje mu kiganiro cya AHLEI?',
-                'reviewed_details': 'Wahabwe amahirwe yo kureba amakuru y\'amasomo yasangiye mu gihe cyangwa nyuma y\'ikiganiro?',
-                'unaddressed_concerns': 'Hari ibibazo wari ufite ku gahunda bidakemurwa mu kiganiro?',
-                'enrollment_motivation': 'Ni iki cyaguteye (cyangwa cyaguteza) kwiyandikisha muri gahunda ya AHLEI?',
-                'enrollment_challenges': 'Urababona ibibazo bishobora kuguhagarika kwiyandikisha (urugero: igiciro, igihe, gahunda)?',
-                'additional_feedback': 'Hari ibindi bigitekerezo cyangwa ibishishapantunganye?',
-                // Placeholders
-                'placeholder_full_name': 'Shyiramo amazina yawe yuzuye',
-                'placeholder_title': 'Shyiramo umwanya wawe',
-                'placeholder_organization': 'Shyiramo izina ry\'ikigo cyawe cyangwa ubucuruzi',
-                'placeholder_tourism_other': 'Nyamuneka sobanura ubundi bukerarugendo',
-                'placeholder_business_challenges': 'Sobanura ibibazo uguhura nabyo muri ubucuruzi bwawe...',
-                'placeholder_additional_support': 'Ni ubuhe bufasha bwinyongera bushobora gufasha ubucuruzi bwawe gukura?',
-                'placeholder_enrollment_motivation': 'Sangiza icyo gukurikira gahunda ibi...',
-                'placeholder_enrollment_challenges': 'Sobanura ibibazo bishobora kubaho...',
-                'placeholder_additional_feedback': 'Ibibindi bigitekerezo cyangwa ibishishapantunganye...'
+
+                // Notification messages
+                'form_submitted_success': 'Isuzuma ryoherejwe neza!',
+                'form_saved_offline': 'Isuzuma ryabitswe. Rizohererezwa mugihe ukorana kuri interineti.',
+                'network_error': 'Ikibazo cyo kuragurana. Isuzuma ryabitswe, tuzongera tugerageze.',
+                'submission_failed': 'Kohereza byanze. Suzuma niba ukoresha interineti neza.',
+                'connecting': 'Twiragurana...',
+                'retrying': 'Twongera tugerageza...',
+                'admin_logout_success': 'Byasuye neza - ubwiyunge bwasibwe'
             }
         };
     }
