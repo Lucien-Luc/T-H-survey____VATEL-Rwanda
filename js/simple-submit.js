@@ -64,7 +64,6 @@ class SimpleFormSubmit {
                 'attended_session': 'Did you attend the AHLEI info session?',
                 'reviewed_details': 'Have you had the chance to review the course details shared during/after the webinar?',
                 'unaddressed_concerns': 'Were there any concerns you had about the program that were not addressed during the webinar?',
-                'additional_questions': 'Do you have any additional questions or clarifications you would like us to address?',
                 'enrollment_motivation': 'What motivated you (or would motivate you) to enroll in the AHLEI program?',
                 'enrollment_challenges': 'Do you foresee any challenges that may prevent you from enrolling (e.g., cost, time, scheduling)?',
                 'additional_feedback': 'Any additional feedback or suggestions?',
@@ -230,6 +229,9 @@ class SimpleFormSubmit {
         
         // Set up radio button selection effects
         this.setupRadioButtonEffects();
+        
+        // Set up enrollment likelihood slider
+        this.setupEnrollmentLikelihoodSlider();
         
         console.log('SimpleFormSubmit: Setup complete - button is ready');
     }
@@ -696,6 +698,55 @@ class SimpleFormSubmit {
         allLabels.forEach(label => {
             label.classList.remove('selected');
         });
+    }
+
+    setupEnrollmentLikelihoodSlider() {
+        const slider = document.getElementById('enrollmentLikelihood');
+        const valueDisplay = document.getElementById('enrollmentLikelihoodValue');
+        
+        if (!slider || !valueDisplay) {
+            console.log('Enrollment likelihood slider elements not found');
+            return;
+        }
+        
+        // Define the text labels for each value
+        const valueLabels = {
+            1: 'Very Unlikely',
+            2: 'Unlikely', 
+            3: 'Neutral',
+            4: 'Likely',
+            5: 'Very Likely'
+        };
+        
+        // Function to update the display value
+        const updateValueDisplay = (value) => {
+            valueDisplay.textContent = valueLabels[value] || 'Neutral';
+            
+            // Update the color based on value
+            if (value <= 2) {
+                valueDisplay.style.color = '#EF4444'; // Red
+                valueDisplay.style.borderColor = 'rgba(239, 68, 68, 0.2)';
+                valueDisplay.style.backgroundColor = 'rgba(239, 68, 68, 0.1)';
+            } else if (value == 3) {
+                valueDisplay.style.color = '#6B7280'; // Gray
+                valueDisplay.style.borderColor = 'rgba(107, 114, 128, 0.2)';
+                valueDisplay.style.backgroundColor = 'rgba(107, 114, 128, 0.1)';
+            } else {
+                valueDisplay.style.color = '#2DD4BF'; // Primary green
+                valueDisplay.style.borderColor = 'rgba(45, 212, 191, 0.2)';
+                valueDisplay.style.backgroundColor = 'rgba(45, 212, 191, 0.1)';
+            }
+        };
+        
+        // Set initial value
+        updateValueDisplay(slider.value);
+        
+        // Add event listener for slider changes
+        slider.addEventListener('input', (e) => {
+            updateValueDisplay(e.target.value);
+        });
+        
+        console.log('Enrollment likelihood slider setup complete');
     }
 
     async showAdminAccess() {
@@ -2590,9 +2641,24 @@ class SimpleFormSubmit {
     
     calculateTrainingRequests(responses) {
         // Calculate total training requests from tourism survey responses
+        // Count only high likelihood responses (4-5 on slider scale) as training requests
         return responses.filter(response => {
-            return response.enrollmentLikelihood && 
-                   response.enrollmentLikelihood.trim() !== '';
+            const likelihood = response.enrollmentLikelihood || '';
+            
+            // Handle numeric values from slider (4-5 = Likely/Very Likely)
+            const numericValue = parseInt(likelihood);
+            if (!isNaN(numericValue)) {
+                return numericValue >= 4;
+            }
+            
+            // Handle legacy text-based responses for backward compatibility
+            if (typeof likelihood === 'string') {
+                const lowerLikelihood = likelihood.toLowerCase().trim();
+                return lowerLikelihood.includes('very-likely') || 
+                       (lowerLikelihood.includes('likely') && !lowerLikelihood.includes('unlikely'));
+            }
+            
+            return false;
         }).length;
     }
 
@@ -2678,10 +2744,29 @@ class SimpleFormSubmit {
     getEnrollmentInterest(response) {
         // Get enrollment likelihood/interest level
         const likelihood = response.enrollmentLikelihood || '';
-        if (likelihood.includes('very-likely')) return 'Very Likely';
-        if (likelihood.includes('likely')) return 'Likely';
-        if (likelihood.includes('maybe')) return 'Maybe';
-        if (likelihood.includes('unlikely')) return 'Unlikely';
+        
+        // Handle numeric values from slider (1-5)
+        const numericValue = parseInt(likelihood);
+        if (!isNaN(numericValue)) {
+            switch(numericValue) {
+                case 1: return 'Very Unlikely';
+                case 2: return 'Unlikely';
+                case 3: return 'Neutral';
+                case 4: return 'Likely';
+                case 5: return 'Very Likely';
+                default: return 'Not specified';
+            }
+        }
+        
+        // Handle legacy text-based responses for backward compatibility
+        if (typeof likelihood === 'string') {
+            const lowerLikelihood = likelihood.toLowerCase().trim();
+            if (lowerLikelihood.includes('very-likely')) return 'Very Likely';
+            if (lowerLikelihood.includes('unlikely')) return 'Unlikely';  // Check unlikely before likely to avoid substring collision
+            if (lowerLikelihood.includes('likely')) return 'Likely';
+            if (lowerLikelihood.includes('maybe')) return 'Maybe';
+        }
+        
         return 'Not specified';
     }
     
@@ -4895,6 +4980,14 @@ class SimpleFormSubmit {
             if (!data[name]) data[name] = [];
         });
         
+        // Convert enrollment likelihood slider value to number for data integrity
+        if (data.enrollmentLikelihood) {
+            const numericValue = parseInt(data.enrollmentLikelihood);
+            if (!isNaN(numericValue) && numericValue >= 1 && numericValue <= 5) {
+                data.enrollmentLikelihood = numericValue;
+            }
+        }
+        
         return data;
     }
     
@@ -4985,10 +5078,6 @@ class SimpleFormSubmit {
                     <div class="detail-item">
                         <label>Additional Support Needed:</label>
                         <span>${response.additionalSupport || 'Not provided'}</span>
-                    </div>
-                    <div class="detail-item">
-                        <label>Additional Questions:</label>
-                        <span>${response.additionalQuestions || 'Not provided'}</span>
                     </div>
                     <div class="detail-item">
                         <label>Additional Feedback:</label>

@@ -6,7 +6,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="mobile-web-app-capable" content="yes">
-    <title>Expert Support Matching - Business Growth Survey</title>
+    <title>T&H Vatel Survey</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="shortcut icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="favicon.png">
@@ -558,9 +558,22 @@
                                 </label>
                                 <span class="required"> *</span>
                                 <p class="field-hint">How likely are you to enroll yourself or 1 staff member in a Vatel training course?</p>
-                                <textarea id="enrollmentLikelihood" name="enrollmentLikelihood" rows="3" placeholder="Please describe your likelihood and any considerations..." required></textarea>
+                                <div class="slider-container">
+                                    <div class="slider-labels">
+                                        <span class="slider-label-left">Very Unlikely</span>
+                                        <span class="slider-label-center" id="enrollmentLikelihoodValue">Neutral</span>
+                                        <span class="slider-label-right">Very Likely</span>
+                                    </div>
+                                    <input type="range" id="enrollmentLikelihood" name="enrollmentLikelihood" min="1" max="5" value="3" step="1" class="likelihood-slider" required>
+                                    <div class="slider-scale">
+                                        <span>1</span>
+                                        <span>2</span>
+                                        <span>3</span>
+                                        <span>4</span>
+                                        <span>5</span>
+                                    </div>
+                                </div>
                                 <div class="field-feedback"></div>
-                                <div class="character-count">0 characters</div>
                             </div>
 
                             <div class="form-group enhanced">
@@ -640,10 +653,6 @@
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <label for="additionalQuestions" data-translate="additional_questions">Do you have any additional questions or clarifications you would like us to address?</label>
-                                <textarea id="additionalQuestions" name="additionalQuestions" rows="3" placeholder="Please share any questions or clarifications..."></textarea>
-                            </div>
 
                             <div class="form-group">
                                 <label for="enrollmentMotivation" data-translate="enrollment_motivation">What motivated you (or would motivate you) to enroll in the AHLEI program?</label>

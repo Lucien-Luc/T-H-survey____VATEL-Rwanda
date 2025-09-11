@@ -174,6 +174,99 @@ body::before {
     height: 100%;
 }
 
+/* Slider Styles for Enrollment Likelihood */
+.slider-container {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(45, 212, 191, 0.1);
+}
+
+.slider-labels {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+    color: var(--color-tertiary);
+}
+
+.slider-label-center {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--color-primary);
+    background: rgba(45, 212, 191, 0.1);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    border: 1px solid rgba(45, 212, 191, 0.2);
+}
+
+.likelihood-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    border-radius: 5px;
+    background: linear-gradient(to right, 
+        #EF4444 0%, 
+        #F59E0B 25%, 
+        #6B7280 50%, 
+        #10B981 75%, 
+        #2DD4BF 100%);
+    outline: none;
+    margin: 1rem 0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.likelihood-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--color-white);
+    border: 3px solid var(--color-primary);
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+}
+
+.likelihood-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.likelihood-slider::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--color-white);
+    border: 3px solid var(--color-primary);
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+}
+
+.likelihood-slider::-moz-range-thumb:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.slider-scale {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--color-tertiary);
+    margin-top: 0.5rem;
+}
+
+.slider-scale span {
+    width: 20px;
+    text-align: center;
+}
+
 /* Introduction Page Styles */
 .intro-container {
     min-height: 100vh;
