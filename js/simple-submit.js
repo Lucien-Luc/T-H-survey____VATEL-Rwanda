@@ -92,7 +92,100 @@ class SimpleFormSubmit {
                 'guide_step5_title': 'Share your webinar experience',
                 'guide_step5_desc': 'Let us know about your experience with the AHLEI info session and provide feedback to help us improve our support.',
                 'guide_start_using': 'Start Survey',
-                'guide_dont_show': 'Don\'t show this guide again'
+                'guide_dont_show': 'Don\'t show this guide again',
+                // Progress step labels
+                'step_personal_info': 'Personal Info',
+                'step_business': 'Business',
+                'step_courses': 'Courses', 
+                'step_support': 'Support',
+                'step_webinar': 'Webinar',
+                // Step indicators
+                'step_1_of_5': 'Step 1 of 5',
+                'step_2_of_5': 'Step 2 of 5',
+                'step_3_of_5': 'Step 3 of 5',
+                'step_4_of_5': 'Step 4 of 5',
+                'step_5_of_5': 'Step 5 of 5',
+                // Slider labels
+                'very_unlikely': 'Very Unlikely',
+                'unlikely': 'Unlikely',
+                'neutral': 'Neutral',
+                'likely': 'Likely',
+                'very_likely': 'Very Likely',
+                // Section descriptions
+                'personal_info_desc': 'Let\'s start with some basic information about you',
+                'business_ops_desc': 'Tell us about your business focus areas',
+                'course_prefs_desc': 'Let\'s find the perfect courses for your business growth',
+                'support_needs_desc': 'Help us understand how we can best support your business growth',
+                'webinar_exp_desc': 'Tell us about your AHLEI info session experience',
+                // Placeholder translations
+                'ph_full_name': 'Enter your full name',
+                'ph_title': 'Your professional title',
+                'ph_org_name': 'Your business or organization name',
+                'ph_business_challenges': 'Describe your current business challenges...',
+                'ph_additional_support': 'Describe the additional support you would like...',
+                'ph_enrollment_motivation': 'Describe your motivation...',
+                'ph_enrollment_challenges': 'Describe any potential challenges...',
+                'ph_additional_feedback': 'Please share any additional feedback...',
+                'ph_tourism_other': 'Please specify',
+                // Field hints and other UI text
+                'field_hint_select_all': 'Select all that apply to your business',
+                'field_hint_enrollment': 'How likely are you to enroll yourself or 1 staff member in a Vatel training course?',
+                'field_hint_business_challenges': 'Please describe the current challenges you face in your business',
+                'field_hint_additional_support': 'What additional support would help your business grow?',
+                'title_personal_info': 'Personal Information',
+                'title_business_ops': 'Business Operations', 
+                'title_course_prefs': 'Course Preferences',
+                'title_support_needs': 'Support Needs',
+                'title_webinar_exp': 'Webinar Experience',
+                // User Guide
+                'guide_title': 'Welcome! Here\'s how to complete your tourism & hospitality survey',
+                'guide_step1_title': 'Share your participant information',
+                'guide_step1_desc': 'Start by providing your name, title, and organization information. This helps us understand your background in the tourism and hospitality sector.',
+                'guide_step2_title': 'Tell us about your business operations', 
+                'guide_step2_desc': 'Help us understand which areas of tourism and hospitality your business operates in, from accommodation to tours and events.',
+                'guide_step3_title': 'Choose your preferred Vatel courses',
+                'guide_step3_desc': 'Select the foundational courses from Vatel Rwanda that would be most beneficial for your business development.',
+                'guide_step4_title': 'Explore specialized training options',
+                'guide_step4_desc': 'Review specialized courses for hospitality or tourism entrepreneurs and tell us about your training needs and challenges.',
+                'guide_step5_title': 'Share your webinar experience',
+                'guide_step5_desc': 'Let us know about your experience with the AHLEI info session and provide feedback to help us improve our support.',
+                // Navigation
+                'previous': 'Previous',
+                'next': 'Next',
+                'got_it': 'Got it',
+                'survey_title': 'Tourism & Hospitality Support Survey',
+                // Form fields
+                'full_name': 'Full Name',
+                'organization_name': 'Organization/Business Name',
+                'participant_info': 'Personal Information',
+                'business_operations': 'Business Operations',
+                'course_preferences': 'Course Preferences',
+                'support_needs': 'Support Needs',
+                'webinar_experience': 'Section B: Webinar Experience',
+                'business_challenges': 'Current Business Challenges',
+                'enrollment_likelihood': 'Enrollment Likelihood',
+                'additional_support': 'Additional Support Needed',
+                // Business areas
+                'tourism_areas': 'Which areas of the tourism and hospitality sector does your business operate in?',
+                'accommodation': 'Accommodation (e.g., hotels, lodges, guesthouses)',
+                'food_beverage': 'Food and Beverage (e.g., restaurants, cafés, catering services)',
+                'tour_operations': 'Tour Operations and Travel Agencies',
+                'transportation': 'Transportation Services (e.g., car rentals, shuttles, airport transfers)',
+                'attractions': 'Attractions and Activities (e.g., cultural experiences, adventure tours)',
+                'event_management': 'Event Management and MICE (Meetings, Conferences, Exhibitions)',
+                // Radio/checkbox options
+                'yes': 'Yes',
+                'no': 'No',
+                'not_yet': 'Not yet, but I plan to',
+                'yes_specify': 'Yes (please specify)',
+                'no_concerns': 'No, all my concerns were addressed',
+                // Webinar questions
+                'attended_session': 'Did you attend the AHLEI info session?',
+                'reviewed_details': 'Have you had the chance to review the course details shared during/after the webinar?',
+                'unaddressed_concerns': 'Were there any concerns you had about the program that were not addressed during the webinar?',
+                'enrollment_motivation': 'What motivated you (or would motivate you) to enroll in the AHLEI program?',
+                'enrollment_challenges': 'Do you foresee any challenges that may prevent you from enrolling (e.g., cost, time, scheduling)?',
+                'additional_feedback': 'Any additional feedback or suggestions?'
             },
             rw: {
                 'page_title': 'Isuzuma ry\'Ubufasha mu Bukerarugendo n\'Ubunyangamugayo - VATEL Rwanda',
@@ -155,7 +248,100 @@ class SimpleFormSubmit {
                 'guide_step5_title': 'Sangiza ubunyangamugayo bwawe bwa webinar',
                 'guide_step5_desc': 'Tubwire ku bunyangamugayo bwawe mu kiganiro cya AHLEI maze utugire igitekerezo cyo kugira dushobore kuzamura ubufasha bwacu.',
                 'guide_start_using': 'Tangira Isuzuma',
-                'guide_dont_show': 'Ntuyerekane uyu mubonano nanone'
+                'guide_dont_show': 'Ntuyerekane uyu mubonano nanone',
+                // Progress step labels
+                'step_personal_info': 'Amakuru Bwite',
+                'step_business': 'Ubucuruzi',
+                'step_courses': 'Amasomo',
+                'step_support': 'Ubufasha',
+                'step_webinar': 'Webinar',
+                // Step indicators  
+                'step_1_of_5': 'Intambwe ya 1 muri 5',
+                'step_2_of_5': 'Intambwe ya 2 muri 5',
+                'step_3_of_5': 'Intambwe ya 3 muri 5',
+                'step_4_of_5': 'Intambwe ya 4 muri 5',
+                'step_5_of_5': 'Intambwe ya 5 muri 5',
+                // Slider labels
+                'very_unlikely': 'Bidashoboka rwose',
+                'unlikely': 'Bidashoboka',
+                'neutral': 'Nta bwo nta bwoba',
+                'likely': 'Bishoboka',
+                'very_likely': 'Bishoboka rwose',
+                // Section descriptions
+                'personal_info_desc': 'Reka dutangire n\'amakuru y\'ibanze akuranga',
+                'business_ops_desc': 'Tubwire ibijyanye n\'ubucuruzi bwawe',
+                'course_prefs_desc': 'Reka dushakishe amasomo akwiriye iterambere ry\'ubucuruzi bwawe',
+                'support_needs_desc': 'Dufashe gusobanukirwa uburyo dushobora kugufasha neza mu iterambere ry\'ubucuruzi bwawe',
+                'webinar_exp_desc': 'Tubwire ku bunyangamugayo bwawe mu kiganiro cya AHLEI',
+                // Placeholder translations
+                'ph_full_name': 'Andika amazina yawe yuzuye',
+                'ph_title': 'Umwanya wawe mu kazi',
+                'ph_org_name': 'Izina ry\'ikigo cyawe cyangwa ubucuruzi bwawe',
+                'ph_business_challenges': 'Sobanura ibibazo by\'ubucuruzi bwawe ubu...',
+                'ph_additional_support': 'Sobanura ubufasha bwinyongera ukeneye...',
+                'ph_enrollment_motivation': 'Sobanura icyo cyagufasha kwiyandikisha...',
+                'ph_enrollment_challenges': 'Sobanura ibibazo bishobora kugukomeretsa...',
+                'ph_additional_feedback': 'Sangiza ibindi bigitekerezo cyangwa ibitekerezo...',
+                'ph_tourism_other': 'Nyamuneka sobanura',
+                // Field hints and other UI text
+                'field_hint_select_all': 'Hitamo byose bijyanye n\'ubucuruzi bwawe',
+                'field_hint_enrollment': 'Ni gute wemera kwiyandikisha cyangwa kugufasha umukozi umwe muri Vatel?',
+                'field_hint_business_challenges': 'Nyamuneka sobanura ibibazo uguhura nabyo muri ubucuruzi bwawe',
+                'field_hint_additional_support': 'Ni ubuhe bufasha bwinyongera bushobora gufasha ubucuruzi bwawe gukura?',
+                'title_personal_info': 'Amakuru Bwite',
+                'title_business_ops': 'Ubucuruzi',
+                'title_course_prefs': 'Amasomo',
+                'title_support_needs': 'Ubufasha',
+                'title_webinar_exp': 'Webinar',
+                // User Guide  
+                'guide_title': 'Murakaza neza! Dore uburyo bwo kuzuza isuzuma ryawe ry\'ubukerarugendo n\'ubunyangamugayo',
+                'guide_step1_title': 'Sangiza amakuru yawe bwite',
+                'guide_step1_desc': 'Tangira utanga amazina yawe, umwanya, n\'amakuru y\'ikigo cyawe. Ibi bidufasha gusobanukirwa amakuru yawe mu rwego rw\'ubukerarugendo n\'ubunyangamugayo.',
+                'guide_step2_title': 'Tubwire ku bikorwa by\'ubucuruzi bwawe',
+                'guide_step2_desc': 'Dufashe gusobanukirwa igice cy\'ubukerarugendo n\'ubunyangamugayo ubucuruzi bwawe bukora, kuva mu bwato bwo gutura kugeza ku ngendo n\'ibirori.',
+                'guide_step3_title': 'Hitamo amasomo ya Vatel ukunda',
+                'guide_step3_desc': 'Hitamo amasomo y\'ibanze ya Vatel Rwanda ashobora kugufasha cyane mu iterambere ry\'ubucuruzi bwawe.',
+                'guide_step4_title': 'Shakisha amahitamo y\'amahugurwa yihariye',
+                'guide_step4_desc': 'Suzuma amasomo yihariye y\'abacuruzi b\'ubunyangamugayo cyangwa ubukerarugendo maze tubwire ibikenewe byawe by\'amahugurwa n\'ibibazo.',
+                'guide_step5_title': 'Sangiza ubunyangamugayo bwawe bwa webinar',
+                'guide_step5_desc': 'Tubwire ku bunyangamugayo bwawe mu kiganiro cya AHLEI maze utugire igitekerezo cyo kugira dushobore kuzamura ubufasha bwacu.',
+                // Navigation
+                'previous': 'Ibanjirije',
+                'next': 'Ikurikira',
+                'got_it': 'Nabikuye',
+                'survey_title': 'Isuzuma ry\'Ubufasha mu Bukerarugendo n\'Ubunyangamugayo',
+                // Form fields
+                'full_name': 'Amazina Yuzuye',
+                'organization_name': 'Izina ry\'Ikigo/Ubucuruzi',
+                'participant_info': 'Amakuru y\'Uwitabiriye',
+                'business_operations': 'Ibikorwa by\'Ubucuruzi',
+                'course_preferences': 'Amasomo Ukunda',
+                'support_needs': 'Ibikenewe by\'Ubufasha',
+                'webinar_experience': 'Igice cya B: Ubunyangamugayo bwa Webinar',
+                'business_challenges': 'Ibibazo by\'Ubucuruzi Ubu',
+                'enrollment_likelihood': 'Amahirwe yo Kwiyandikisha',
+                'additional_support': 'Ubufasha Bwinyongera Bukenewe',
+                // Business areas
+                'tourism_areas': 'Ni uwuhe mwanya w\'ubukerarugendo n\'ubunyangamugayo ubucuruzi bwawe bukora?',
+                'accommodation': 'Ubwato bwo gutura (urugero: amahōteli, inzu z\'abashyitsi)',
+                'food_beverage': 'Ibiryo n\'Ibinyobwa (urugero: resitora, kafe, serivisi zo gutegura ibiryo)',
+                'tour_operations': 'Ibikorwa by\'Ingendo n\'Ikigo cy\'Ingendo',
+                'transportation': 'Serivisi z\'Ubwikorezi (urugero: gukodesha imodoka, shuttles, ubwikorezi bw\'ikibuga cy\'indege)',
+                'attractions': 'Ahantu Gashimishije n\'Ibikorwa (urugero: ubunyangamugayo, ingendo z\'igisubizo)',
+                'event_management': 'Gucunga Ibirori na MICE (Amahuriro, Amahuriro, Imurikagurisha)',
+                // Radio/checkbox options
+                'yes': 'Yego',
+                'no': 'Oya',
+                'not_yet': 'Ntabwo nanone, ariko ndateganya kubikora',
+                'yes_specify': 'Yego (nyamuneka sobanura)',
+                'no_concerns': 'Oya, ibibazo byanjye byose byasubijwe',
+                // Webinar questions
+                'attended_session': 'Waje mu kiganiro cya AHLEI?',
+                'reviewed_details': 'Wahabwe amahirwe yo kureba amakuru y\'amasomo yasangiye mu gihe cyangwa nyuma y\'ikiganiro?',
+                'unaddressed_concerns': 'Hari ibibazo wari ufite ku gahunda bidakemurwa mu kiganiro?',
+                'enrollment_motivation': 'Ni iki cyaguteye (cyangwa cyaguteza) kwiyandikisha muri gahunda ya AHLEI?',
+                'enrollment_challenges': 'Urababona ibibazo bishobora kuguhagarika kwiyandikisha (urugero: igiciro, igihe, gahunda)?',
+                'additional_feedback': 'Hari ibindi bigitekerezo cyangwa ibishishapantunganye?'
             }
         };
     }
@@ -232,6 +418,10 @@ class SimpleFormSubmit {
         
         // Set up enrollment likelihood slider
         this.setupEnrollmentLikelihoodSlider();
+        
+        // Initialize translations and placeholders
+        this.updateTranslations();
+        this.updatePlaceholders(this.currentLanguage);
         
         console.log('SimpleFormSubmit: Setup complete - button is ready');
     }
@@ -439,12 +629,30 @@ class SimpleFormSubmit {
         
         // Update placeholders
         this.updatePlaceholders(lang);
+        
+        // Update slider labels if slider is initialized
+        if (this.updateSliderLabels) {
+            this.updateSliderLabels();
+        }
     }
     
     updatePlaceholders(lang) {
+        // Update all placeholder texts using translation keys
+        const placeholderMap = {
+            'fullName': this.translations[lang]['ph_full_name'],
+            'title': this.translations[lang]['ph_title'],
+            'organizationName': this.translations[lang]['ph_org_name'],
+            'businessChallenges': this.translations[lang]['ph_business_challenges'],
+            'additionalSupport': this.translations[lang]['ph_additional_support'],
+            'enrollmentMotivation': this.translations[lang]['ph_enrollment_motivation'],
+            'enrollmentChallenges': this.translations[lang]['ph_enrollment_challenges'],
+            'additionalFeedback': this.translations[lang]['ph_additional_feedback'],
+            'tourismAreasOther': this.translations[lang]['ph_tourism_other']
+        };
+
+        // Add legacy placeholders for backward compatibility only in Kinyarwanda
         if (lang === 'rw') {
-            // Update all placeholder texts to Kinyarwanda
-            const placeholderMap = {
+            Object.assign(placeholderMap, {
                 'companyDescription': 'Tubwire mu make ibyerekeye ikigo cyawe — icyo gikora n\'icyo cyatuma gitandukana n\'ibindi (interuro 2-3)',
                 'jobSummary': 'Ibisobanuro byigihe gito by\'umurimo (imirongo 2-3)',
                 'keyResponsibilities': 'Andika inshingano 4-6 z\'ingenzi z\'uyu murimo...',
@@ -457,17 +665,20 @@ class SimpleFormSubmit {
                 'salaryRange': 'urugero: RWF 250,000 - 350,000',
                 'otherBenefits': 'Nyamuneka sobanura izindi nyungu',
                 'workingHours': 'urugero: 9 am–5 pm, Akazi k\'amakipe',
-                'additionalNotes': 'Hari ikindi ushaka kuvuga?'
-            };
-            
-            Object.keys(placeholderMap).forEach(id => {
-                const element = document.getElementById(id);
-                if (element) {
-                    element.placeholder = placeholderMap[id];
-                }
+                'additionalNotes': 'Hari ikindi ushaka kuvuge?'
             });
+        }
             
-            // Update dynamic position placeholders
+        // Apply placeholders to elements
+        Object.keys(placeholderMap).forEach(id => {
+            const element = document.getElementById(id);
+            if (element) {
+                element.placeholder = placeholderMap[id];
+            }
+        });
+        
+        // Handle legacy dynamic position placeholders for Kinyarwanda
+        if (lang === 'rw') {
             document.querySelectorAll('[id^="pos"][id$="_jobSummary"]').forEach(el => {
                 el.placeholder = 'Ibisobanuro byigihe gito by\'umurimo (imirongo 2-3)';
             });
@@ -493,8 +704,8 @@ class SimpleFormSubmit {
                 el.placeholder = 'Hari ikindi ushaka kuvuga kubyerekeye uyu murimo?';
             });
         } else {
-            // Reset to English placeholders
-            const placeholderMap = {
+            // Handle legacy English placeholders
+            const legacyPlaceholderMap = {
                 'companyDescription': 'Tell us briefly about your company — what you do and what makes your business unique (2-3 sentences)',
                 'jobSummary': 'Brief description of the role\'s purpose (2-3 lines)',
                 'keyResponsibilities': 'List 4-6 main tasks and responsibilities for this role...',
@@ -555,9 +766,26 @@ class SimpleFormSubmit {
             if (translations[key]) {
                 if (element.tagName === 'OPTION') {
                     element.textContent = translations[key];
+                } else if (element.tagName === 'LABEL') {
+                    // For labels with icons, only update the text node, not the entire content
+                    const textNodes = Array.from(element.childNodes).filter(node => node.nodeType === Node.TEXT_NODE);
+                    if (textNodes.length > 0) {
+                        textNodes[textNodes.length - 1].textContent = translations[key];
+                    } else {
+                        // If no text nodes, append the translation after existing content
+                        element.appendChild(document.createTextNode(translations[key]));
+                    }
                 } else {
                     element.textContent = translations[key];
                 }
+            }
+        });
+        
+        // Update elements with data-translate-title attribute
+        document.querySelectorAll('[data-translate-title]').forEach(element => {
+            const key = element.getAttribute('data-translate-title');
+            if (translations[key]) {
+                element.setAttribute('title', translations[key]);
             }
         });
     }
@@ -709,13 +937,13 @@ class SimpleFormSubmit {
             return;
         }
         
-        // Define the text labels for each value
+        // Define the text labels for each value using translation system
         const valueLabels = {
-            1: 'Very Unlikely',
-            2: 'Unlikely', 
-            3: 'Neutral',
-            4: 'Likely',
-            5: 'Very Likely'
+            1: this.translations[this.currentLanguage]['very_unlikely'],
+            2: this.translations[this.currentLanguage]['unlikely'], 
+            3: this.translations[this.currentLanguage]['neutral'],
+            4: this.translations[this.currentLanguage]['likely'],
+            5: this.translations[this.currentLanguage]['very_likely']
         };
         
         // Function to update the display value
@@ -745,6 +973,18 @@ class SimpleFormSubmit {
         slider.addEventListener('input', (e) => {
             updateValueDisplay(e.target.value);
         });
+        
+        // Store reference for language updates
+        this.updateSliderLabels = () => {
+            const newValueLabels = {
+                1: this.translations[this.currentLanguage]['very_unlikely'],
+                2: this.translations[this.currentLanguage]['unlikely'], 
+                3: this.translations[this.currentLanguage]['neutral'],
+                4: this.translations[this.currentLanguage]['likely'],
+                5: this.translations[this.currentLanguage]['very_likely']
+            };
+            updateValueDisplay(slider.value);
+        };
         
         console.log('Enrollment likelihood slider setup complete');
     }
@@ -4681,7 +4921,10 @@ class SimpleFormSubmit {
         }
         
         if (progressText) {
-            progressText.textContent = `Step ${this.sectionOrder.indexOf(this.currentSection) + 1} of ${this.totalSections}`;
+            const currentStepNumber = this.sectionOrder.indexOf(this.currentSection) + 1;
+            const stepKey = `step_${currentStepNumber}_of_5`;
+            progressText.setAttribute('data-translate', stepKey);
+            progressText.textContent = this.translations[this.currentLanguage][stepKey] || `Step ${currentStepNumber} of ${this.totalSections}`;
         }
         
         // Update progress dots

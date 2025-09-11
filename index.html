@@ -157,28 +157,28 @@
                                 <div class="progress-fill" id="progressFill"></div>
                             </div>
                             <div class="progress-dots" id="progressDots">
-                                <div class="progress-dot active" data-step="A1" title="Personal Info">
+                                <div class="progress-dot active" data-step="A1" data-translate-title="title_personal_info" title="Personal Info">
                                     <i class="fas fa-user"></i>
-                                    <span>Personal Info</span>
+                                    <span data-translate="step_personal_info">Personal Info</span>
                                 </div>
-                                <div class="progress-dot" data-step="A2" title="Business Operations">
+                                <div class="progress-dot" data-step="A2" data-translate-title="title_business_ops" title="Business Operations">
                                     <i class="fas fa-building"></i>
-                                    <span>Business</span>
+                                    <span data-translate="step_business">Business</span>
                                 </div>
-                                <div class="progress-dot" data-step="A3" title="Course Preferences">
+                                <div class="progress-dot" data-step="A3" data-translate-title="title_course_prefs" title="Course Preferences">
                                     <i class="fas fa-graduation-cap"></i>
-                                    <span>Courses</span>
+                                    <span data-translate="step_courses">Courses</span>
                                 </div>
-                                <div class="progress-dot" data-step="A4" title="Support Needs">
+                                <div class="progress-dot" data-step="A4" data-translate-title="title_support_needs" title="Support Needs">
                                     <i class="fas fa-hands-helping"></i>
-                                    <span>Support</span>
+                                    <span data-translate="step_support">Support</span>
                                 </div>
-                                <div class="progress-dot" data-step="B" title="Webinar Experience">
+                                <div class="progress-dot" data-step="B" data-translate-title="title_webinar_exp" title="Webinar Experience">
                                     <i class="fas fa-video"></i>
-                                    <span>Webinar</span>
+                                    <span data-translate="step_webinar">Webinar</span>
                                 </div>
                             </div>
-                            <span class="progress-text" id="progressText">Step 1 of 5</span>
+                            <span class="progress-text" id="progressText" data-translate="step_1_of_5">Step 1 of 5</span>
                         </div>
                     </div>
                     
@@ -191,10 +191,10 @@
                                 </div>
                                 <div class="section-content">
                                     <h2 data-translate="participant_info">Personal Information</h2>
-                                    <p class="section-description">Let's start with some basic information about you</p>
+                                    <p class="section-description" data-translate="personal_info_desc">Let's start with some basic information about you</p>
                                 </div>
                                 <div class="section-progress">
-                                    <span class="step-indicator">Step 1 of 5</span>
+                                    <span class="step-indicator" data-translate="step_1_of_5">Step 1 of 5</span>
                                 </div>
                             </div>
                             
@@ -204,7 +204,7 @@
                                     Full Name
                                 </label>
                                 <span class="required"> *</span>
-                                <input type="text" id="fullName" name="fullName" required placeholder="Enter your full name">
+                                <input type="text" id="fullName" name="fullName" required>
                                 <div class="field-feedback"></div>
                             </div>
                             <div class="form-group enhanced">
@@ -213,7 +213,7 @@
                                     Title
                                 </label>
                                 <span class="required"> *</span>
-                                <input type="text" id="title" name="title" required placeholder="Your professional title">
+                                <input type="text" id="title" name="title" required>
                                 <div class="field-feedback"></div>
                             </div>
                             <div class="form-group enhanced">
@@ -222,7 +222,7 @@
                                     Organization/Business Name
                                 </label>
                                 <span class="required"> *</span>
-                                <input type="text" id="organizationName" name="organizationName" required placeholder="Your business or organization name">
+                                <input type="text" id="organizationName" name="organizationName" required>
                                 <div class="field-feedback"></div>
                             </div>
                         </div>
@@ -235,10 +235,10 @@
                                 </div>
                                 <div class="section-content">
                                     <h2 data-translate="business_operations">Business Operations</h2>
-                                    <p class="section-description">Tell us about your business focus areas</p>
+                                    <p class="section-description" data-translate="business_ops_desc">Tell us about your business focus areas</p>
                                 </div>
                                 <div class="section-progress">
-                                    <span class="step-indicator">Step 2 of 5</span>
+                                    <span class="step-indicator" data-translate="step_2_of_5">Step 2 of 5</span>
                                 </div>
                             </div>
                             
@@ -248,7 +248,7 @@
                                     Which areas of the tourism and hospitality sector does your business operate in?
                                 </label>
                                 <span class="required"> *</span>
-                                <p class="field-hint">Select all that apply to your business</p>
+                                <p class="field-hint" data-translate="field_hint_select_all">Select all that apply to your business</p>
                                 <div class="checkbox-group multi-select enhanced-checkboxes">
                                     <label class="checkbox-label interactive">
                                         <input type="checkbox" name="tourismAreas" value="accommodation">
@@ -304,7 +304,7 @@
                                         <div class="option-content">
                                             <i class="fas fa-plus option-icon"></i>
                                             <span>Other:</span>
-                                            <input type="text" name="tourismAreasOther" placeholder="Please specify" class="other-input" disabled>
+                                            <input type="text" name="tourismAreasOther" class="other-input" disabled>
                                         </div>
                                     </label>
                                 </div>
@@ -320,10 +320,10 @@
                                 </div>
                                 <div class="section-content">
                                     <h2 data-translate="course_preferences">Course Preferences</h2>
-                                    <p class="section-description">Let's find the perfect courses for your business growth</p>
+                                    <p class="section-description" data-translate="course_prefs_desc">Let's find the perfect courses for your business growth</p>
                                 </div>
                                 <div class="section-progress">
-                                    <span class="step-indicator">Step 3 of 5</span>
+                                    <span class="step-indicator" data-translate="step_3_of_5">Step 3 of 5</span>
                                 </div>
                             </div>
                             
@@ -532,10 +532,10 @@
                                 </div>
                                 <div class="section-content">
                                     <h2 data-translate="support_needs">Support Needs</h2>
-                                    <p class="section-description">Help us understand how we can best support your business growth</p>
+                                    <p class="section-description" data-translate="support_needs_desc">Help us understand how we can best support your business growth</p>
                                 </div>
                                 <div class="section-progress">
-                                    <span class="step-indicator">Step 4 of 5</span>
+                                    <span class="step-indicator" data-translate="step_4_of_5">Step 4 of 5</span>
                                 </div>
                             </div>
 
@@ -545,8 +545,8 @@
                                     Current Business Challenges
                                 </label>
                                 <span class="required"> *</span>
-                                <p class="field-hint">What challenges are you currently facing that Vatel Rwanda training could help address?</p>
-                                <textarea id="businessChallenges" name="businessChallenges" rows="4" placeholder="Describe your current business challenges..." required></textarea>
+                                <p class="field-hint" data-translate="field_hint_business_challenges">What challenges are you currently facing that Vatel Rwanda training could help address?</p>
+                                <textarea id="businessChallenges" name="businessChallenges" rows="4" required></textarea>
                                 <div class="field-feedback"></div>
                                 <div class="character-count">0 characters</div>
                             </div>
@@ -557,12 +557,12 @@
                                     Enrollment Likelihood
                                 </label>
                                 <span class="required"> *</span>
-                                <p class="field-hint">How likely are you to enroll yourself or 1 staff member in a Vatel training course?</p>
+                                <p class="field-hint" data-translate="field_hint_enrollment">How likely are you to enroll yourself or 1 staff member in a Vatel training course?</p>
                                 <div class="slider-container">
                                     <div class="slider-labels">
-                                        <span class="slider-label-left">Very Unlikely</span>
-                                        <span class="slider-label-center" id="enrollmentLikelihoodValue">Neutral</span>
-                                        <span class="slider-label-right">Very Likely</span>
+                                        <span class="slider-label-left" data-translate="very_unlikely">Very Unlikely</span>
+                                        <span class="slider-label-center" id="enrollmentLikelihoodValue" data-translate="neutral">Neutral</span>
+                                        <span class="slider-label-right" data-translate="very_likely">Very Likely</span>
                                     </div>
                                     <input type="range" id="enrollmentLikelihood" name="enrollmentLikelihood" min="1" max="5" value="3" step="1" class="likelihood-slider" required>
                                     <div class="slider-scale">
@@ -582,8 +582,8 @@
                                     Additional Support Needed
                                 </label>
                                 <span class="required"> *</span>
-                                <p class="field-hint">What additional support would you like from BPN to strengthen your business?</p>
-                                <textarea id="additionalSupport" name="additionalSupport" rows="4" placeholder="Describe the additional support you would like..." required></textarea>
+                                <p class="field-hint" data-translate="field_hint_additional_support">What additional support would you like from BPN to strengthen your business?</p>
+                                <textarea id="additionalSupport" name="additionalSupport" rows="4" required></textarea>
                                 <div class="field-feedback"></div>
                                 <div class="character-count">0 characters</div>
                             </div>
@@ -597,10 +597,10 @@
                                 </div>
                                 <div class="section-content">
                                     <h2 data-translate="webinar_experience">Section B: Webinar Experience</h2>
-                                    <p class="section-description">Tell us about your AHLEI info session experience</p>
+                                    <p class="section-description" data-translate="webinar_exp_desc">Tell us about your AHLEI info session experience</p>
                                 </div>
                                 <div class="section-progress">
-                                    <span class="step-indicator">Step 5 of 5</span>
+                                    <span class="step-indicator" data-translate="step_5_of_5">Step 5 of 5</span>
                                 </div>
                             </div>
                             
@@ -657,18 +657,18 @@
                             <div class="form-group">
                                 <label for="enrollmentMotivation" data-translate="enrollment_motivation">What motivated you (or would motivate you) to enroll in the AHLEI program?</label>
                                 <span class="required"> *</span>
-                                <textarea id="enrollmentMotivation" name="enrollmentMotivation" rows="3" placeholder="Describe your motivation..." required></textarea>
+                                <textarea id="enrollmentMotivation" name="enrollmentMotivation" rows="3" required></textarea>
                             </div>
 
                             <div class="form-group">
                                 <label for="enrollmentChallenges" data-translate="enrollment_challenges">Do you foresee any challenges that may prevent you from enrolling (e.g., cost, time, scheduling)?</label>
                                 <span class="required"> *</span>
-                                <textarea id="enrollmentChallenges" name="enrollmentChallenges" rows="3" placeholder="Describe any potential challenges..." required></textarea>
+                                <textarea id="enrollmentChallenges" name="enrollmentChallenges" rows="3" required></textarea>
                             </div>
 
                             <div class="form-group">
                                 <label for="additionalFeedback" data-translate="additional_feedback">Any additional feedback or suggestions?</label>
-                                <textarea id="additionalFeedback" name="additionalFeedback" rows="3" placeholder="Please share any additional feedback..."></textarea>
+                                <textarea id="additionalFeedback" name="additionalFeedback" rows="3"></textarea>
                             </div>
                         </div>
 
