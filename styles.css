@@ -5377,7 +5377,7 @@ textarea.form-control {
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 10000;
+    z-index: 11000;
     animation: fadeIn 0.3s ease-out;
 }
 
