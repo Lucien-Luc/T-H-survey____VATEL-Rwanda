@@ -185,7 +185,17 @@ class SimpleFormSubmit {
                 'unaddressed_concerns': 'Were there any concerns you had about the program that were not addressed during the webinar?',
                 'enrollment_motivation': 'What motivated you (or would motivate you) to enroll in the AHLEI program?',
                 'enrollment_challenges': 'Do you foresee any challenges that may prevent you from enrolling (e.g., cost, time, scheduling)?',
-                'additional_feedback': 'Any additional feedback or suggestions?'
+                'additional_feedback': 'Any additional feedback or suggestions?',
+                // Placeholders
+                'placeholder_full_name': 'Enter your full name',
+                'placeholder_title': 'Enter your job title',
+                'placeholder_organization': 'Enter your organization or business name',
+                'placeholder_tourism_other': 'Please specify other tourism areas',
+                'placeholder_business_challenges': 'Describe the current challenges you face in your business...',
+                'placeholder_additional_support': 'What additional support would help your business grow?',
+                'placeholder_enrollment_motivation': 'Share what motivates you to consider this program...',
+                'placeholder_enrollment_challenges': 'Describe any potential challenges...',
+                'placeholder_additional_feedback': 'Any additional thoughts or suggestions...'
             },
             rw: {
                 'page_title': 'Isuzuma ry\'Ubufasha mu Bukerarugendo n\'Ubunyangamugayo - VATEL Rwanda',
@@ -341,7 +351,17 @@ class SimpleFormSubmit {
                 'unaddressed_concerns': 'Hari ibibazo wari ufite ku gahunda bidakemurwa mu kiganiro?',
                 'enrollment_motivation': 'Ni iki cyaguteye (cyangwa cyaguteza) kwiyandikisha muri gahunda ya AHLEI?',
                 'enrollment_challenges': 'Urababona ibibazo bishobora kuguhagarika kwiyandikisha (urugero: igiciro, igihe, gahunda)?',
-                'additional_feedback': 'Hari ibindi bigitekerezo cyangwa ibishishapantunganye?'
+                'additional_feedback': 'Hari ibindi bigitekerezo cyangwa ibishishapantunganye?',
+                // Placeholders
+                'placeholder_full_name': 'Shyiramo amazina yawe yuzuye',
+                'placeholder_title': 'Shyiramo umwanya wawe',
+                'placeholder_organization': 'Shyiramo izina ry\'ikigo cyawe cyangwa ubucuruzi',
+                'placeholder_tourism_other': 'Nyamuneka sobanura ubundi bukerarugendo',
+                'placeholder_business_challenges': 'Sobanura ibibazo uguhura nabyo muri ubucuruzi bwawe...',
+                'placeholder_additional_support': 'Ni ubuhe bufasha bwinyongera bushobora gufasha ubucuruzi bwawe gukura?',
+                'placeholder_enrollment_motivation': 'Sangiza icyo gukurikira gahunda ibi...',
+                'placeholder_enrollment_challenges': 'Sobanura ibibazo bishobora kubaho...',
+                'placeholder_additional_feedback': 'Ibibindi bigitekerezo cyangwa ibishishapantunganye...'
             }
         };
     }
